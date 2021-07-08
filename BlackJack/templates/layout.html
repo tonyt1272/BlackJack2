@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Required meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- My Favicon   -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <!-- Link to custom styles, Thanks Corey Schafer! -> https://www.youtube.com/channel/UCCezIgC97PvUuR4_gbFUs5g   -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/styles/main.css') }}">
+    {% if title %}
+    <title>Tony's Site - {{ title }}</title>
+    {% else %}
+    <title>LearnBJ21</title>
+    {% endif %}
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>-->
+    <script>
+        function delete_flash(flash){
+            $(flash).remove()
+        }
+    </script>
+
+</head>
+<body>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+
+          <a class="navbar-brand py-0" href="/">LearnBJ21</a>
+
+          <button class="navbar-toggler py-0" type="button" data-toggle="collapse" data-target="#navbarToggle"
+                  aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon py-0"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+              <a class="nav-item nav-link py-0" href="{{url_for('main.home')}}">Home</a>
+              <a class="nav-item nav-link py-0" href="{{url_for('main.play')}}">Play</a>
+              <a class="nav-item nav-link py-0" href="#">Simulator</a>
+            </div>
+
+            <div class="navbar-nav">
+
+                    <a class="nav-item nav-link py-0" href="#">Link</a>
+                    <a class="nav-item nav-link py-0" href="#">Account</a>
+<!--                    <a class="nav-item nav-link py-0" href="#">Logout</a>-->
+
+                    <a class="nav-item nav-link py-0" href="#">Login/out</a>
+                    <a class="nav-item nav-link py-0" href="#">Register</a>
+
+            </div>
+          </div>
+<!--        </div>-->
+      </nav>
+    </header>
+    <main role="main" class="container main-container" >
+      <div class="row" >
+        <div class="col-md-12" >
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class ="alert alert-{{ category }}" onclick=delete_flash(this)>
+                            <button type="button" class ="close" οnclick="close_flash_message();">x</button>
+                           {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            {% block content %}{% endblock %}
+
+        </div>
+
+<!--        <div class="col-md-2 ">-->
+<!--          <div class="content-section">-->
+<!--            <div class="word_wrap"><h5>Ads</h5></div>-->
+<!--            <p class='text-muted'>In Work</p>-->
+<!--              <ul class="list-group">-->
+<!--                <li class="list-group-item list-group-item-light word_wrap">Stuff</li>-->
+<!--                <li class="list-group-item list-group-item-light word_wrap">And</li>-->
+<!--                <li class="list-group-item list-group-item-light word_wrap" >More</li>-->
+<!--                <li class="list-group-item list-group-item-light word_wrap">Stuff</li>-->
+<!--              </ul>-->
+<!--            </div>-->
+
+<!--&lt;!&ndash;            <div class="content-section">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="word_wrap"><p>Leaders</p></div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <p class='text-muted'>In Work</p>&ndash;&gt;-->
+<!--&lt;!&ndash;              <ul class="list-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                <li class="list-group-item list-group-item-light word_wrap">Stuff</li>&ndash;&gt;-->
+<!--&lt;!&ndash;                <li class="list-group-item list-group-item-light word_wrap">And</li>&ndash;&gt;-->
+<!--&lt;!&ndash;                <li class="list-group-item list-group-item-light word_wrap" >More</li>&ndash;&gt;-->
+<!--&lt;!&ndash;                <li class="list-group-item list-group-item-light word_wrap">Stuff</li>&ndash;&gt;-->
+<!--&lt;!&ndash;              </ul>&ndash;&gt;-->
+
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+
+
+<!--        </div>-->
+
+      </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
+
+  </body>
+</body>
+</html>

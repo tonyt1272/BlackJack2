@@ -1,0 +1,347 @@
+#game-div{
+    margin: auto auto auto auto;
+}
+
+.dealer-draws{
+    position: relative;
+    right: 0px;
+    opacity: 0.25;
+    transform: rotate(0deg);
+    z-index: -1;
+
+}
+
+.d-outline{
+    position: relative;
+    right: 0px;
+    opacity: 0;
+    bottom: -50px;
+}
+
+.d1 {
+    position: relative;
+    right: 88px;
+    bottom: -85px;
+}
+
+.d2{
+    position: relative;
+    right: 158px;
+    bottom: -85px;
+    transform: rotate(2deg);
+}
+
+.d3{
+    position: relative;
+    right: 228px;
+    bottom: -85px;
+    transform: rotate(2deg);
+}
+
+.d4{
+    position: relative;
+    right: 298px;
+    bottom: -85px;
+    transform: rotate(2deg);
+}
+
+.d5{
+    position: relative;
+    right: 368px;
+    bottom: -85px;
+    transform: rotate(2deg);
+}
+
+.d6{
+    position: relative;
+    right: 438px;
+    bottom: -85px;
+    transform: rotate(2deg);
+}
+
+.d7{
+    position: relative;
+    right: 508px;
+    bottom: -85px;
+    transform: rotate(2deg);
+}
+
+.d8{
+    position: relative;
+    right: 578px;
+    bottom: -85px;
+    transform: rotate(2deg);
+}
+
+.c-outline{
+    position: relative;
+    right: 0px;
+    opacity: 0.5;
+    bottom: -50px;
+}
+
+.c1{
+    position: relative;
+    right: 98px;
+    bottom: 10px;
+    transform: rotate(-2deg);
+}
+
+.c2{
+    position: relative;
+    right: 168px;
+    bottom: 10px;
+    transform: rotate(2deg);
+}
+
+.c3{
+    position: relative;
+    right: 228px;
+    bottom: 10px;
+    transform: rotate(2deg);
+}
+
+.c4{
+    position: relative;
+    right: 298px;
+    bottom: 10px;
+    transform: rotate(2deg);
+}
+
+.c5{
+    position: relative;
+    right: 368px;
+    bottom: 10px;
+    transform: rotate(2deg);
+}
+
+.c6{
+    position: relative;
+    right: 438px;
+    bottom: 10px;
+    transform: rotate(2deg);
+}
+
+.c7{
+    position: relative;
+    right: 525px;
+    bottom: -10px;
+    transform: rotate(2deg);
+}
+
+.c8{
+    position: relative;
+    right: 615px;
+    bottom: -30px;
+    transform: rotate(2deg);
+}
+
+.c-outline-split{
+    position: relative;
+    right: 0px;
+    opacity: 0.5;
+    bottom: 50px;
+}
+
+.c1-split{
+    position: relative;
+    right: 98px;
+    bottom: 50px;
+    transform: rotate(-2deg);
+}
+
+.c2-split{
+    position: relative;
+    right: 168px;
+    bottom: 50px;
+    transform: rotate(2deg);
+}
+
+.c3-split{
+    position: relative;
+    right: 228px;
+    bottom: 10px;
+    transform: rotate(2deg);
+}
+
+.c4-split{
+    position: relative;
+    right: 298px;
+    bottom: 10px;
+    transform: rotate(2deg);
+}
+
+.c5-split{
+    position: relative;
+    right: 368px;
+    bottom: 10px;
+    transform: rotate(2deg);
+}
+
+.c6-split{
+    position: relative;
+    right: 438px;
+    bottom: 10px;
+    transform: rotate(2deg);
+}
+
+.c7-split{
+    position: relative;
+    right: 525px;
+    bottom: -5px;
+    transform: rotate(2deg);
+}
+
+.c8-split{
+    position: relative;
+    right: 615px;
+    bottom: -20px;
+    transform: rotate(2deg);
+}
+
+.hand-top-bottom-margin{
+    margin: 20px 0px 20px 0px;
+
+}
+
+/*.hand-r{
+    margin: 20px 0px 20px 0px;
+
+
+}
+.hand-c{
+    margin: 20px 0px 20px 0px;
+
+}*/
+
+.controls{
+    padding: 25px 25px 25px 50px;
+    margin: 0px 85px 0px 0px;
+
+}
+
+.table {
+    background: url(../../static/slot-bg.jpg);
+    /*background-color: #071396;*/
+    padding: 25px 25px 25px 50px;
+    margin: 0px 0px 0px 0px;
+    border: 30px solid #663300;
+    border-radius: 220px;
+    z-index: -1;
+    min-width: 740px;
+    box-shadow: 0px 0px 30px 4px black
+}
+
+.perspective-transform{
+    transform: rotateX(52deg);
+    width: 90%;
+    margin: 0 auto;
+}
+
+.perspective-parent{
+    perspective: 1800px;
+}
+
+.break_word
+{
+    word-wrap: break-word;
+}
+
+.word_wrap{
+    word-break: break-all;
+}
+.media {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+body {
+  background: url(../../static/slot-bg.jpg);
+  /*color: #333333;*/
+  margin-top: 5rem;
+
+
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+}
+
+.bg-steel {
+  /*background-color: #5f788a;*/
+  background-color: #cc0000
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 4px 4px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.article-title {
+  color: #444444;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+  text-decoration: none;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+.main-container{
+    min-width: 1090px;
+}
