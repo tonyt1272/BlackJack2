@@ -3,16 +3,8 @@
 {% block content %}
         <div class="container perspective-parent" >
 <!--        Controls -->
-<!--            <div class="row flex-row-reverse">-->
 
-<!--                <div class="col-sm-2 test" style="margin: 0px 0px 20px 0px;">-->
-<!--                    <img class="img-fluid" id="boot" src="{{url_for('static', filename='/boot2.png')}}">-->
-<!--                </div>-->
-
-
-<!--            </div>-->
-
-            <div class="row  d-flex flex-row-reverse">
+            <div class="row  d-flex flex-row-reverse ">
                 <div class="col-sm-4 hud-overlay mx-auto" >
                     <div class="text-center">
                         <img class="playerR-bet" src="{{url_for('static', filename='/fifty_chip.png')}}">
@@ -36,7 +28,7 @@
                 </div>
             </div>
 
-            <div class="row  d-flex flex-row-reverse">
+            <div class="row  d-flex flex-row-reverse no-gutter">
                 <div class="col-sm-1 hud-overlay">
                     <button  type="button" class="btn btn-primary btn-sm" onclick=" alert('I work!')">Stand!</button>
                 </div>
@@ -82,13 +74,10 @@
 <!--        CHips   -->
         <section class="table perspective-transform">
 
-
             <div class="row justify-content-center">
-
                 <div class="col-sm-8">
                     <img class="chips" src="{{url_for('static', filename='/chips_full2.png')}}">
                 </div>
-
             </div>
 
 <!--            Dealer and Bet Placard (Bet Placard is offset to sit between Dealer and CHips)  -->
@@ -100,7 +89,6 @@
                 <div class="col-sm-4">
                 <div class="d-flex" >
                         <img id="d-tray-card" src="{{url_for('static', filename='/cards/zback.png')}}">
-
                         <img class="d1" src="{{url_for('static', filename='/cards/Diamonds1.png')}}" >
                         <img class="d2" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
                         <img class="d3" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
@@ -108,7 +96,7 @@
                         <img class="d5" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
                         <img class="d6" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
                         <img class="d7" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-<!--                        <img class="d8" src="{{url_for('static', filename='/cards/Clubs11.png')}}">-->
+                        <img class="d8" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
                     </div>
                 </div>
 
@@ -120,131 +108,89 @@
             </div>
 
             <div class="row d-flex flex-row justify-content-center">
-                    <img class="img-fluid dealer-draws" src="{{url_for('static', filename='/dealerDraw-2.png')}}">
-                </div>
+                <img class="img-fluid dealer-draws" src="{{url_for('static', filename='/dealerDraw-2.png')}}">
+            </div>
 
-<!--            Player Row-->
+<!--            Player Row                              -->
+<!--                Player Left                         -->
             <div class="row d-flex flex-row">
-
                 <div class="col-sm-4 d-flex">
                     <div class="bg-transparent text-center hand-top-bottom-margin">
-<!--                    <h4 class=" text-center text-white">Player Left</h4>-->
                         <div class="d-flex flex-row">
                             <img class="cL-outline d-flex " src="{{url_for('static', filename='/cards/outline.png')}}">
-                            <img class="c1 d-flex " src="{{url_for('static', filename='/cards/Diamonds1.png')}}">
-                            <img class="c2 d-flex " src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c1" src="{{url_for('static', filename='/cards/Diamonds1.png')}}">
+                            <img class="c1-split" src="{{url_for('static', filename='/cards/Diamonds1.png')}}">
+                            <img class="c2" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c2-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
                             <img class="c3" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c3-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
                             <img class="c4" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c4-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
                             <img class="c5" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c5-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
                             <img class="c6" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c6-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
                             <img class="c7" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c7-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
                             <img class="c8" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c8-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
                         </div>
                     </div>
                 </div>
 
+<!--            Player Center                   -->
                 <div class="col-sm-4">
                     <div class="bg-transparent text-center hand-top-bottom-margin">
                         <div class="d-flex flex-row">
                             <br> <br>
                         </div>
-<!--                    <h4 class=" text-center text-white">Player Center</h4>-->
                         <div class="d-flex flex-row" >
                             <img class="cC-outline" src="{{url_for('static', filename='/cards/outline.png')}}">
                             <img class="c1" src="{{url_for('static', filename='/cards/Diamonds1.png')}}">
+                            <img class="c1-split" src="{{url_for('static', filename='/cards/Diamonds1.png')}}">
                             <img class="c2" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c2-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
                             <img class="c3" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c3-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
                             <img class="c4" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c4-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
                             <img class="c5" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c5-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
                             <img class="c6" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c6-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
                             <img class="c7" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c7-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
                             <img class="c8" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c8-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
                         </div>
                     </div>
                 </div>
 
+    <!--              Player Right                -->
                     <div class="col-sm-4">
                         <div class="bg-transparent text-center hand-top-bottom-margin">
-    <!--                        <h4 class=" text-center text-white">Player Right</h4>-->
                             <div class="d-flex flex-row">
                                 <img class="cR-outline" src="{{url_for('static', filename='/cards/outline.png')}}">
                                 <img class="c1" src="{{url_for('static', filename='/cards/Diamonds1.png')}}">
-                                <img class="c2" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                <img class="c3" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                <img class="c4" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                <img class="c5" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                <img class="c6" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                <img class="c7" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                <img class="c8" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c1-split" src="{{url_for('static', filename='/cards/Diamonds1.png')}}">
+                            <img class="c2" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c2-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c3" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c3-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c4" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c4-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c5" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c5-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c6" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c6-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c7" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c7-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c8" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                            <img class="c8-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
                             </div>
                         </div>
                     </div>
                 </div>
-
-<!--            Split Row-->
-
-<!--            <div class="row d-flex flex-row">-->
-<!--                <div class="col-sm-2 d-flex">-->
-<!--                    <div class="bg-transparent text-center">-->
-<!--    &lt;!&ndash;                    <div class="d-flex flex-row">&ndash;&gt;-->
-<!--    &lt;!&ndash;                        <h4 class=" text-center text-white">Split Player 1</h4>&ndash;&gt;-->
-<!--    &lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--                        <div class="d-flex flex-row">-->
-<!--&lt;!&ndash;                            <img class="c-outline-split d-flex " src="{{url_for('static', filename='/cards/outline.png')}}">&ndash;&gt;-->
-<!--&lt;!&ndash;                            <img class="c1-split d-flex " src="{{url_for('static', filename='/cards/Diamonds1.png')}}">&ndash;&gt;-->
-<!--    &lt;!&ndash;                        <img class="c2-split d-flex " src="{{url_for('static', filename='/cards/Clubs11.png')}}">&ndash;&gt;-->
-<!--    &lt;!&ndash;                        <img class="c3" src="{{url_for('static', filename='/cards/Clubs11.png')}}">&ndash;&gt;-->
-<!--    &lt;!&ndash;                        <img class="c4" src="{{url_for('static', filename='/cards/Clubs11.png')}}">&ndash;&gt;-->
-<!--    &lt;!&ndash;                        <img class="c5" src="{{url_for('static', filename='/cards/Clubs11.png')}}">&ndash;&gt;-->
-<!--    &lt;!&ndash;                        <img class="c6" src="{{url_for('static', filename='/cards/Clubs11.png')}}">&ndash;&gt;-->
-<!--    &lt;!&ndash;                        <img class="c7" src="{{url_for('static', filename='/cards/Clubs11.png')}}">&ndash;&gt;-->
-<!--    &lt;!&ndash;                        <img class="c8" src="{{url_for('static', filename='/cards/Clubs11.png')}}">&ndash;&gt;-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-<!--                <div class="col-sm-2 d-flex">-->
-<!--                    <div class="bg-transparent text-center">-->
-<!--                        <div class="d-flex flex-row">-->
-<!--    &lt;!&ndash;                    <h2 class="text-center text-white"> | </h2>&ndash;&gt;-->
-<!--                            <br> <br>-->
-<!--                        </div>-->
-<!--    &lt;!&ndash;                    <div class="d-flex flex-row">&ndash;&gt;-->
-<!--    &lt;!&ndash;                        <h4 class=" text-center text-white">Split Player 2</h4>&ndash;&gt;-->
-<!--    &lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--                        <div class="d-flex flex-row">-->
-<!--                            <img class="c-outline-split d-flex " src="{{url_for('static', filename='/cards/outline.png')}}">-->
-<!--                            <img class="c1-split d-flex " src="{{url_for('static', filename='/cards/Diamonds1.png')}}">-->
-<!--    &lt;!&ndash;                        <img class="c2-split d-flex " src="{{url_for('static', filename='/cards/Clubs11.png')}}">&ndash;&gt;-->
-<!--    &lt;!&ndash;                        <img class="c3" src="{{url_for('static', filename='/cards/Clubs11.png')}}">&ndash;&gt;-->
-<!--    &lt;!&ndash;                        <img class="c4" src="{{url_for('static', filename='/cards/Clubs11.png')}}">&ndash;&gt;-->
-<!--    &lt;!&ndash;                        <img class="c5" src="{{url_for('static', filename='/cards/Clubs11.png')}}">&ndash;&gt;-->
-<!--    &lt;!&ndash;                        <img class="c6" src="{{url_for('static', filename='/cards/Clubs11.png')}}">&ndash;&gt;-->
-<!--    &lt;!&ndash;                        <img class="c7" src="{{url_for('static', filename='/cards/Clubs11.png')}}">&ndash;&gt;-->
-<!--    &lt;!&ndash;                        <img class="c8" src="{{url_for('static', filename='/cards/Clubs11.png')}}">&ndash;&gt;-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-<!--                <div class="col-sm-2 d-flex">-->
-<!--                    <div class="bg-transparent text-center">-->
-<!--    &lt;!&ndash;                    <div class="d-flex flex-row">&ndash;&gt;-->
-<!--    &lt;!&ndash;                        <h4 class=" text-center text-white">Split Player 3</h4>&ndash;&gt;-->
-<!--    &lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--                        <div class="d-flex flex-row">-->
-<!--&lt;!&ndash;                            <img class="c-outline-split d-flex " src="{{url_for('static', filename='/cards/outline.png')}}">&ndash;&gt;-->
-<!--    &lt;!&ndash;                        <img class="c1-split d-flex " src="{{url_for('static', filename='/cards/Diamonds1.png')}}">&ndash;&gt;-->
-<!--    &lt;!&ndash;                        <img class="c2-split d-flex " src="{{url_for('static', filename='/cards/Clubs11.png')}}">&ndash;&gt;-->
-<!--    &lt;!&ndash;                        <img class="c3" src="{{url_for('static', filename='/cards/Clubs11.png')}}">&ndash;&gt;-->
-<!--    &lt;!&ndash;                        <img class="c4" src="{{url_for('static', filename='/cards/Clubs11.png')}}">&ndash;&gt;-->
-<!--    &lt;!&ndash;                        <img class="c5" src="{{url_for('static', filename='/cards/Clubs11.png')}}">&ndash;&gt;-->
-<!--    &lt;!&ndash;                        <img class="c6" src="{{url_for('static', filename='/cards/Clubs11.png')}}">&ndash;&gt;-->
-<!--    &lt;!&ndash;                        <img class="c7" src="{{url_for('static', filename='/cards/Clubs11.png')}}">&ndash;&gt;-->
-<!--    &lt;!&ndash;                        <img class="c8" src="{{url_for('static', filename='/cards/Clubs11.png')}}">&ndash;&gt;-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
 
         </section>
             </div>
