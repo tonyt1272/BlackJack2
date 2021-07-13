@@ -2,20 +2,176 @@
     margin: auto auto auto auto;
 }
 
-.dealer-draws{
+
+.hud-overlay{
+    position: relative;
+
+    bottom: -810px;
+    /*left: 600px;*/
+    z-index: 10;
+}
+#bet{
+    opacity: .75;
+    position: relative;
+    right: 280px;
+    bottom: -7px;
+    height: 60%;
+    z-index: 10;
+
+    /*width: 100%;*/
+
+}
+
+#tray{
+    opacity: .75;
+    position: relative;
+    right: 110px;
+    bottom: 185px;
+    /*height: 80%;*/
+    height: 80%;
+    width: 80%;
+    transform: rotateZ(-1.5deg);
+
+}
+
+#boot{
+opacity: .99;
+    position: relative;
+    width: 70%;
+    height: 100%;
+    right: -85px;
+    bottom: 150px;
+    transform: rotateZ(7deg);
+    /*transform: rotate3d(.25, 1, 1, 5deg);*/
+
+    t
+
+
+}
+
+.chips{
+    position: relative;
+    right: 65px;
+    height: 100%;
+    width: 110%;
+    bottom: -10px;
+    transform: rotateZ(0deg);
+}
+
+.playerL-bet{
+    position: relative;
+    right: -10px;
+    bottom: 75px;
+    width: 22%;
+}
+
+.playerC-bet{
+    position: relative;
+    right: -25px;
+    bottom: 20px;
+    width: 22%;
+}
+
+.playerR-bet{
+    position: relative;
+    right: -25px;
+    bottom: 65px;
+    width: 22%;
+}
+
+.player-bank{
     position: relative;
     right: 0px;
+    bottom: 18px;
+    width: 130%;
+}
+
+
+#player-bank-5a{
+    position: relative;
+    /*right: -38px;*/
+    bottom: 40px;
+    width: 130%;
+    z-index: 100;
+}
+
+#player-bank-5b{
+    position: relative;
+    /*right: -38px;*/
+    bottom: 60px;
+    width: 130%;
+    z-index: 100;
+}
+
+
+
+#player-bank-10{
+    position: relative;
+    /*right: -23px;*/
+    bottom: 20px;
+    width: 130%;
+    z-index: 100;
+
+}
+
+#player-bank-25{
+    position: relative;
+    /*right: -8px;*/
+    bottom: 20px;
+    width: 130%;
+    z-index: 100;
+
+
+
+}
+
+#player-bank-50{
+    position: relative;
+    /*right: 7px;*/
+    bottom: 20px;
+    width: 130%;
+    z-index: 100;
+
+}
+
+#player-bank-100{
+    position: relative;
+    /*right: 22px;*/
+    bottom: 20px;
+    width: 130%;
+    z-index: 100;
+
+}
+
+#player-bank-500{
+    position: relative;
+    /*right: 37px;*/
+    bottom: 20px;
+    width: 130%;
+    z-index: 100;
+
+}
+
+.dealer-draws{
+    position: relative;
+    bottom: 100px;
+    right: 25px;
     opacity: 0.25;
     transform: rotate(0deg);
+    width: 100%;
+    /*height: 10%;*/
+
     z-index: -1;
 
 }
 
-.d-outline{
+#d-tray-card{
     position: relative;
-    right: 0px;
-    opacity: 0;
-    bottom: -50px;
+    right: 322px;
+    bottom: 115px;
+    /*opacity: .5;*/
+
+
 
 }
 
@@ -23,125 +179,153 @@
     position: relative;
     right: 88px;
     bottom: -85px;
-    transform: scale(1.2);
+    transform: scale(1.125);
+
+
+
 }
 
 .d2{
     position: relative;
+
     right: 158px;
     bottom: -85px;
-    transform: rotate(2deg);
-    transform: scale(1.2);
+    transform: scale(1.125);
+
+
 }
 
 .d3{
     position: relative;
     right: 228px;
     bottom: -85px;
-    transform: rotate(2deg);
-    transform: scale(1.2);
+    transform: scale(1.125);
+
+
 }
 
 .d4{
     position: relative;
     right: 298px;
     bottom: -85px;
-    transform: rotate(2deg);
-    transform: scale(1.2);
+    transform: scale(1.125);
+
+
 }
 
 .d5{
     position: relative;
     right: 368px;
     bottom: -85px;
-    transform: rotate(2deg);
-    transform: scale(1.2);
+    transform: scale(1.125);
+
+
 }
 
 .d6{
     position: relative;
     right: 438px;
     bottom: -85px;
-    transform: rotate(2deg);
-    transform: scale(1.2);
+    transform: scale(1.125);
+
+
 }
 
 .d7{
     position: relative;
     right: 508px;
     bottom: -85px;
-    transform: rotate(2deg);
-    transform: scale(1.2);
+    transform: scale(1.125);
+
+
 }
 
 .d8{
     position: relative;
     right: 578px;
     bottom: -85px;
-    transform: rotate(2deg);
-    transform: scale(1.2);
+    transform: scale(1.125);
+
+
 }
 
-.c-outline{
+.cL-outline{
     position: relative;
     right: 0px;
     opacity: 0.5;
-    bottom: -50px;
+    bottom: 70px;
+    transform: rotate(45deg);
+}
+
+.cC-outline{
+    position: relative;
+    right: 0px;
+    opacity: 0.5;
+    bottom: 70px;
+    transform: rotate(0deg);
+}
+
+.cR-outline{
+    position: relative;
+    right: 0px;
+    opacity: 0.5;
+    bottom: 70px;
+    transform: rotate(-45deg);
 }
 
 .c1{
     position: relative;
     right: 98px;
-    bottom: 10px;
-    transform: rotate(-2deg);
+    bottom: 120px;
+    transform: rotate(0deg);
 }
 
 .c2{
     position: relative;
-    right: 168px;
-    bottom: 10px;
+    right: 170px;
+    bottom: 120px;
     transform: rotate(2deg);
 }
 
 .c3{
     position: relative;
-    right: 228px;
-    bottom: 10px;
-    transform: rotate(2deg);
+    right: 242px;
+    bottom: 120px;
+    transform: rotate(-2deg);
 }
 
 .c4{
     position: relative;
-    right: 298px;
-    bottom: 10px;
+    right: 314px;
+    bottom: 120px;
     transform: rotate(2deg);
 }
 
 .c5{
     position: relative;
-    right: 368px;
-    bottom: 10px;
-    transform: rotate(2deg);
+    right: 386px;
+    bottom: 120px;
+    transform: rotate(-2deg);
 }
 
 .c6{
     position: relative;
-    right: 438px;
-    bottom: 10px;
+    right: 458px;
+    bottom: 120px;
     transform: rotate(2deg);
 }
 
 .c7{
     position: relative;
-    right: 525px;
-    bottom: -10px;
-    transform: rotate(2deg);
+    right: 530px;
+    bottom: 145px;
+    transform: rotate(-2deg);
 }
 
 .c8{
     position: relative;
-    right: 615px;
-    bottom: -30px;
+    right: 602px;
+    bottom: 171px;
     transform: rotate(2deg);
 }
 
@@ -149,7 +333,7 @@
     position: relative;
     right: 0px;
     opacity: 0.5;
-    bottom: 50px;
+    bottom: 10px;
 }
 
 .c1-split{
@@ -209,7 +393,8 @@
 }
 
 .hand-top-bottom-margin{
-    margin: 20px 0px 20px 0px;
+    margin: 0px 0px 0px 0px;
+
 
 }
 
@@ -230,33 +415,50 @@
 }
 
 .table {
+
     background: url(../../static/slot-bg.jpg);
     /*background-color: #071396;*/
-    padding: 25px 25px 25px 50px;
-    margin: 0px 0px 0px 0px;
-    border: 30px solid #663300;
-    border-radius: 220px;
-    z-index: -1;
-    min-width: 640px;
-    /*max-width: 800px;*/
 
-    box-shadow: 0px 0px 30px 4px black
+    padding: 0px 20px 0px 120px;
+    margin: 0px 0px 0px 0px;
+    border: 20px solid #663300;
+    border-radius: 100px 100px 370px 370px;
+    z-index: -1;
+    /*min-width: 680px;*/
+    min-width: 900px;
+    max-width: 900px;
+    /*            X     Y   blur spread    */
+    box-shadow: -10px 120px 90px 80px black
+
+
+
 }
 
 .perspective-transform{
-    transform: rotateX(49deg);
-    /*width: 85%;*/
+    transform: rotateX(45deg);
+    min-width: 900px;
+    max-width: 900px;
+    /*width: 900px;*/
+
+    /*width: 120%;*/
 
     /*margin: 0 auto;*/
 }
 
 .perspective-parent{
-    perspective: 790px;
+    perspective: 1200px;
+    /*min-width: 680px;*/
+    min-width: 900px;
+    max-width: 900px;
+    /*width: 900px;*/
+
+
 }
 
 .break_word
 {
     word-wrap: break-word;
+
 }
 
 .word_wrap{
@@ -270,7 +472,7 @@
 
 body {
 
-  background-image: url(../../static/Hollywood-Casino.jpg);
+  background-image: url(../../static/Hollywood-Casino-4.jpg);
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -278,10 +480,8 @@ body {
 
 
   /*color: #333333;*/
-  margin-top: 5rem;
+  /*margin-top: 5rem;*/
   /*max-width: 1000px;*/
-
-
 
 }
 
@@ -363,5 +563,7 @@ a.article-title:hover {
 }
 
 .main-container{
-    min-width: 900px;
+    padding-bottom: 0px;
+    /*min-width: 900px;*/
+    /*max-height: 700px;*/
 }
