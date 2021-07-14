@@ -1,3 +1,9 @@
+
+.nav-fonts{
+    font-family: "Georgia", serif;
+}
+
+
 #game-div{
     margin: auto auto auto auto;
 }
@@ -379,7 +385,7 @@
 
 .table {
 
-    background: url(../../static/slot-bg.jpg);
+    background: url(../../static/background/slot-bg.jpg);
     /*background-color: #071396;*/
     padding: 0px 20px 0px 120px;
     margin: 0px 0px 0px 0px;
@@ -403,7 +409,7 @@
 }
 
 .perspective-parent{
-    margin: 0px 0px 40px 150px;
+    margin: 0px 0px 40px 200px;
     perspective: 1200px;
     /*min-width: 680px;*/
     min-width: 900px;
@@ -425,7 +431,7 @@
 }
 
 body {
-  background-image: url(../../static/Hollywood-Casino-4.jpg);
+  background-image: url(../../static/background/Hollywood-Casino-4.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 900px;
