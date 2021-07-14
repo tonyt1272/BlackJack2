@@ -2,9 +2,9 @@
 
 {% block content %}
 
-
+    <div style="margin: 60px;">
         <article class="media content-section">
-          <img class="rounded-circle article-img" src="#">
+          <img class="rounded-circle article-img" src="{{ url_for('static', filename='Pai_Mei.jpg') }}">
           <div class="media-body">
             <div class="article-metadata">
 
@@ -14,6 +14,7 @@
             <p class="article-content">Holding this place</p>
           </div>
         </article>
+    </div>
 
 {% endblock content %}
 

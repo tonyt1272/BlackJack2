@@ -403,6 +403,7 @@
 }
 
 .perspective-parent{
+    margin: 0px 0px 40px 150px;
     perspective: 1200px;
     /*min-width: 680px;*/
     min-width: 900px;
@@ -427,6 +428,7 @@ body {
   background-image: url(../../static/Hollywood-Casino-4.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 900px;
 
   /*color: #333333;*/
   /*margin-top: 5rem;*/
