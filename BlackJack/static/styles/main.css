@@ -430,17 +430,31 @@
     text-overflow: ellipsis;
 }
 
-body {
-  background-image: url(../../static/background/Hollywood-Casino-4.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 900px;
+/* __________ Backgrounds _______*/
 
-  /*color: #333333;*/
-  /*margin-top: 5rem;*/
-  /*max-width: 1000px;*/
-
+/*urlEnd-background*/
+.home-background {
+    background-image: url(../../static/background/Vegas_1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 900px;
+    /*color: #333333;*/
+    /*margin-top: 5rem;*/
+    /*max-width: 1000px;*/
 }
+
+/*urlEnd-background*/
+.play-background{
+    background-image: url(../../static/background/Hollywood-Casino-4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 900px;
+    /*color: #333333;*/
+    /*margin-top: 5rem;*/
+    /*max-width: 1000px;*/
+}
+
+
 
 h1, h2, h3, h4, h5, h6 {
   color: #444444;
