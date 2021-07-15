@@ -10,9 +10,11 @@ def index():
 
 @main.route("/home")
 def home():
-    return render_template('home.html')
+    background = 'home-background'
+    return render_template('home.html', background=background)
 
 
 @main.route("/play")
 def play():
-    return render_template('play_dev.html')
+    background = 'play-background'
+    return render_template('play_dev.html',background=background)

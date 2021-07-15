@@ -433,7 +433,7 @@
 /* __________ Backgrounds _______*/
 
 /*urlEnd-background*/
-.home-background {
+#home-background {
     background-image: url(../../static/background/Vegas_1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -444,7 +444,7 @@
 }
 
 /*urlEnd-background*/
-.play-background{
+#play-background{
     background-image: url(../../static/background/Hollywood-Casino-4.jpg);
     background-repeat: no-repeat;
     background-size: cover;
