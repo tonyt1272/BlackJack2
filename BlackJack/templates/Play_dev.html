@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
+        <script src="{{ url_for('static', filename='/scripts/background.js') }}" defer></script>
         <div class="container perspective-parent" >
 <!--        Controls -->
 
@@ -22,9 +22,9 @@
                 </div>
                 <div class="col-sm-4 hud-overlay mx-auto">
                     <div class="text-center">
-                        <img class="playerL-bet" src="{{url_for('static', filename='/chips/five/3xfive.png')}}">
-                        <img class="playerL-bet" src="{{url_for('static', filename='/chips/five/3xfive.png')}}">
-                        <img class="playerL-bet" src="{{url_for('static', filename='/chips/five/3xfive.png')}}">
+                        <img class="playerL-bet" src="{{url_for('static', filename='/chips/five/6xfive.png')}}">
+                        <img class="playerL-bet" src="{{url_for('static', filename='/chips/five/6xfive.png')}}">
+                        <img class="playerL-bet" src="{{url_for('static', filename='/chips/five/5xfive.png')}}">
                     </div>
                 </div>
             </div>
@@ -43,22 +43,22 @@
                     <img id="player-bank-500" src="{{url_for('static', filename='/chips/five-hundred/five-hundred.png')}}">
                 </div>
                 <div class="col-sm-1 hud-overlay">
-                    <img id="player-bank-100" src="{{url_for('static', filename='/chips/one-hundred/one-hundred.png')}}">
+                    <img id="player-bank-100" src="{{url_for('static', filename='/chips/five-hundred/2xfive-hundred.png')}}">
                 </div>
                 <div class="col-sm-1 hud-overlay">
-                    <img id="player-bank-50" src="{{url_for('static', filename='/chips/fifty/fifty.png')}}">
+                    <img id="player-bank-50" src="{{url_for('static', filename='/chips/five-hundred/3xfive-hundred.png')}}">
                 </div>
                 <div class="col-sm-1 hud-overlay">
-                    <img id="player-bank-25"  src="{{url_for('static', filename='/chips/twenty-five/twenty-five.png')}}">
+                    <img id="player-bank-25"  src="{{url_for('static', filename='/chips/five-hundred/4xfive-hundred.png')}}">
                 </div>
                 <div class="col-sm-1 hud-overlay">
-                    <img id="player-bank-10"  src="{{url_for('static', filename='/chips/ten/ten.png')}}">
+                    <img id="player-bank-10"  src="{{url_for('static', filename='/chips/five-hundred/5xfive-hundred.png')}}">
                 </div>
                 <div class="col-sm-1 hud-overlay">
-                    <img id="player-bank-5a" src="{{url_for('static', filename='/chips/five/3xfive.png')}}">
+                    <img id="player-bank-5a" src="{{url_for('static', filename='/chips/five-hundred/6xfive-hundred.png')}}">
                 </div>
                 <div class="col-sm-1 hud-overlay">
-                    <img id="player-bank-5b" src="{{url_for('static', filename='/chips/five/3xfive.png')}}">
+                    <img id="player-bank-5b" src="{{url_for('static', filename='/chips/five-hundred/five-hundred.png')}}">
                 </div>
 
 <!--                <div class="col-sm-1 test">-->

@@ -58,21 +58,21 @@
     position: relative;
     right: -10px;
     bottom: 75px;
-    width: 22%;
+    width: 21%;
 }
 
 .playerC-bet{
     position: relative;
     right: -25px;
-    bottom: 20px;
-    width: 22%;
+    bottom: 30px;
+    width: 21%;
 }
 
 .playerR-bet{
     position: relative;
     right: -25px;
-    bottom: 65px;
-    width: 22%;
+    bottom: 75px;
+    width: 21%;
 }
 
 .player-bank{
@@ -86,7 +86,7 @@
 #player-bank-5a{
     position: relative;
     right: -75px;
-    bottom: 30px;
+    bottom: 20px;
     width: 80%;
     z-index: 100;
 }
@@ -135,7 +135,7 @@
 #player-bank-500{
     position: relative;
     /*right: 37px;*/
-    bottom: 20px;
+    bottom: 25px;
     width: 80%;
     z-index: 100;
 }
