@@ -71,7 +71,7 @@
 .playerR-bet{
     position: relative;
     right: -25px;
-    bottom: 75px;
+    bottom: 77px;
     width: 21%;
 }
 
@@ -86,7 +86,7 @@
 #player-bank-5a{
     position: relative;
     right: -75px;
-    bottom: 20px;
+    bottom: 22px;
     width: 80%;
     z-index: 100;
 }
@@ -94,7 +94,7 @@
 #player-bank-5b{
     position: relative;
     right: -90px;
-    bottom: 30px;
+    bottom: 32px;
     width: 80%;
     z-index: 100;
 }
@@ -102,7 +102,7 @@
 #player-bank-10{
     position: relative;
     right: -60px;
-    bottom: 20px;
+    bottom: 22px;
     width: 80%;
     z-index: 100;
 
@@ -111,7 +111,7 @@
 #player-bank-25{
     position: relative;
     right: -45px;
-    bottom: 20px;
+    bottom: 22px;
     width: 80%;
     z-index: 100;
 }
@@ -119,7 +119,7 @@
 #player-bank-50{
     position: relative;
     right: -30px;
-    bottom: 20px;
+    bottom: 22px;
     width: 80%;
     z-index: 100;
 }
@@ -127,7 +127,7 @@
 #player-bank-100{
     position: relative;
     right: -15px;
-    bottom: 20px;
+    bottom: 22px;
     width: 80%;
     z-index: 100;
 }
@@ -135,7 +135,7 @@
 #player-bank-500{
     position: relative;
     /*right: 37px;*/
-    bottom: 25px;
+    bottom: 27px;
     width: 80%;
     z-index: 100;
 }
