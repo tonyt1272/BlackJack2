@@ -1,32 +1,34 @@
 {% extends "layout.html" %}
 
 {% block content %}
-        <script src="{{ url_for('static', filename='/scripts/background.js') }}" defer></script>
+        <script src="static/scripts/app.js" defer></script>
         <div class="container perspective-parent" >
 <!--        Controls -->
 
             <div class="row  d-flex flex-row-reverse ">
+
+                <div class="col-sm-4 hud-overlay mx-auto">
+                    <div class="text-center">
+                        <img id="playerR-bet1" src="static/chips/five/2xfive.png">
+                        <img id="playerR-bet2" src="static/chips/five/five.png">
+                        <img id="playerR-bet3" src="static/chips/five/five.png">
+                    </div>
+                </div>
+                <div class="col-sm-4 hud-overlay mx-auto">
+                    <div class="text-center">
+                        <img id="playerC-bet1" src="static/chips/one-hundred/6xone-hundred.png">
+                        <img id="playerC-bet2" src="static/chips/one-hundred/one-hundred.png">
+                        <img id="playerC-bet3" src="static/chips/one-hundred/one-hundred.png">
+                    </div>
+                </div>
                 <div class="col-sm-4 hud-overlay mx-auto" >
                     <div class="text-center">
-                        <img class="playerR-bet" src="{{url_for('static', filename='/chips/fifty/fifty.png')}}">
-                        <img class="playerR-bet" src="{{url_for('static', filename='/chips/fifty/fifty.png')}}">
-                        <img class="playerR-bet" src="{{url_for('static', filename='/chips/fifty/fifty.png')}}">
+                        <img id="playerL-bet1" src="static/chips/fifty/fifty.png">
+                        <img id="playerL-bet2" src="static/chips/fifty/fifty.png">
+                        <img id="playerL-bet3" src="static/chips/fifty/fifty.png">
                     </div>
                 </div>
-                <div class="col-sm-4 hud-overlay mx-auto">
-                    <div class="text-center">
-                        <img class="playerC-bet" src="{{url_for('static', filename='/chips/one-hundred/one-hundred.png')}}">
-                        <img class="playerC-bet" src="{{url_for('static', filename='/chips/one-hundred/one-hundred.png')}}">
-                        <img class="playerC-bet" src="{{url_for('static', filename='/chips/one-hundred/one-hundred.png')}}">
-                    </div>
-                </div>
-                <div class="col-sm-4 hud-overlay mx-auto">
-                    <div class="text-center">
-                        <img class="playerL-bet" src="{{url_for('static', filename='/chips/five/6xfive.png')}}">
-                        <img class="playerL-bet" src="{{url_for('static', filename='/chips/five/6xfive.png')}}">
-                        <img class="playerL-bet" src="{{url_for('static', filename='/chips/five/5xfive.png')}}">
-                    </div>
-                </div>
+
             </div>
 
             <div class="row  d-flex flex-row-reverse no-gutter">
@@ -40,25 +42,25 @@
                     <button  type="button" class="btn btn-primary btn-sm" onclick=" alert('I work!')">Stand!</button>
                 </div>
                 <div class="col-sm-1 hud-overlay">
-                    <img id="player-bank-500" src="{{url_for('static', filename='/chips/five-hundred/five-hundred.png')}}">
+                    <img id="player-bank-500" src="static/chips/five-hundred/6xfive-hundred.png">
                 </div>
                 <div class="col-sm-1 hud-overlay">
-                    <img id="player-bank-100" src="{{url_for('static', filename='/chips/five-hundred/2xfive-hundred.png')}}">
+                    <img id="player-bank-100" src="static/chips/one-hundred/2xone-hundred.png">
                 </div>
                 <div class="col-sm-1 hud-overlay">
-                    <img id="player-bank-50" src="{{url_for('static', filename='/chips/five-hundred/3xfive-hundred.png')}}">
+                    <img id="player-bank-50" src="static/chips/fifty/4xfifty.png">
                 </div>
                 <div class="col-sm-1 hud-overlay">
-                    <img id="player-bank-25"  src="{{url_for('static', filename='/chips/five-hundred/4xfive-hundred.png')}}">
+                    <img id="player-bank-25"  src="static/chips/twenty-five/3xtwenty-five.png">
                 </div>
                 <div class="col-sm-1 hud-overlay">
-                    <img id="player-bank-10"  src="{{url_for('static', filename='/chips/five-hundred/5xfive-hundred.png')}}">
+                    <img id="player-bank-10"  src="static/chips/ten/2xten.png">
                 </div>
                 <div class="col-sm-1 hud-overlay">
-                    <img id="player-bank-5a" src="{{url_for('static', filename='/chips/five-hundred/6xfive-hundred.png')}}">
+                    <img id="player-bank-5a" src="static/chips/five/4xfive.png">
                 </div>
                 <div class="col-sm-1 hud-overlay">
-                    <img id="player-bank-5b" src="{{url_for('static', filename='/chips/five-hundred/five-hundred.png')}}">
+                    <img id="player-bank-5b" src="static/chips/five/6xfive.png">
                 </div>
 
 <!--                <div class="col-sm-1 test">-->
@@ -77,39 +79,39 @@
 
                     <div class="row justify-content-center">
                         <div class="col-sm-8">
-                            <img class="chips" src="{{url_for('static', filename='/chips/chips_full2.png')}}">
+                            <img class="chips" src="static/chips/chips_full2.png">
                         </div>
                     </div>
 
         <!--            Dealer and Bet Placard (Bet Placard is offset to sit between Dealer and CHips)  -->
                     <div class="row d-flex flex-row justify-content-center">
                         <div class="col-sm-4 d-flex">
-                            <img class="img-fluid" id="tray" src="{{url_for('static', filename='/table_objects/tray5.png')}}">
-                            <img class="img-fluid" id="bet" src="{{url_for('static', filename='/table_objects/bet_placard.png')}}">
+                            <img class="img-fluid" id="tray" src="static/table_objects/tray5.png">
+                            <img class="img-fluid" id="bet" src="static/table_objects/bet_placard.png">
                         </div>
                         <div class="col-sm-4">
                         <div class="d-flex" >
-                                <img id="d-tray-card" src="{{url_for('static', filename='/cards/zback.png')}}">
-                                <img class="d1" src="{{url_for('static', filename='/cards/Diamonds1.png')}}" >
-                                <img class="d2" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                <img class="d3" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                <img class="d4" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                <img class="d5" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                <img class="d6" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                <img class="d7" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                <img class="d8" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                                <img id="d-tray-card" src="static/cards/zback.png">
+                                <img id="d1" src="static/cards/Diamonds1.png" >
+                                <img id="d2" src="static/cards/zback.png">
+                                <img id="d3" src="static/cards/Clubs11.png">
+                                <img id="d4" src="static/cards/Clubs11.png">
+                                <img id="d5" src="static/cards/Clubs11.png">
+                                <img id="d6" src="static/cards/Clubs11.png">
+                                <img id="d7" src="static/cards/Clubs11.png">
+                                <img id="d8" src="static/cards/Clubs11.png">
                             </div>
                         </div>
 
                         <div class="col-sm-4">
                         <div class="d-flex" >
-                            <img class="img-fluid" id="boot" src="{{url_for('static', filename='/table_objects/boot2.png')}}">
+                            <img class="img-fluid" id="boot" src="static/table_objects/boot2.png">
                         </div>
                         </div>
                     </div>
 
                     <div class="row d-flex flex-row justify-content-center">
-                        <img class="img-fluid dealer-draws" src="{{url_for('static', filename='/table_objects/dealerDraw-2.png')}}">
+                        <img class="img-fluid dealer-draws" src="static/table_objects/dealerDraw-2.png">
                     </div>
 
         <!--            Player Row                              -->
@@ -118,23 +120,23 @@
                         <div class="col-sm-4 d-flex">
                             <div class="bg-transparent text-center hand-top-bottom-margin">
                                 <div class="d-flex flex-row">
-                                    <img class="cL-outline d-flex " src="{{url_for('static', filename='/cards/outline.png')}}">
-                                    <img class="c1" src="{{url_for('static', filename='/cards/Diamonds1.png')}}">
-                                    <img class="c1-split" src="{{url_for('static', filename='/cards/Diamonds1.png')}}">
-                                    <img class="c2" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c2-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c3" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c3-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c4" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c4-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c5" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c5-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c6" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c6-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c7" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c7-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c8" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c8-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                                    <img id="cL-outline" src="static/cards/outline.png">
+                                    <img id="c1L" src="static/cards/Diamonds1.png">
+                                    <img id="c1L-split" src="static/cards/Diamonds1.png">
+                                    <img id="c2L" src="static/cards/Clubs11.png">
+                                    <img id="c2L-split" src="static/cards/Clubs11.png">
+                                    <img id="c3L" src="static/cards/Clubs11.png">
+                                    <img id="c3L-split" src="static/cards/Clubs11.png">
+                                    <img id="c4L" src="static/cards/Clubs11.png">
+                                    <img id="c4L-split" src="static/cards/Clubs11.png">
+                                    <img id="c5L" src="static/cards/Clubs11.png">
+                                    <img id="c5L-split" src="static/cards/Clubs11.png">
+                                    <img id="c6L" src="static/cards/Clubs11.png">
+                                    <img id="c6L-split" src="static/cards/Clubs11.png">
+                                    <img id="c7L" src="static/cards/Clubs11.png">
+                                    <img id="c7L-split" src="static/cards/Clubs11.png">
+                                    <img id="c8L" src="static/cards/Clubs11.png">
+                                    <img id="c8L-split" src="static/cards/Clubs11.png">
                                 </div>
                             </div>
                         </div>
@@ -146,23 +148,23 @@
                                     <br> <br>
                                 </div>
                                 <div class="d-flex flex-row" >
-                                    <img class="cC-outline" src="{{url_for('static', filename='/cards/outline.png')}}">
-                                    <img class="c1" src="{{url_for('static', filename='/cards/Diamonds1.png')}}">
-                                    <img class="c1-split" src="{{url_for('static', filename='/cards/Diamonds1.png')}}">
-                                    <img class="c2" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c2-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c3" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c3-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c4" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c4-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c5" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c5-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c6" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c6-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c7" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c7-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c8" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c8-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                                    <img id="cC-outline" src="{{url_for('static', filename='/cards/outline.png')}}">
+                                    <img id="c1C" src="static/cards/Diamonds1.png">
+                                    <img id="c1C-split" src="static/cards/Diamonds1.png">
+                                    <img id="c2C" src="static/cards/Clubs11.png">
+                                    <img id="c2C-split" src="static/cards/Clubs11.png">
+                                    <img id="c3C" src="static/cards/Clubs11.png">
+                                    <img id="c3C-split" src="static/cards/Clubs11.png">
+                                    <img id="c4C" src="static/cards/Clubs11.png">
+                                    <img id="c4C-split" src="static/cards/Clubs11.png">
+                                    <img id="c5C" src="static/cards/Clubs11.png">
+                                    <img id="c5C-split" src="static/cards/Clubs11.png">
+                                    <img id="c6C" src="static/cards/Clubs11.png">
+                                    <img id="c6C-split" src="static/cards/Clubs11.png">
+                                    <img id="c7C" src="static/cards/Clubs11.png">
+                                    <img id="c7C-split" src="static/cards/Clubs11.png">
+                                    <img id="c8C" src="static/cards/Clubs11.png">
+                                    <img id="c8C-split" src="static/cards/Clubs11.png">
                                 </div>
                             </div>
                         </div>
@@ -171,23 +173,23 @@
                             <div class="col-sm-4">
                                 <div class="bg-transparent text-center hand-top-bottom-margin">
                                     <div class="d-flex flex-row">
-                                        <img class="cR-outline" src="{{url_for('static', filename='/cards/outline.png')}}">
-                                        <img class="c1" src="{{url_for('static', filename='/cards/Diamonds1.png')}}">
-                                    <img class="c1-split" src="{{url_for('static', filename='/cards/Diamonds1.png')}}">
-                                    <img class="c2" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c2-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c3" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c3-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c4" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c4-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c5" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c5-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c6" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c6-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c7" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c7-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c8" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
-                                    <img class="c8-split" src="{{url_for('static', filename='/cards/Clubs11.png')}}">
+                                    <img id="cR-outline" src="{{url_for('static', filename='/cards/outline.png')}}">
+                                    <img id="c1R" src="static/cards/Diamonds1.png">
+                                    <img id="c1R-split" src="static/cards/Diamonds1.png">
+                                    <img id="c2R" src="static/cards/Clubs11.png">
+                                    <img id="c2R-split" src="static/cards/Clubs11.png">
+                                    <img id="c3R" src="static/cards/Clubs11.png">
+                                    <img id="c3R-split" src="static/cards/Clubs11.png">
+                                    <img id="c4R" src="static/cards/Clubs11.png">
+                                    <img id="c4R-split" src="static/cards/Clubs11.png">
+                                    <img id="c5R" src="static/cards/Clubs11.png">
+                                    <img id="c5R-split" src="static/cards/Clubs11.png">
+                                    <img id="c6R" src="static/cards/Clubs11.png">
+                                    <img id="c6R-split" src="static/cards/Clubs11.png">
+                                    <img id="c7R" src="static/cards/Clubs11.png">
+                                    <img id="c7R-split" src="static/cards/Clubs11.png">
+                                    <img id="c8R" src="static/cards/Clubs11.png">
+                                    <img id="c8R-split" src="static/cards/Clubs11.png">
                                     </div>
                                 </div>
                             </div>

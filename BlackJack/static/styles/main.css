@@ -1,3 +1,10 @@
+.hide{
+    opacity: 0;
+}
+
+.show{
+    opacity: 1;
+}
 
 .nav-fonts{
     font-family: "Georgia", serif;
@@ -54,25 +61,72 @@
     transform: rotateZ(0deg);
 }
 
-.playerL-bet{
+#playerR-bet1{
     position: relative;
     right: -10px;
     bottom: 75px;
     width: 21%;
+    opacity: 1;
+}
+#playerR-bet2{
+    position: relative;
+    right: -10px;
+    bottom: 75px;
+    width: 21%;
+    opacity: 1;
+}
+#playerR-bet3{
+    position: relative;
+    right: -10px;
+    bottom: 75px;
+    width: 21%;
+    opacity: 1;
 }
 
-.playerC-bet{
+
+#playerC-bet1{
     position: relative;
-    right: -25px;
+    right: -5px;
     bottom: 30px;
     width: 21%;
+    opacity: 1;
+}
+#playerC-bet2{
+    position: relative;
+    right: -5px;
+    bottom: 30px;
+    width: 21%;
+    opacity: 1;
+}
+#playerC-bet3{
+    position: relative;
+    right: -5px;
+    bottom: 30px;
+    width: 21%;
+    opacity: 1;
 }
 
-.playerR-bet{
+
+#playerL-bet1{
     position: relative;
-    right: -25px;
+    right: -5px;
     bottom: 77px;
     width: 21%;
+    opacity: 1;
+}
+#playerL-bet2{
+    position: relative;
+    right: -5px;
+    bottom: 77px;
+    width: 21%;
+    opacity: 1;
+}
+#playerL-bet3{
+    position: relative;
+    right: -5px;
+    bottom: 77px;
+    width: 21%;
+    opacity: 1;
 }
 
 .player-bank{
@@ -80,6 +134,7 @@
     right: 0px;
     bottom: 18px;
     width: 100%;
+    opacity: 1;
 }
 
 
@@ -89,14 +144,17 @@
     bottom: 22px;
     width: 80%;
     z-index: 100;
+    opacity: 1;
 }
 
 #player-bank-5b{
+    /* on the end */
     position: relative;
     right: -90px;
     bottom: 32px;
     width: 80%;
     z-index: 100;
+    opacity: 1;
 }
 
 #player-bank-10{
@@ -105,6 +163,7 @@
     bottom: 22px;
     width: 80%;
     z-index: 100;
+    opacity: 1;
 
 }
 
@@ -114,6 +173,7 @@
     bottom: 22px;
     width: 80%;
     z-index: 100;
+    opacity: 1;
 }
 
 #player-bank-50{
@@ -122,6 +182,7 @@
     bottom: 22px;
     width: 80%;
     z-index: 100;
+    opacity: 1;
 }
 
 #player-bank-100{
@@ -130,6 +191,7 @@
     bottom: 22px;
     width: 80%;
     z-index: 100;
+    opacity: 1;
 }
 
 #player-bank-500{
@@ -138,6 +200,7 @@
     bottom: 27px;
     width: 80%;
     z-index: 100;
+    opacity: 1;
 }
 
 .dealer-draws{
@@ -157,21 +220,21 @@
     transform: rotate(5deg);
 }
 
-.d1 {
+#d1 {
     position: relative;
     right: 88px;
     bottom: -85px;
     transform: scale(1.125);
 }
 
-.d2{
+#d2{
     position: relative;
     right: 158px;
     bottom: -85px;
     transform: scale(1.125);
 }
 
-.d3{
+#d3{
     position: relative;
     right: 228px;
     bottom: -85px;
@@ -179,7 +242,7 @@
     opacity: 0;
 }
 
-.d4{
+#d4{
     position: relative;
     right: 298px;
     bottom: -85px;
@@ -187,7 +250,7 @@
     opacity: 0;
 }
 
-.d5{
+#d5{
     position: relative;
     right: 368px;
     bottom: -85px;
@@ -195,7 +258,7 @@
     opacity: 0;
 }
 
-.d6{
+#d6{
     position: relative;
     right: 438px;
     bottom: -85px;
@@ -203,7 +266,7 @@
     opacity: 0;
 }
 
-.d7{
+#d7{
     position: relative;
     right: 508px;
     bottom: -85px;
@@ -211,7 +274,7 @@
     opacity: 0;
 }
 
-.d8{
+#d8{
     position: relative;
     right: 578px;
     bottom: -85px;
@@ -219,7 +282,10 @@
     opacity: 0;
 }
 
-.cL-outline{
+
+
+
+#cL-outline{
     position: relative;
     right: 0px;
     opacity: 0.5;
@@ -227,23 +293,7 @@
     transform: rotate(45deg);
 }
 
-.cC-outline{
-    position: relative;
-    right: 0px;
-    opacity: 0.5;
-    bottom: 70px;
-    transform: rotate(0deg);
-}
-
-.cR-outline{
-    position: relative;
-    right: 0px;
-    opacity: 0.5;
-    bottom: 70px;
-    transform: rotate(-45deg);
-}
-
-.c1{
+#c1L{
     position: relative;
     right: 98px;
     bottom: 120px;
@@ -251,15 +301,15 @@
     opacity: 1;
 }
 
-.c1-split{
+#c1L-split{
     position: relative;
     right: 186px;
     bottom: 250px;
     transform: rotate(0deg);
-    opacity: 0;
+    opacity: 1;
 }
 
-.c2{
+#c2L{
     position: relative;
     right: 261px;
     bottom: 120px;
@@ -267,109 +317,384 @@
     opacity: 1;
 }
 
-.c2-split{
+#c2L-split{
     position: relative;
     right: 349px;
     bottom: 250px;
     transform: rotate(2deg);
-    opacity: 0;
+    opacity: 1;
 }
 
-.c3{
+#c3L{
     position: relative;
     right: 424px;
     bottom: 120px;
     transform: rotate(2deg);
-    opacity: 0;
+    opacity: 1;
 }
 
-.c3-split{
+#c3L-split{
     position: relative;
     right: 512px;
     bottom: 250px;
     transform: rotate(2deg);
-    opacity: 0;
+    opacity: 1;
 }
 
-.c4{
+#c4L{
     position: relative;
     right: 587px;
     bottom: 120px;
     transform: rotate(2deg);
-    opacity: 0;
+    opacity: 1;
 }
 
-.c4-split{
+#c4L-split{
     position: relative;
     right: 675px;
     bottom: 250px;
     transform: rotate(2deg);
-    opacity: 0;
+    opacity: 1;
 }
 
-.c5{
+#c5L{
     position: relative;
     right: 750px;
     bottom: 120px;
     transform: rotate(2deg);
-    opacity: 0;
+    opacity: 1;
 }
 
-.c5-split{
+#c5L-split{
     position: relative;
     right: 838px;
     bottom: 250px;
     transform: rotate(2deg);
-    opacity: 0;
+    opacity: 1;
 }
 
-.c6{
+#c6L{
     position: relative;
     right: 913px;
     bottom: 120px;
     transform: rotate(2deg);
-    opacity: 0;
+    opacity: 1;
 }
 
-.c6-split{
+#c6L-split{
     position: relative;
     right: 1001px;
     bottom: 250px;
     transform: rotate(2deg);
-    opacity: 0;
+    opacity: 1;
 }
 
-.c7{
+#c7L{
     position: relative;
     right: 1076px;
     bottom: 145px;
     transform: rotate(2deg);
-    opacity: 0;
+    opacity: 1;
 }
 
-.c7-split{
+#c7L-split{
     position: relative;
     right: 1164px;
     bottom: 275px;
     transform: rotate(2deg);
-    opacity: 0;
+    opacity: 1;
 }
 
-.c8{
+#c8L{
     position: relative;
     right: 1239px;
     bottom: 170px;
     transform: rotate(2deg);
-    opacity: 0;
+    opacity: 1;
 }
 
-.c8-split{
+#c8L-split{
     position: relative;
     right: 1327px;
     bottom: 300px;
     transform: rotate(2deg);
-    opacity: 0;
+    opacity: 1;
 }
+
+
+#cC-outline{
+    position: relative;
+    right: 0px;
+    opacity: 0.5;
+    bottom: 70px;
+    transform: rotate(0deg);
+}
+
+#c1C{
+    position: relative;
+    right: 98px;
+    bottom: 120px;
+    transform: rotate(0deg);
+    opacity: 1;
+}
+
+#c1C-split{
+    position: relative;
+    right: 186px;
+    bottom: 250px;
+    transform: rotate(0deg);
+    opacity: 1;
+}
+
+#c2C{
+    position: relative;
+    right: 261px;
+    bottom: 120px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
+#c2C-split{
+    position: relative;
+    right: 349px;
+    bottom: 250px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
+#c3C{
+    position: relative;
+    right: 424px;
+    bottom: 120px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
+#c3C-split{
+    position: relative;
+    right: 512px;
+    bottom: 250px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
+#c4C{
+    position: relative;
+    right: 587px;
+    bottom: 120px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
+#c4C-split{
+    position: relative;
+    right: 675px;
+    bottom: 250px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
+#c5C{
+    position: relative;
+    right: 750px;
+    bottom: 120px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
+#c5C-split{
+    position: relative;
+    right: 838px;
+    bottom: 250px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
+#c6C{
+    position: relative;
+    right: 913px;
+    bottom: 120px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
+#c6C-split{
+    position: relative;
+    right: 1001px;
+    bottom: 250px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
+#c7C{
+    position: relative;
+    right: 1076px;
+    bottom: 145px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
+#c7C-split{
+    position: relative;
+    right: 1164px;
+    bottom: 275px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
+#c8C{
+    position: relative;
+    right: 1239px;
+    bottom: 170px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
+#c8C-split{
+    position: relative;
+    right: 1327px;
+    bottom: 300px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
+
+#cR-outline{
+    position: relative;
+    right: 0px;
+    opacity: 0.5;
+    bottom: 70px;
+    transform: rotate(-45deg);
+}
+
+#c1R{
+    position: relative;
+    right: 98px;
+    bottom: 120px;
+    transform: rotate(0deg);
+    opacity: 1;
+}
+
+#c1R-split{
+    position: relative;
+    right: 186px;
+    bottom: 250px;
+    transform: rotate(0deg);
+    opacity: 1;
+}
+
+#c2R{
+    position: relative;
+    right: 261px;
+    bottom: 120px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
+#c2R-split{
+    position: relative;
+    right: 349px;
+    bottom: 250px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
+#c3R{
+    position: relative;
+    right: 424px;
+    bottom: 120px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
+#c3R-split{
+    position: relative;
+    right: 512px;
+    bottom: 250px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
+#c4R{
+    position: relative;
+    right: 587px;
+    bottom: 120px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
+#c4R-split{
+    position: relative;
+    right: 675px;
+    bottom: 250px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
+#c5R{
+    position: relative;
+    right: 750px;
+    bottom: 120px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
+#c5R-split{
+    position: relative;
+    right: 838px;
+    bottom: 250px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
+#c6R{
+    position: relative;
+    right: 913px;
+    bottom: 120px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
+#c6R-split{
+    position: relative;
+    right: 1001px;
+    bottom: 250px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
+#c7R{
+    position: relative;
+    right: 1076px;
+    bottom: 145px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
+#c7R-split{
+    position: relative;
+    right: 1164px;
+    bottom: 275px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
+#c8R{
+    position: relative;
+    right: 1239px;
+    bottom: 170px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
+#c8R-split{
+    position: relative;
+    right: 1327px;
+    bottom: 300px;
+    transform: rotate(2deg);
+    opacity: 1;
+}
+
 
 .hand-top-bottom-margin{
     margin: 0px 0px 0px 0px;
@@ -437,9 +762,9 @@
     background-image: url(../../static/background/Vegas_1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 900px;
+    min-height: 800px;
     /*color: #333333;*/
-    /*margin-top: 5rem;*/
+    margin-top: 5rem;   /*Keeps content below the nav bar*/
     /*max-width: 1000px;*/
 }
 
@@ -448,7 +773,7 @@
     background-image: url(../../static/background/Hollywood-Casino-4.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 900px;
+    /*min-height: 900px;*/
     /*color: #333333;*/
     /*margin-top: 5rem;*/
     /*max-width: 1000px;*/
