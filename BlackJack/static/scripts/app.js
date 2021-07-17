@@ -75,13 +75,14 @@ const playerRbet2EL = document.getElementById('playerR-bet2')
 const playerRbet3EL = document.getElementById('playerR-bet3')
 
 //Player Bank
-const playerBank500EL = document.getElementById('player-bank-500')
-const playerBank100EL = document.getElementById('player-bank-100')
-const playerBank50EL = document.getElementById('player-bank-50')
-const playerBank25EL = document.getElementById('player-bank-25')
-const playerBank10EL = document.getElementById('player-bank-10')
-const playerBank5aEL = document.getElementById('player-bank-5a')
-const playerBank5bEL = document.getElementById('player-bank-5b')
+const playerBank6EL = document.getElementById('player-bank-6')
+const playerBank5EL = document.getElementById('player-bank-5')
+const playerBank4EL = document.getElementById('player-bank-4')
+const playerBank3EL = document.getElementById('player-bank-3')
+const playerBank2EL = document.getElementById('player-bank-2')
+const playerBank1EL = document.getElementById('player-bank-1')
+const playerBank0EL = document.getElementById('player-bank-0')
+
 
 
 

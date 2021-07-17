@@ -137,37 +137,31 @@
 
 }
 
+#player-bank-0{
+    position: relative;
+    right: -90px;
+    bottom: 30px;
+    width: 80%;
+    z-index: 100;
+}
 
-#player-bank-5a{
+#player-bank-1{
     position: relative;
     right: -75px;
     bottom: 22px;
     width: 80%;
     z-index: 100;
-
 }
 
-#player-bank-5b{
-    /* on the end */
-    position: relative;
-    right: -90px;
-    bottom: 32px;
-    width: 80%;
-    z-index: 100;
-
-}
-
-#player-bank-10{
+#player-bank-2{
     position: relative;
     right: -60px;
     bottom: 22px;
     width: 80%;
     z-index: 100;
-
-
 }
 
-#player-bank-25{
+#player-bank-3{
     position: relative;
     right: -45px;
     bottom: 22px;
@@ -176,16 +170,15 @@
 
 }
 
-#player-bank-50{
+#player-bank-4{
     position: relative;
     right: -30px;
     bottom: 22px;
     width: 80%;
     z-index: 100;
-
 }
 
-#player-bank-100{
+#player-bank-5{
     position: relative;
     right: -15px;
     bottom: 22px;
@@ -194,13 +187,12 @@
 
 }
 
-#player-bank-500{
+#player-bank-6{
     position: relative;
     /*right: 37px;*/
     bottom: 27px;
     width: 80%;
     z-index: 100;
-
 }
 
 .dealer-draws{
