@@ -1,3 +1,14 @@
+.disableselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge*/
+   user-select: none;          /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+
 html {
   /*scroll-behavior: smooth;*/
 }
@@ -52,7 +63,7 @@ html {
     height: 100%;
     right: -78px;
     bottom: 150px;
-    transform: rotateZ(5deg);
+    transform: rotateZ(7deg);
     /*transform: rotate3d(.25, 1, 1, 5deg);*/
 }
 
@@ -100,16 +111,14 @@ html {
     right: -5px;
     bottom: 30px;
     width: 21%;
-
 }
+
 #playerC-bet3{
     position: relative;
     right: -5px;
     bottom: 30px;
     width: 21%;
-
 }
-
 
 #playerL-bet1{
     position: relative;
@@ -118,6 +127,7 @@ html {
     width: 21%;
 
 }
+
 #playerL-bet2{
     position: relative;
     right: -5px;
@@ -188,7 +198,6 @@ html {
     bottom: 22px;
     width: 80%;
     z-index: 100;
-
 }
 
 #player-bank-6{
@@ -235,7 +244,6 @@ html {
     right: 228px;
     bottom: -85px;
     transform: scale(1.125);
-
 }
 
 #d4{
@@ -243,7 +251,6 @@ html {
     right: 298px;
     bottom: -85px;
     transform: scale(1.125);
-
 }
 
 #d5{
@@ -251,7 +258,6 @@ html {
     right: 368px;
     bottom: -85px;
     transform: scale(1.125);
-
 }
 
 #d6{
@@ -259,7 +265,6 @@ html {
     right: 438px;
     bottom: -85px;
     transform: scale(1.125);
-
 }
 
 #d7{
@@ -267,7 +272,6 @@ html {
     right: 508px;
     bottom: -85px;
     transform: scale(1.125);
-
 }
 
 #d8{
@@ -276,8 +280,6 @@ html {
     bottom: -85px;
     transform: scale(1.125);
 }
-
-
 
 
 #cL-outline{

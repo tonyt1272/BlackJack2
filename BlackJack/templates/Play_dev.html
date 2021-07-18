@@ -6,32 +6,32 @@
         <div class="container perspective-parent" >
 <!--        Controls -->
 
-            <div class="row  d-flex flex-row-reverse ">
+            <div class="row  d-flex flex-row-reverse disableselect">
 
                 <div class="col-sm-4 hud-overlay mx-auto">
                     <div class="text-center">
-                        <img id="playerR-bet1" class="hide" src="static/chips/five/2xfive.png">
-                        <img id="playerR-bet2" class="hide" src="static/chips/five/1xfive.png">
-                        <img id="playerR-bet3" class="hide" src="static/chips/five/1xfive.png">
+                        <img id="playerR-bet1" class="hide" draggable="false" src="static/chips/five/2xfive.png">
+                        <img id="playerR-bet2" class="hide" draggable="false" src="static/chips/five/1xfive.png">
+                        <img id="playerR-bet3" class="hide" draggable="false" src="static/chips/five/1xfive.png">
                     </div>
                 </div>
                 <div class="col-sm-4 hud-overlay mx-auto">
                     <div class="text-center">
-                        <img id="playerC-bet1" class="hide" src="static/chips/one-hundred/6xone-hundred.png">
-                        <img id="playerC-bet2" class="hide" src="static/chips/one-hundred/1xone-hundred.png">
-                        <img id="playerC-bet3" class="hide" src="static/chips/one-hundred/1xone-hundred.png">
+                        <img id="playerC-bet1" class="hide" draggable="false" src="static/chips/one-hundred/6xone-hundred.png">
+                        <img id="playerC-bet2" class="hide" draggable="false" src="static/chips/one-hundred/1xone-hundred.png">
+                        <img id="playerC-bet3" class="hide" draggable="false" src="static/chips/one-hundred/1xone-hundred.png">
                     </div>
                 </div>
                 <div class="col-sm-4 hud-overlay mx-auto" >
                     <div class="text-center">
-                        <img id="playerL-bet1" class="hide" src="static/chips/fifty/1xfifty.png">
-                        <img id="playerL-bet2" class="hide" src="static/chips/fifty/1xfifty.png">
-                        <img id="playerL-bet3" class="hide"  src="static/chips/fifty/1xfifty.png">
+                        <img id="playerL-bet1" class="hide" draggable="false" src="static/chips/fifty/1xfifty.png">
+                        <img id="playerL-bet2" class="hide" draggable="false" src="static/chips/fifty/1xfifty.png">
+                        <img id="playerL-bet3" class="hide" draggable="false" src="static/chips/fifty/1xfifty.png">
                     </div>
                 </div>
             </div>
 
-            <div class="row  d-flex flex-row-reverse no-gutter">
+            <div class="row d-flex flex-row-reverse no-gutter disableselect">
                 <div class="col-sm-1 hud-overlay">
                     <button  type="button" class="btn btn-primary btn-sm" onclick=" alert('I work!')">Stand!</button>
                 </div>
@@ -78,65 +78,65 @@
                 <section class="table perspective-transform">
 
                     <div class="row justify-content-center">
-                        <div class="col-sm-8">
-                            <img class="chips" src="static/chips/chips_full2.png">
+                        <div class="col-sm-8 disableselect">
+                            <img class="chips disableselect" draggable="false" src="static/chips/chips_full2.png">
                         </div>
                     </div>
 
         <!--            Dealer and Bet Placard (Bet Placard is offset to sit between Dealer and CHips)  -->
-                    <div class="row d-flex flex-row justify-content-center">
-                        <div class="col-sm-4 d-flex">
-                            <img class="img-fluid" id="tray" src="static/table_objects/tray5.png">
-                            <img class="img-fluid" id="bet" src="static/table_objects/bet_placard.png">
+                    <div class="row d-flex flex-row justify-content-center disableselect">
+                        <div class="col-sm-4 d-flex disableselect" draggable="false">
+                            <img class="img-fluid disableselect" id="tray" draggable="false" src="static/table_objects/tray5.png">
+                            <img class="img-fluid disableselect" id="bet" draggable="false" src="static/table_objects/bet_placard.png">
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-4 disableselect">
                         <div class="d-flex" >
-                                <img id="d-tray-card" src="static/cards/zback.png">
-                                <img id="d1" class="hide" src="static/cards/Diamonds1.png" >
-                                <img id="d2" class="hide" src="static/cards/zback.png">
-                                <img id="d3" class="hide" class="hide" src="static/cards/Clubs11.png">
-                                <img id="d4" class="hide" src="static/cards/Clubs11.png">
-                                <img id="d5" class="hide" src="static/cards/Clubs11.png">
-                                <img id="d6" class="hide" src="static/cards/Clubs11.png">
-                                <img id="d7" class="hide" src="static/cards/Clubs11.png">
-                                <img id="d8" class="hide" src="static/cards/Clubs11.png">
+                                <img id="d-tray-card" class="disableselect" draggable="false" src="static/cards/zback.png">
+                                <img id="d1" class="hide disableselect" draggable="false" src="static/cards/Diamonds1.png" >
+                                <img id="d2" class="hide disableselect" draggable="false" src="static/cards/zback.png">
+                                <img id="d3" class="hide disableselect" draggable="false" src="static/cards/Clubs11.png">
+                                <img id="d4" class="hide disableselect" draggable="false" src="static/cards/Clubs11.png">
+                                <img id="d5" class="hide disableselect" draggable="false" src="static/cards/Clubs11.png">
+                                <img id="d6" class="hide disableselect" draggable="false" src="static/cards/Clubs11.png">
+                                <img id="d7" class="hide disableselect" draggable="false" src="static/cards/Clubs11.png">
+                                <img id="d8" class="hide disableselect" draggable="false" src="static/cards/Clubs11.png">
                             </div>
                         </div>
 
-                        <div class="col-sm-4">
+                        <div class="col-sm-4 disableselect">
                         <div class="d-flex" >
-                            <img class="img-fluid" id="boot" src="static/table_objects/wood_boot.png">
+                            <img class="img-fluid disableselect" id="boot" draggable="false" src="static/table_objects/wood_boot.png">
                         </div>
                         </div>
                     </div>
 
                     <div class="row d-flex flex-row justify-content-center">
-                        <img class="img-fluid dealer-draws" src="static/table_objects/dealerDraw-2.png">
+                        <img class="img-fluid dealer-draws disableselect" draggable="false" src="static/table_objects/dealerDraw-2.png">
                     </div>
 
         <!--            Player Row                              -->
         <!--                Player Left                         -->
-                    <div class="row d-flex flex-row">
+                    <div class="row d-flex flex-row disableselect">
                         <div class="col-sm-4 d-flex">
                             <div class="bg-transparent text-center hand-top-bottom-margin">
                                 <div class="d-flex flex-row">
-                                    <img id="cL-outline" src="static/cards/outline.png">
-                                    <img id="c1L" class="hide" src="static/cards/Diamonds1.png">
-                                    <img id="c1L-split" class="hide" src="static/cards/Diamonds1.png">
-                                    <img id="c2L" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c2L-split" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c3L" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c3L-split" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c4L" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c4L-split" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c5L" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c5L-split" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c6L" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c6L-split" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c7L" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c7L-split" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c8L" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c8L-split" class="hide" src="static/cards/Clubs11.png">
+                                    <img id="cL-outline" class="disableselect" draggable="false" src="static/cards/outline.png">
+                                    <img id="c1L" class="hide" draggable="false" src="static/cards/Diamonds1.png">
+                                    <img id="c1L-split" class="hide" draggable="false" src="static/cards/Diamonds1.png">
+                                    <img id="c2L" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c2L-split" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c3L" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c3L-split" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c4L" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c4L-split" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c5L" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c5L-split" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c6L" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c6L-split" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c7L" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c7L-split" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c8L" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c8L-split" class="hide" draggable="false" src="static/cards/Clubs11.png">
                                 </div>
                             </div>
                         </div>
@@ -144,27 +144,27 @@
         <!--            Player Center                   -->
                         <div class="col-sm-4">
                             <div class="bg-transparent text-center hand-top-bottom-margin">
-                                <div class="d-flex flex-row">
+                                <div class="d-flex flex-row disableselect">
                                     <br> <br>
                                 </div>
-                                <div class="d-flex flex-row" >
-                                    <img id="cC-outline" src="{{url_for('static', filename='/cards/outline.png')}}">
-                                    <img id="c1C" class="hide" src="static/cards/Diamonds1.png">
-                                    <img id="c1C-split" class="hide" src="static/cards/Diamonds1.png">
-                                    <img id="c2C" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c2C-split" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c3C" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c3C-split" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c4C" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c4C-split" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c5C" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c5C-split" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c6C" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c6C-split" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c7C" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c7C-split" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c8C" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c8C-split" class="hide" src="static/cards/Clubs11.png">
+                                <div class="d-flex flex-row disableselect" >
+                                    <img id="cC-outline" class="disableselect" draggable="false" src="{{url_for('static', filename='/cards/outline.png')}}">
+                                    <img id="c1C" class="hide" draggable="false" src="static/cards/Diamonds1.png">
+                                    <img id="c1C-split" class="hide" draggable="false" src="static/cards/Diamonds1.png">
+                                    <img id="c2C" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c2C-split" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c3C" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c3C-split" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c4C" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c4C-split" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c5C" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c5C-split" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c6C" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c6C-split" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c7C" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c7C-split" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c8C" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c8C-split" class="hide" draggable="false" src="static/cards/Clubs11.png">
                                 </div>
                             </div>
                         </div>
@@ -173,23 +173,23 @@
                             <div class="col-sm-4">
                                 <div class="bg-transparent text-center hand-top-bottom-margin">
                                     <div class="d-flex flex-row">
-                                    <img id="cR-outline" src="{{url_for('static', filename='/cards/outline.png')}}">
-                                    <img id="c1R" class="hide" src="static/cards/Diamonds1.png">
-                                    <img id="c1R-split" class="hide" src="static/cards/Diamonds1.png">
-                                    <img id="c2R" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c2R-split" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c3R" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c3R-split" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c4R" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c4R-split" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c5R" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c5R-split" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c6R" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c6R-split" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c7R" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c7R-split" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c8R" class="hide" src="static/cards/Clubs11.png">
-                                    <img id="c8R-split" class="hide" src="static/cards/Clubs11.png">
+                                    <img id="cR-outline" class="disableselect" draggable="false" src="{{url_for('static', filename='/cards/outline.png')}}">
+                                    <img id="c1R" class="hide" draggable="false" src="static/cards/Diamonds1.png">
+                                    <img id="c1R-split" class="hide" draggable="false" src="static/cards/Diamonds1.png">
+                                    <img id="c2R" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c2R-split" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c3R" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c3R-split" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c4R" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c4R-split" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c5R" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c5R-split" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c6R" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c6R-split" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c7R" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c7R-split" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c8R" class="hide" draggable="false" src="static/cards/Clubs11.png">
+                                    <img id="c8R-split" class="hide" draggable="false" src="static/cards/Clubs11.png">
                                     </div>
                                 </div>
                             </div>

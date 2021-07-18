@@ -27,8 +27,11 @@ const playerLCard8EL = document.getElementById('c8L')
 const playerLCard8SplitEL = document.getElementById('c8L-split')
 
 const playerLbet1EL = document.getElementById('playerL-bet1')
+// playerLbet1EL.setAttribute('draggable',false);
 const playerLbet2EL = document.getElementById('playerL-bet2')
+// playerLbet2EL.setAttribute('draggable',false);
 const playerLbet3EL = document.getElementById('playerL-bet3')
+// playerLbet3EL.setAttribute('draggable',false);
 
 //Center Player
 const playerCCard1EL = document.getElementById('c1C')
@@ -49,8 +52,11 @@ const playerCCard8EL = document.getElementById('c8C')
 const playerCCard8SplitEL = document.getElementById('c8C-split') 
 
 const playerCbet1EL = document.getElementById('playerC-bet1')
+// playerCbet1EL.setAttribute('draggable',false)
 const playerCbet2EL = document.getElementById('playerC-bet2')
+// playerCbet2EL.setAttribute('draggable',false)
 const playerCbet3EL = document.getElementById('playerC-bet3')
+// playerCbet3EL.setAttribute('draggable',false)
 
 //Right Player
 const playerRCard1EL = document.getElementById('c1R')
@@ -71,8 +77,11 @@ const playerRCard8EL = document.getElementById('c8R')
 const playerRCard8SplitEL = document.getElementById('c8R-split')
 
 const playerRbet1EL = document.getElementById('playerR-bet1')
+// playerRbet1EL.setAttribute('draggable',false)
 const playerRbet2EL = document.getElementById('playerR-bet2')
+// playerRbet2EL.setAttribute('draggable',false)
 const playerRbet3EL = document.getElementById('playerR-bet3')
+// playerRbet3EL.setAttribute('draggable',false)
 
 //Player Bank
 const playerBank6EL = document.getElementById('player-bank-6')
@@ -148,8 +157,8 @@ function centerWindow(){
 window.addEventListener('load', (event) => {
     window.scrollTo({
         top: document.body.scrollHeight,
-        left: 0
-        // behavior: 'smooth'
+        left: 0,
+        behavior: 'smooth'
       })
     // console.log('The page has fully loaded');
 });
@@ -160,7 +169,7 @@ fetchBankLevels().then(()=>{
     
 })
 
-document.addEventListener('scroll',centerWindow)
+// document.addEventListener('scroll',centerWindow)
 
 
 
