@@ -1,3 +1,7 @@
+html {
+  /*scroll-behavior: smooth;*/
+}
+
 .hide{
     opacity: 0;
 }
@@ -271,7 +275,6 @@
     right: 578px;
     bottom: -85px;
     transform: scale(1.125);
-
 }
 
 
@@ -290,7 +293,6 @@
     right: 98px;
     bottom: 120px;
     transform: rotate(0deg);
-
 }
 
 #c1L-split{
@@ -298,7 +300,6 @@
     right: 186px;
     bottom: 250px;
     transform: rotate(0deg);
-
 }
 
 #c2L{
@@ -306,7 +307,6 @@
     right: 261px;
     bottom: 120px;
     transform: rotate(2deg);
-
 }
 
 #c2L-split{
@@ -314,7 +314,6 @@
     right: 349px;
     bottom: 250px;
     transform: rotate(2deg);
-
 }
 
 #c3L{
@@ -322,7 +321,6 @@
     right: 424px;
     bottom: 120px;
     transform: rotate(2deg);
-
 }
 
 #c3L-split{
@@ -330,7 +328,6 @@
     right: 512px;
     bottom: 250px;
     transform: rotate(2deg);
-
 }
 
 #c4L{
@@ -338,7 +335,6 @@
     right: 587px;
     bottom: 120px;
     transform: rotate(2deg);
-
 }
 
 #c4L-split{
@@ -346,7 +342,6 @@
     right: 675px;
     bottom: 250px;
     transform: rotate(2deg);
-
 }
 
 #c5L{
@@ -354,7 +349,6 @@
     right: 750px;
     bottom: 120px;
     transform: rotate(2deg);
-
 }
 
 #c5L-split{
@@ -362,7 +356,6 @@
     right: 838px;
     bottom: 250px;
     transform: rotate(2deg);
-
 }
 
 #c6L{
@@ -370,7 +363,6 @@
     right: 913px;
     bottom: 120px;
     transform: rotate(2deg);
-
 }
 
 #c6L-split{
@@ -378,7 +370,6 @@
     right: 1001px;
     bottom: 250px;
     transform: rotate(2deg);
-
 }
 
 #c7L{
@@ -386,7 +377,6 @@
     right: 1076px;
     bottom: 145px;
     transform: rotate(2deg);
-
 }
 
 #c7L-split{
@@ -394,7 +384,6 @@
     right: 1164px;
     bottom: 275px;
     transform: rotate(2deg);
-
 }
 
 #c8L{
@@ -402,7 +391,6 @@
     right: 1239px;
     bottom: 170px;
     transform: rotate(2deg);
-
 }
 
 #c8L-split{
@@ -410,7 +398,6 @@
     right: 1327px;
     bottom: 300px;
     transform: rotate(2deg);
-
 }
 
 
@@ -427,7 +414,6 @@
     right: 98px;
     bottom: 120px;
     transform: rotate(0deg);
-
 }
 
 #c1C-split{
@@ -435,7 +421,6 @@
     right: 186px;
     bottom: 250px;
     transform: rotate(0deg);
-
 }
 
 #c2C{
@@ -443,7 +428,6 @@
     right: 261px;
     bottom: 120px;
     transform: rotate(2deg);
-
 }
 
 #c2C-split{
@@ -451,7 +435,6 @@
     right: 349px;
     bottom: 250px;
     transform: rotate(2deg);
-
 }
 
 #c3C{
@@ -459,7 +442,6 @@
     right: 424px;
     bottom: 120px;
     transform: rotate(2deg);
-
 }
 
 #c3C-split{
@@ -467,7 +449,6 @@
     right: 512px;
     bottom: 250px;
     transform: rotate(2deg);
-
 }
 
 #c4C{
@@ -475,7 +456,6 @@
     right: 587px;
     bottom: 120px;
     transform: rotate(2deg);
-
 }
 
 #c4C-split{
@@ -483,7 +463,6 @@
     right: 675px;
     bottom: 250px;
     transform: rotate(2deg);
-
 }
 
 #c5C{
@@ -491,7 +470,6 @@
     right: 750px;
     bottom: 120px;
     transform: rotate(2deg);
-
 }
 
 #c5C-split{
@@ -499,7 +477,6 @@
     right: 838px;
     bottom: 250px;
     transform: rotate(2deg);
-
 }
 
 #c6C{
@@ -507,7 +484,6 @@
     right: 913px;
     bottom: 120px;
     transform: rotate(2deg);
-
 }
 
 #c6C-split{
@@ -515,7 +491,6 @@
     right: 1001px;
     bottom: 250px;
     transform: rotate(2deg);
-
 }
 
 #c7C{
@@ -523,7 +498,6 @@
     right: 1076px;
     bottom: 145px;
     transform: rotate(2deg);
-
 }
 
 #c7C-split{
@@ -531,7 +505,6 @@
     right: 1164px;
     bottom: 275px;
     transform: rotate(2deg);
-
 }
 
 #c8C{
@@ -539,7 +512,6 @@
     right: 1239px;
     bottom: 170px;
     transform: rotate(2deg);
-
 }
 
 #c8C-split{
@@ -547,7 +519,6 @@
     right: 1327px;
     bottom: 300px;
     transform: rotate(2deg);
-
 }
 
 
@@ -564,7 +535,6 @@
     right: 98px;
     bottom: 120px;
     transform: rotate(0deg);
-
 }
 
 #c1R-split{
@@ -572,7 +542,6 @@
     right: 186px;
     bottom: 250px;
     transform: rotate(0deg);
-
 }
 
 #c2R{
@@ -580,7 +549,6 @@
     right: 261px;
     bottom: 120px;
     transform: rotate(2deg);
-
 }
 
 #c2R-split{
@@ -588,7 +556,6 @@
     right: 349px;
     bottom: 250px;
     transform: rotate(2deg);
-
 }
 
 #c3R{
@@ -596,7 +563,6 @@
     right: 424px;
     bottom: 120px;
     transform: rotate(2deg);
-
 }
 
 #c3R-split{
@@ -604,7 +570,6 @@
     right: 512px;
     bottom: 250px;
     transform: rotate(2deg);
-
 }
 
 #c4R{
@@ -612,7 +577,6 @@
     right: 587px;
     bottom: 120px;
     transform: rotate(2deg);
-
 }
 
 #c4R-split{
@@ -620,7 +584,6 @@
     right: 675px;
     bottom: 250px;
     transform: rotate(2deg);
-
 }
 
 #c5R{
@@ -628,7 +591,6 @@
     right: 750px;
     bottom: 120px;
     transform: rotate(2deg);
-
 }
 
 #c5R-split{
@@ -636,7 +598,6 @@
     right: 838px;
     bottom: 250px;
     transform: rotate(2deg);
-
 }
 
 #c6R{
@@ -644,7 +605,6 @@
     right: 913px;
     bottom: 120px;
     transform: rotate(2deg);
-
 }
 
 #c6R-split{
@@ -652,7 +612,6 @@
     right: 1001px;
     bottom: 250px;
     transform: rotate(2deg);
-
 }
 
 #c7R{
@@ -660,7 +619,6 @@
     right: 1076px;
     bottom: 145px;
     transform: rotate(2deg);
-
 }
 
 #c7R-split{
@@ -668,7 +626,6 @@
     right: 1164px;
     bottom: 275px;
     transform: rotate(2deg);
-
 }
 
 #c8R{
@@ -676,7 +633,6 @@
     right: 1239px;
     bottom: 170px;
     transform: rotate(2deg);
-
 }
 
 #c8R-split{
@@ -684,13 +640,11 @@
     right: 1327px;
     bottom: 300px;
     transform: rotate(2deg);
-
 }
 
 
 .hand-top-bottom-margin{
     margin: 0px 0px 0px 0px;
-
 
 }
 
@@ -701,7 +655,6 @@
 }
 
 .table {
-
     background: url(../../static/background/slot-bg.jpg);
     /*background-color: #071396;*/
     padding: 0px 20px 0px 120px;
@@ -726,7 +679,7 @@
 }
 
 .perspective-parent{
-    margin: 0px 0px 40px 200px;
+    margin: 0px 0px 40px 0px;
     perspective: 1200px;
     /*min-width: 680px;*/
     min-width: 900px;

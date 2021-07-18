@@ -57,8 +57,8 @@ for i in range(0, 7141):
     print(f'bank amount: {i}', f'levels: {levels[1]}', f'remainder: {levels[0]}')
     bank_dict[i] = levels
 
-with open("/BlackJack/static/bank_levels.json", "w") as outfile:
-    json.dump(bank_dict, outfile)
+# with open("BlackJack/static/bank_levels.json", "w") as outfile:
+#     json.dump(bank_dict, outfile)
 
 
 
