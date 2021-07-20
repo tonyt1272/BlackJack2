@@ -164,6 +164,27 @@ playerBank6EL.addEventListener("dragstart", ev =>{
     drag_bet = 'five-hundred';
 });
 
+function convertDrag(drag_bet){
+    if (drag_bet=='five'){
+        return 5
+    }
+    if (drag_bet=='ten'){
+        return 10
+    }
+    if (drag_bet=='twenty-five'){
+        return 25
+    }
+    if (drag_bet=='fifty'){
+        return 50
+    }
+    if (drag_bet=='one-hundred'){
+        return 100
+    }
+    if (drag_bet=='five-hundred'){
+        return 500
+    }
+}
+
 
 function setChip(drag_bet,bet_pos){
     const promise = new Promise((resolve, reject) =>{
@@ -172,17 +193,47 @@ function setChip(drag_bet,bet_pos){
         //
         // bet_pos : the element where the chip is to be dropped
         // drag_bet: the chip amount of the dragged chip
-        const betPosition = bet_pos.id.slice(6,7)
-        const betAmount = drag_bet
-        console.log(`chip moved to box: ${betAmount}`)
-        console.log(`box bet placed in: ${betPosition}`)
-        console.log(bet_status)
+        
+        const betPosition2 = bet_pos.id.slice(6,7)+'B2';
+        const betPosition1 = bet_pos.id.slice(6,7)+'B1';
+        const betPosition3 = bet_pos.id.slice(6,7)+'B3';
+        const betAmount = drag_bet;
 
+        //logging status before bet
+        console.log(`chip moved to box : ${betAmount}`);
+        console.log(`box bet placed in: ${betPosition2}`);
+        console.log(`previous bet status:  ${bet_status[betPosition2][0]}`);
+        console.log(`privious bet amount 1:  ${bet_status[betPosition1][1]}`);
+        console.log(`privious bet amount 2:  ${bet_status[betPosition2][1]}`);
+        console.log(`privious bet amount 3:  ${bet_status[betPosition3][1]}`);
+        //
+        
+        //place bet and update bet chips image
+        const amount = convertDrag(drag_bet);
+        if (bet_status[betPosition2][1]==0){
+            bet_pos.setAttribute('src',`static/chips/${drag_bet}/1x${drag_bet}.png`);
+            bet_status[betPosition2][0] = true;
+            bet_status[betPosition2][1] += amount;
+            setPlayerBank(drag_bet)
+        } else if (bet_status[betPosition2][1] > 0 && bet_status[betPosition2][1] < 6*amount){
+            const numChips = (bet_status[betPosition2][1]/amount) + 1;
+            bet_status[betPosition2][1] += amount;
+            bet_pos.setAttribute('src',`static/chips/${drag_bet}/${numChips}x${drag_bet}.png`);
+            setPlayerBank(drag_bet)
+        }
 
-        bet_pos.setAttribute('src',`static/chips/${drag_bet}/1x${drag_bet}.png`)
+        
+        //logging status after bet
+        console.log(`current bet status:  ${bet_status[betPosition2][0]}`)
+        console.log(`current bet amount 1:  ${bet_status[betPosition1][1]}`)
+        console.log(`current bet amount 2:  ${bet_status[betPosition2][1]}`)
+        console.log(`current bet amount 3:  ${bet_status[betPosition3][1]}`)
+
         resolve('success');
     })
+    
     return promise;
+
 }
 async function setBet(drag_bet,bet_pos){
     await setChip(drag_bet,bet_pos).then(responseData =>{
@@ -199,32 +250,6 @@ let bet_status = {LB1: [false,0],
                   RB1: [false,0],
                   RB2: [false,0],
                   RB3: [false,0]}
-
-
-// --------------Center Bet 
-// position 1
-// playerCbet1EL.addEventListener("dragover", ev => {
-//     ev.preventDefault();
-//     playerCOutlineEL.classList.add('droppable')
-// });
-
-// playerCbet1EL.addEventListener("dragleave", ev => {
-//     ev.preventDefault();
-//     if (!bet_status.CB1[0]){
-//         playerCbet1EL.classList.replace('show','hide');
-//     }
-//     playerCOutlineEL.classList.remove('droppable')
-// });
-
-// playerCbet1EL.addEventListener("drop", ev => {
-//     ev.preventDefault();
-//     console.log(drag_bet + ' dropped')
-//     setBet(drag_bet,playerCbet1EL)
-//     playerCOutlineEL.classList.remove('droppable')
-//     bet_status.CB1[0] = true
-//     setPlayerBank(drag_bet)
-    
-// });
 
 // --------------Center Bet 
 // position 2
@@ -247,61 +272,8 @@ playerCbet2EL.addEventListener("drop", ev => {
     ev.preventDefault();
     setBet(drag_bet, playerCbet2EL)
     playerCOutlineEL.classList.remove('droppable')
-    // console.log(drag_bet + ' dropped')
-    bet_status.CB2[0] = true
-    bet_status.CB2[1] = drag_bet
-    setPlayerBank(drag_bet)
+    // setPlayerBank(drag_bet)
 });
-
-// --------------Center Bet 
-// position 3
-// playerCbet3EL.addEventListener("dragover", ev => {
-//     ev.preventDefault();
-//     playerCOutlineEL.classList.add('droppable')
-// });
-
-// playerCbet3EL.addEventListener("dragleave", ev => {
-//     ev.preventDefault();
-//     if(!bet_status.CB3[0]){
-//         playerCbet3EL.classList.replace('show','hide');
-//     }
-//     playerCOutlineEL.classList.remove('droppable')
-// });
-
-// playerCbet3EL.addEventListener("drop", ev => {
-//     ev.preventDefault();
-//     setBet(drag_bet,playerCbet3EL)
-//     playerCOutlineEL.classList.remove('droppable')
-//     console.log(drag_bet + ' dropped')
-//     bet_status.CB3[0] = true
-//     setPlayerBank(drag_bet)
-// });
-
-
-// ----------------Left Bet
-// position 1
-// playerLbet1EL.addEventListener("dragover", ev => {
-//     ev.preventDefault();
-//     playerLOutlineEL.classList.add('droppable')
-// });
-
-// playerLbet1EL.addEventListener("dragleave", ev => {
-//     ev.preventDefault();
-//     if (!bet_status.LB1[0]){
-//         playerLbet1EL.classList.replace('show','hide');
-//     }
-//     playerLOutlineEL.classList.remove('droppable')
-    
-// });
-
-// playerLbet1EL.addEventListener("drop", ev => {
-//     ev.preventDefault();
-//     setBet(drag_bet,playerLbet1EL)
-//     playerLOutlineEL.classList.remove('droppable')
-//     console.log(drag_bet + ' dropped')
-//     bet_status.LB1[0] = true
-//     setPlayerBank(drag_bet)
-// });
 
 
 // ----------------Left Bet
@@ -323,59 +295,9 @@ playerLbet2EL.addEventListener("drop", ev => {
     ev.preventDefault();
     setBet(drag_bet,playerLbet2EL)
     playerLOutlineEL.classList.remove('droppable')
-    // console.log(drag_bet + ' dropped')
-    bet_status.LB2[0] = true
-    setPlayerBank(drag_bet)
+
 });
 
-// ----------------Left Bet
-// position 3
-// playerLbet3EL.addEventListener("dragover", ev => {
-//     ev.preventDefault();
-//     playerLOutlineEL.classList.add('droppable')
-// });
-
-// playerLbet3EL.addEventListener("dragleave", ev => {
-//     ev.preventDefault();
-//     if (!bet_status.LB3[0]){
-//         playerLbet3EL.classList.replace('show','hide');
-//     }
-//     playerLOutlineEL.classList.remove('droppable')
-// });
-
-// playerLbet3EL.addEventListener("drop", ev => {
-//     ev.preventDefault();
-//     setBet(drag_bet,playerLbet3EL)
-//     playerLOutlineEL.classList.remove('droppable')
-//     console.log(drag_bet + ' dropped')
-//     bet_status.LB3[0] = true
-//     setPlayerBank(drag_bet)
-// });
-
-
-// ----------------Right Bet
-// position 1
-// playerRbet1EL.addEventListener("dragover", ev => {
-//     ev.preventDefault();
-//     playerROutlineEL.classList.add('droppable')
-// });
-
-// playerRbet1EL.addEventListener("dragleave", ev => {
-//     ev.preventDefault();
-//     if (!bet_status.RB1[0]){
-//         playerRbet1EL.classList.replace('show','hide');
-//     }
-//     playerROutlineEL.classList.remove('droppable')
-// });
-
-// playerRbet1EL.addEventListener("drop", ev => {
-//     ev.preventDefault();
-//     setBet(drag_bet,playerRbet1EL)
-//     playerROutlineEL.classList.remove('droppable')
-//     console.log(drag_bet + ' dropped')
-//     bet_status.RB1[0] = true
-//     setPlayerBank(drag_bet)
-// });
 
 // ----------------Right Bet
 // position 2
@@ -396,34 +318,9 @@ playerRbet2EL.addEventListener("drop", ev => {
     ev.preventDefault();
     setBet(drag_bet,playerRbet2EL)
     playerROutlineEL.classList.remove('droppable')
-    // console.log(drag_bet + ' dropped')
-    bet_status.RB2[0] = true
-    setPlayerBank(drag_bet)
+
 });
 
-// ----------------Right Bet
-// position 3
-// playerRbet3EL.addEventListener("dragover", ev => {
-//     ev.preventDefault();
-//     playerROutlineEL.classList.add('droppable')
-// });
-
-// playerRbet3EL.addEventListener("dragleave", ev => {
-//     ev.preventDefault();
-//     if (!bet_status.RB3[0]){
-//         playerRbet3EL.classList.replace('show','hide');
-//     }
-//     playerROutlineEL.classList.remove('droppable')
-// });
-
-// playerRbet3EL.addEventListener("drop", ev => {
-//     ev.preventDefault();
-//     setBet(drag_bet,playerRbet3EL)
-//     playerROutlineEL.classList.remove('droppable')
-//     console.log(drag_bet + ' dropped')
-//     bet_status.RB3[0] = true
-//     setPlayerBank(drag_bet)
-// });
 
 const bankPos = [[playerBank0EL,0,'five'],
                 [playerBank1EL,1,'ten'],
