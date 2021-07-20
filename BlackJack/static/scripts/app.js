@@ -9,6 +9,7 @@ const dealerCard7EL = document.getElementById('d7')
 const dealerCard8EL = document.getElementById('d8')
 
 //Left Player
+const playerLOutlineEL = document.getElementById('cL-outline')
 const playerLCard1EL = document.getElementById('c1L')
 const playerLCard1SplitEL = document.getElementById('c1L-split')
 const playerLCard2EL = document.getElementById('c2L')
@@ -27,13 +28,12 @@ const playerLCard8EL = document.getElementById('c8L')
 const playerLCard8SplitEL = document.getElementById('c8L-split')
 
 const playerLbet1EL = document.getElementById('playerL-bet1')
-// playerLbet1EL.setAttribute('draggable',false);
 const playerLbet2EL = document.getElementById('playerL-bet2')
-// playerLbet2EL.setAttribute('draggable',false);
 const playerLbet3EL = document.getElementById('playerL-bet3')
-// playerLbet3EL.setAttribute('draggable',false);
+
 
 //Center Player
+const playerCOutlineEL = document.getElementById('cC-outline')
 const playerCCard1EL = document.getElementById('c1C')
 const playerCCard1SplitEL = document.getElementById('c1C-split')
 const playerCCard2EL = document.getElementById('c2C')
@@ -52,13 +52,12 @@ const playerCCard8EL = document.getElementById('c8C')
 const playerCCard8SplitEL = document.getElementById('c8C-split') 
 
 const playerCbet1EL = document.getElementById('playerC-bet1')
-// playerCbet1EL.setAttribute('draggable',false)
 const playerCbet2EL = document.getElementById('playerC-bet2')
-// playerCbet2EL.setAttribute('draggable',false)
 const playerCbet3EL = document.getElementById('playerC-bet3')
-// playerCbet3EL.setAttribute('draggable',false)
+
 
 //Right Player
+const playerROutlineEL = document.getElementById('cR-outline')
 const playerRCard1EL = document.getElementById('c1R')
 const playerRCard1SplitEL = document.getElementById('c1R-split')
 const playerRCard2EL = document.getElementById('c2R')
@@ -77,11 +76,9 @@ const playerRCard8EL = document.getElementById('c8R')
 const playerRCard8SplitEL = document.getElementById('c8R-split')
 
 const playerRbet1EL = document.getElementById('playerR-bet1')
-// playerRbet1EL.setAttribute('draggable',false)
 const playerRbet2EL = document.getElementById('playerR-bet2')
-// playerRbet2EL.setAttribute('draggable',false)
 const playerRbet3EL = document.getElementById('playerR-bet3')
-// playerRbet3EL.setAttribute('draggable',false)
+
 
 //Player Bank
 const playerBank6EL = document.getElementById('player-bank-6')
@@ -93,8 +90,350 @@ const playerBank1EL = document.getElementById('player-bank-1')
 const playerBank0EL = document.getElementById('player-bank-0')
 
 
+//Chip Elements
+const chip5 = new Image()
+chip5.src = "static/chips/five/fiveDrag.png"
+const chip10 = new Image()
+chip10.src = "static/chips/ten/tenDrag.png"
+const chip25 = new Image()
+chip25.src = "static/chips/twenty-five/twenty-fiveDrag.png"
+const chip50 = new Image()
+chip50.src = "static/chips/fifty/fiftyDrag.png"
+const chip100 = new Image()
+chip100.src = "static/chips/one-hundred/one-hundredDrag.png"
+const chip500 = new Image()
+chip500.src = "static/chips/five-hundred/five-hundredDrag.png"
+
+
+// --------------Start Bet Event Listeners
+let drag_bet;
+
+playerBank0EL.addEventListener("dragstart", ev =>{
+    ev.dataTransfer.setDragImage(chip5, 34, 32);
+    // console.log(ev.target.id)
+    // ev.dataTransfer.setData("text/plain", ev.target.id);
+    // ev.dataTransfer.effectAllowed = 'move';
+    drag_bet = 'five';
+});
+
+playerBank1EL.addEventListener("dragstart", ev =>{
+    ev.dataTransfer.setDragImage(chip10, 34, 31);
+    // console.log(ev.target.id)
+    // ev.dataTransfer.setData("text/plain", ev.target.id);
+    // ev.dataTransfer.effectAllowed = 'move';
+    drag_bet = 'ten';
+});
+
+playerBank2EL.addEventListener("dragstart", ev =>{
+    ev.dataTransfer.setDragImage(chip25, 34, 31);
+    // console.log(ev.target.id)
+    // ev.dataTransfer.setData("text/plain", ev.target.id);
+    // ev.dataTransfer.effectAllowed = 'move';
+    drag_bet = 'twenty-five';
+});
+
+playerBank3EL.addEventListener("dragstart", ev =>{
+    ev.dataTransfer.setDragImage(chip50, 34, 32);
+    // console.log(ev.target.id)
+    // ev.dataTransfer.setData("text/plain", ev.target.id);
+    // ev.dataTransfer.effectAllowed = 'move';
+    drag_bet = 'fifty';
+});
+
+playerBank4EL.addEventListener("dragstart", ev =>{
+    ev.dataTransfer.setDragImage(chip100, 34, 32);
+    // console.log(ev.target.id)
+    // ev.dataTransfer.setData("text/plain", ev.target.id);
+    // ev.dataTransfer.effectAllowed = 'move';
+    drag_bet = 'one-hundred';
+});
+
+playerBank5EL.addEventListener("dragstart", ev =>{
+    ev.dataTransfer.setDragImage(chip500, 34, 32);
+    // console.log(ev.target.id)
+    // ev.dataTransfer.setData("text/plain", ev.target.id);
+    // ev.dataTransfer.effectAllowed = 'move';
+    drag_bet = 'five-hundred';
+});
+
+playerBank6EL.addEventListener("dragstart", ev =>{
+    ev.dataTransfer.setDragImage(chip500, 34, 32);
+    // console.log(ev.target.id)
+    // ev.dataTransfer.setData("text/plain", ev.target.id);
+    // ev.dataTransfer.effectAllowed = 'move';
+    drag_bet = 'five-hundred';
+});
+
+
+function setChip(drag_bet,bet_pos){
+    const promise = new Promise((resolve, reject) =>{
+        //
+        // logic based on drag_bet amount and chip amounts at bet_pos //
+        //
+        // bet_pos : the element where the chip is to be dropped
+        // drag_bet: the chip amount of the dragged chip
+        const betPosition = bet_pos.id.slice(6,7)
+        const betAmount = drag_bet
+        console.log(`chip moved to box: ${betAmount}`)
+        console.log(`box bet placed in: ${betPosition}`)
+        console.log(bet_status)
+
+
+        bet_pos.setAttribute('src',`static/chips/${drag_bet}/1x${drag_bet}.png`)
+        resolve('success');
+    })
+    return promise;
+}
+async function setBet(drag_bet,bet_pos){
+    await setChip(drag_bet,bet_pos).then(responseData =>{
+        bet_pos.classList.replace('hide','show');
+    })
+}
+
+let bet_status = {LB1: [false,0], 
+                  LB2: [false,0], 
+                  LB3: [false,0], 
+                  CB1: [false,0], 
+                  CB2: [false,0], 
+                  CB3: [false,0],
+                  RB1: [false,0],
+                  RB2: [false,0],
+                  RB3: [false,0]}
+
+
+// --------------Center Bet 
+// position 1
+// playerCbet1EL.addEventListener("dragover", ev => {
+//     ev.preventDefault();
+//     playerCOutlineEL.classList.add('droppable')
+// });
+
+// playerCbet1EL.addEventListener("dragleave", ev => {
+//     ev.preventDefault();
+//     if (!bet_status.CB1[0]){
+//         playerCbet1EL.classList.replace('show','hide');
+//     }
+//     playerCOutlineEL.classList.remove('droppable')
+// });
+
+// playerCbet1EL.addEventListener("drop", ev => {
+//     ev.preventDefault();
+//     console.log(drag_bet + ' dropped')
+//     setBet(drag_bet,playerCbet1EL)
+//     playerCOutlineEL.classList.remove('droppable')
+//     bet_status.CB1[0] = true
+//     setPlayerBank(drag_bet)
+    
+// });
+
+// --------------Center Bet 
+// position 2
+playerCbet2EL.addEventListener("dragover", ev => {
+    ev.preventDefault();
+    playerCOutlineEL.classList.add('droppable')
+});
+
+playerCbet2EL.addEventListener("dragleave", ev => {
+    ev.preventDefault();
+    if (!bet_status.CB2[0]){
+        playerCbet2EL.classList.replace('show','hide');
+        // playerCbet2EL.classList.toggle('hide');
+
+    }
+    playerCOutlineEL.classList.remove('droppable')
+});
+
+playerCbet2EL.addEventListener("drop", ev => {
+    ev.preventDefault();
+    setBet(drag_bet, playerCbet2EL)
+    playerCOutlineEL.classList.remove('droppable')
+    // console.log(drag_bet + ' dropped')
+    bet_status.CB2[0] = true
+    bet_status.CB2[1] = drag_bet
+    setPlayerBank(drag_bet)
+});
+
+// --------------Center Bet 
+// position 3
+// playerCbet3EL.addEventListener("dragover", ev => {
+//     ev.preventDefault();
+//     playerCOutlineEL.classList.add('droppable')
+// });
+
+// playerCbet3EL.addEventListener("dragleave", ev => {
+//     ev.preventDefault();
+//     if(!bet_status.CB3[0]){
+//         playerCbet3EL.classList.replace('show','hide');
+//     }
+//     playerCOutlineEL.classList.remove('droppable')
+// });
+
+// playerCbet3EL.addEventListener("drop", ev => {
+//     ev.preventDefault();
+//     setBet(drag_bet,playerCbet3EL)
+//     playerCOutlineEL.classList.remove('droppable')
+//     console.log(drag_bet + ' dropped')
+//     bet_status.CB3[0] = true
+//     setPlayerBank(drag_bet)
+// });
+
+
+// ----------------Left Bet
+// position 1
+// playerLbet1EL.addEventListener("dragover", ev => {
+//     ev.preventDefault();
+//     playerLOutlineEL.classList.add('droppable')
+// });
+
+// playerLbet1EL.addEventListener("dragleave", ev => {
+//     ev.preventDefault();
+//     if (!bet_status.LB1[0]){
+//         playerLbet1EL.classList.replace('show','hide');
+//     }
+//     playerLOutlineEL.classList.remove('droppable')
+    
+// });
+
+// playerLbet1EL.addEventListener("drop", ev => {
+//     ev.preventDefault();
+//     setBet(drag_bet,playerLbet1EL)
+//     playerLOutlineEL.classList.remove('droppable')
+//     console.log(drag_bet + ' dropped')
+//     bet_status.LB1[0] = true
+//     setPlayerBank(drag_bet)
+// });
+
+
+// ----------------Left Bet
+// position 2
+playerLbet2EL.addEventListener("dragover", ev => {
+    ev.preventDefault();
+    playerLOutlineEL.classList.add('droppable')
+});
+
+playerLbet2EL.addEventListener("dragleave", ev => {
+    ev.preventDefault();
+    if (!bet_status.LB2[0]){
+        playerLbet2EL.classList.replace('show','hide');
+    }
+    playerLOutlineEL.classList.remove('droppable')
+});
+
+playerLbet2EL.addEventListener("drop", ev => {
+    ev.preventDefault();
+    setBet(drag_bet,playerLbet2EL)
+    playerLOutlineEL.classList.remove('droppable')
+    // console.log(drag_bet + ' dropped')
+    bet_status.LB2[0] = true
+    setPlayerBank(drag_bet)
+});
+
+// ----------------Left Bet
+// position 3
+// playerLbet3EL.addEventListener("dragover", ev => {
+//     ev.preventDefault();
+//     playerLOutlineEL.classList.add('droppable')
+// });
+
+// playerLbet3EL.addEventListener("dragleave", ev => {
+//     ev.preventDefault();
+//     if (!bet_status.LB3[0]){
+//         playerLbet3EL.classList.replace('show','hide');
+//     }
+//     playerLOutlineEL.classList.remove('droppable')
+// });
+
+// playerLbet3EL.addEventListener("drop", ev => {
+//     ev.preventDefault();
+//     setBet(drag_bet,playerLbet3EL)
+//     playerLOutlineEL.classList.remove('droppable')
+//     console.log(drag_bet + ' dropped')
+//     bet_status.LB3[0] = true
+//     setPlayerBank(drag_bet)
+// });
+
+
+// ----------------Right Bet
+// position 1
+// playerRbet1EL.addEventListener("dragover", ev => {
+//     ev.preventDefault();
+//     playerROutlineEL.classList.add('droppable')
+// });
+
+// playerRbet1EL.addEventListener("dragleave", ev => {
+//     ev.preventDefault();
+//     if (!bet_status.RB1[0]){
+//         playerRbet1EL.classList.replace('show','hide');
+//     }
+//     playerROutlineEL.classList.remove('droppable')
+// });
+
+// playerRbet1EL.addEventListener("drop", ev => {
+//     ev.preventDefault();
+//     setBet(drag_bet,playerRbet1EL)
+//     playerROutlineEL.classList.remove('droppable')
+//     console.log(drag_bet + ' dropped')
+//     bet_status.RB1[0] = true
+//     setPlayerBank(drag_bet)
+// });
+
+// ----------------Right Bet
+// position 2
+playerRbet2EL.addEventListener("dragover", ev => {
+    ev.preventDefault();
+    playerROutlineEL.classList.add('droppable')
+});
+
+playerRbet2EL.addEventListener("dragleave", ev => {
+    ev.preventDefault();
+    if (!bet_status.RB2[0]){
+        playerRbet2EL.classList.replace('show','hide');
+    }
+    playerROutlineEL.classList.remove('droppable')
+});
+
+playerRbet2EL.addEventListener("drop", ev => {
+    ev.preventDefault();
+    setBet(drag_bet,playerRbet2EL)
+    playerROutlineEL.classList.remove('droppable')
+    // console.log(drag_bet + ' dropped')
+    bet_status.RB2[0] = true
+    setPlayerBank(drag_bet)
+});
+
+// ----------------Right Bet
+// position 3
+// playerRbet3EL.addEventListener("dragover", ev => {
+//     ev.preventDefault();
+//     playerROutlineEL.classList.add('droppable')
+// });
+
+// playerRbet3EL.addEventListener("dragleave", ev => {
+//     ev.preventDefault();
+//     if (!bet_status.RB3[0]){
+//         playerRbet3EL.classList.replace('show','hide');
+//     }
+//     playerROutlineEL.classList.remove('droppable')
+// });
+
+// playerRbet3EL.addEventListener("drop", ev => {
+//     ev.preventDefault();
+//     setBet(drag_bet,playerRbet3EL)
+//     playerROutlineEL.classList.remove('droppable')
+//     console.log(drag_bet + ' dropped')
+//     bet_status.RB3[0] = true
+//     setPlayerBank(drag_bet)
+// });
+
+const bankPos = [[playerBank0EL,0,'five'],
+                [playerBank1EL,1,'ten'],
+                [playerBank2EL,2,'twenty-five'],
+                [playerBank3EL,3,'fifty'],
+                [playerBank4EL,4,'one-hundred'],
+                [playerBank5EL,5,'five-hundred'],
+                [playerBank6EL,6,'five-hundred']]
 let bankLevels;
-let playerCash = 2100;
+let playerCash = 7140;
 
 function sendHttpRequest(method,url){
     const promise = new Promise((resolve, reject) => {
@@ -115,20 +454,30 @@ async function fetchBankLevels() {
     })
 }
 
-function setPlayerBank(playerCash){
+function setPlayerBank(drag_bet){
+    if (drag_bet === 'five'){
+        playerCash -= 5
+    }
+    if (drag_bet === 'ten'){
+        playerCash -= 10
+    }
+    if (drag_bet === 'twenty-five'){
+        playerCash -= 25
+    }
+    if (drag_bet === 'fifty'){
+        playerCash -= 50
+    }
+    if (drag_bet === 'one-hundred'){
+        playerCash -= 100
+    }
+    if (drag_bet === 'five-hundred'){
+        playerCash -= 500
+    }
     if (playerCash <= 7140){
         levels = bankLevels[playerCash][1]
     }else{
-        levels = [6,6,6,6,6,6,6]
-    }
-    
-    const bankPos = [[playerBank0EL,0,'five'],
-                     [playerBank1EL,1,'ten'],
-                     [playerBank2EL,2,'twenty-five'],
-                     [playerBank3EL,3,'fifty'],
-                     [playerBank4EL,4,'one-hundred'],
-                     [playerBank5EL,5,'five-hundred'],
-                     [playerBank6EL,6,'five-hundred']]
+        levels = [6,6,6,6,6,6,6]}
+
     for (pos of bankPos){
         if (levels[pos[1]]>0){
             pos[0].classList.replace('hide','show')
@@ -139,6 +488,8 @@ function setPlayerBank(playerCash){
             }   
         }       
     }
+    drag_bet = null;
+    
 }
 
 
@@ -158,13 +509,13 @@ window.addEventListener('load', (event) => {
     window.scrollTo({
         top: document.body.scrollHeight,
         left: 0,
-        behavior: 'smooth'
+        // behavior: 'smooth'
       })
     // console.log('The page has fully loaded');
 });
 
 fetchBankLevels().then(()=>{
-    console.log(bankLevels[playerCash])
+    // console.log(bankLevels[playerCash])
     setPlayerBank(playerCash)
     
 })
