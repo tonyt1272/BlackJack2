@@ -1,9 +1,6 @@
-.drag-chips{
-
-    padding: 5px;
-
+.movable {
+    cursor: pointer;
 }
-
 
 .droppable {
     background: #ffe0ec;
@@ -163,6 +160,7 @@ html {
 }
 
 #player-bank-0{
+
     position: relative;
     right: -90px;
     bottom: 30px;
@@ -171,6 +169,7 @@ html {
 }
 
 #player-bank-1{
+
     position: relative;
     right: -75px;
     bottom: 22px;
@@ -179,6 +178,7 @@ html {
 }
 
 #player-bank-2{
+
     position: relative;
     right: -60px;
     bottom: 22px;
@@ -187,6 +187,7 @@ html {
 }
 
 #player-bank-3{
+
     position: relative;
     right: -45px;
     bottom: 22px;
@@ -196,6 +197,7 @@ html {
 }
 
 #player-bank-4{
+
     position: relative;
     right: -30px;
     bottom: 22px;
@@ -204,6 +206,7 @@ html {
 }
 
 #player-bank-5{
+
     position: relative;
     right: -15px;
     bottom: 22px;
@@ -212,6 +215,7 @@ html {
 }
 
 #player-bank-6{
+
     position: relative;
     /*right: 37px;*/
     bottom: 27px;

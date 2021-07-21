@@ -1,9 +1,29 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<!--        <script src="static/scripts/elements.js" defer></script>-->
         <script src="static/scripts/app.js" defer></script>
+<!--Max Bet Exceeded Modal-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Max Bet Exceeded</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <h5>The table limit is $500 per hand.</h5>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="container perspective-parent" >
+
 <!--        Controls -->
 
             <div class="row  d-flex flex-row-reverse disableselect">
@@ -13,9 +33,9 @@
                         <img id="playerR-bet1" class="hide" draggable="false" src="static/chips/blankChip.png">
                         <img id="playerR-bet2" class="hide" draggable="false" src="static/chips/blankChip.png">
                         <img id="playerR-bet3" class="hide" draggable="false" src="static/chips/blankChip.png">
-
                     </div>
                 </div>
+
                 <div class="col-sm-4 hud-overlay mx-auto">
                     <div class="text-center">
                         <img id="playerC-bet1" class="hide" draggable="false" src="static/chips/blankChip.png">
@@ -30,9 +50,11 @@
                         <img id="playerL-bet3" class="hide" draggable="false" src="static/chips/blankChip.png">
                     </div>
                 </div>
+
             </div>
 
             <div class="row d-flex flex-row-reverse no-gutter disableselect">
+
                 <div class="col-sm-1 hud-overlay">
                     <button  type="button" class="btn btn-primary btn-sm" onclick=" alert('I work!')">Stand!</button>
                 </div>
@@ -49,19 +71,19 @@
                     <img id="player-bank-5" class="hide" src="static/chips/five-hundred/2xfive-hundred.png">
                 </div>
                 <div class="col-sm-1 hud-overlay">
-                    <img id="player-bank-4" class="hide" src="static/chips/one-hundred/4xone-hundred.png">
+                    <img id="player-bank-4" class="hide" src="static/chips/blankChip.png">
                 </div>
                 <div class="col-sm-1 hud-overlay">
-                    <img id="player-bank-3" class="hide" src="static/chips/fifty/3xfifty.png">
+                    <img id="player-bank-3" class="hide" src="static/chips/blankChip.png">
                 </div>
                 <div class="col-sm-1 hud-overlay">
-                    <img id="player-bank-2" class="hide" src="static/chips/twenty-five/2xtwenty-five.png">
+                    <img id="player-bank-2" class="hide" src="static/chips/blankChip.png">
                 </div>
                 <div class="col-sm-1 hud-overlay">
-                    <img id="player-bank-1" class="hide" src="static/chips/ten/4xten.png">
+                    <img id="player-bank-1" class="hide" src="static/chips/blankChip.png">
                 </div>
                 <div class="col-sm-1 hud-overlay">
-                    <img id="player-bank-0" class="hide" src="static/chips/five/6xfive.png">
+                    <img id="player-bank-0" class="hide" src="static/chips/blankChip.png">
                 </div>
 
 <!--                <div class="col-sm-1 test">-->
@@ -73,6 +95,7 @@
 <!--                </div>-->
 
             </div>
+
 <!--            End Controls-->
 
 <!--        CHips   -->
