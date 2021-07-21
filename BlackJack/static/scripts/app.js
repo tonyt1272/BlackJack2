@@ -164,32 +164,29 @@ playerBank6EL.addEventListener("dragstart", ev =>{
     drag_bet_g = 'five-hundred';
 });
 
-function convertDrag(drag_bet){
-    if (drag_bet=='five'){
+function convertDrag(bet){
+    if (bet=='five'){
         return 5
     }
-    if (drag_bet=='ten'){
+    if (bet=='ten'){
         return 10
     }
-    if (drag_bet=='twenty-five'){
+    if (bet=='twenty-five'){
         return 25
     }
-    if (drag_bet=='fifty'){
+    if (bet=='fifty'){
         return 50
     }
-    if (drag_bet=='one-hundred'){
+    if (bet=='one-hundred'){
         return 100
     }
-    if (drag_bet=='five-hundred'){
+    if (bet=='five-hundred'){
         return 500
     }
 }
 
 function setChip(drag_bet,bet_pos){
     const promise = new Promise((resolve, reject) =>{
-        //
-        // logic based on drag_bet amount and chip amounts at bet_pos //
-        //
         // bet_pos : the element where the chip is to be dropped
         // drag_bet: the chip amount of the dragged chip
         
