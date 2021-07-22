@@ -104,6 +104,117 @@ chip100.src = "static/chips/one-hundred/one-hundredDrag.png"
 const chip500 = new Image()
 chip500.src = "static/chips/five-hundred/five-hundredDrag.png"
 
+//Strange Bet Configs
+const StrangeBetConfigs = {45: [20, 25, 0],
+                           50: [0, 50, 0],
+                           55: [5, 50, 0],
+                           60: [10, 50, 0],
+                           65: [5, 50, 10],
+                           70: [20, 50, 0],
+                           75: [0, 75, 0],
+                           80: [0, 75, 5],
+                           85: [30, 50, 5],
+                           90: [40, 50, 0],
+                           95: [50, 40, 5],
+                           100: [0, 100, 0],
+                           105: [5, 100, 0],
+                           110: [10, 100, 0],
+                           115: [15, 100, 0],
+                           120: [20, 100, 0],
+                           125: [25, 100, 0],
+                           130: [25, 100, 5],
+                           135: [25, 100, 10],
+                           140: [25, 100, 15],
+                           145: [25, 100, 20],
+                           150: [50, 100, 0],
+                           155: [50, 100, 5],
+                           160: [50, 100, 10],
+                           165: [50, 100, 15],
+                           170: [50, 100, 20],
+                           175: [75, 100, 0],
+                           180: [75, 100, 5],
+                           185: [75, 100, 10],
+                           190: [75, 100, 15],
+                           195: [75, 100, 20],
+                           200: [0, 200, 0],
+                           205: [5, 200, 0],
+                           210: [10, 200,  0],
+                           215: [15, 200,  0],
+                           220: [20, 200,  0],
+                           225: [25, 200,  0],
+                           230: [25, 200,  5],
+                           235: [25, 200,  10],
+                           240: [25, 200,  15],
+                           245: [25, 200,  20],
+                           250: [50, 200,  0],
+                           255: [50, 200,  5],
+                           260: [50, 200,  10],
+                           265: [50, 200,  15],
+                           270: [50, 200,  20],
+                           275: [75, 200,  0],
+                           280: [75, 200,  5],
+                           285: [75, 200,  10],
+                           290: [75, 200,  15],
+                           295: [75, 200,  20],
+                           300: [0, 300, 0],
+                           305: [5, 300, 0],
+                           310: [10, 300, 0],
+                           315: [15, 300, 0],
+                           320: [20, 300, 0],
+                           325: [25, 300, 0],
+                           330: [25, 300, 5],
+                           335: [25, 300, 10],
+                           340: [25, 300, 15],
+                           345: [25, 300, 20],
+                           350: [50, 300, 0],
+                           355: [50, 300, 5],
+                           360: [50, 300, 10],
+                           365: [50, 300, 15],
+                           370: [50, 300, 20],
+                           375: [75, 300, 0],
+                           380: [75, 300, 5],
+                           385: [75, 300, 10],
+                           390: [75, 300, 15],
+                           395: [75, 300, 20],
+                           400: [0, 400, 0],
+                           405: [5, 400, 0],
+                           410: [10, 400, 0],
+                           415: [15, 400, 0],
+                           420: [20, 400, 0],
+                           425: [25, 400, 0],
+                           430: [25, 400, 5],
+                           435: [25, 400, 10],
+                           440: [25, 400, 15],
+                           445: [25, 400, 20],
+                           450: [50, 400, 0],
+                           455: [50, 400, 5],
+                           460: [50, 400, 10],
+                           465: [50, 400, 15],
+                           470: [50, 400, 20],
+                           475: [75, 400, 0],
+                           480: [75, 400, 5],
+                           485: [75, 400, 10],
+                           490: [75, 400, 15],
+                           495: [75, 400, 20],
+                           500: [0, 500, 0],
+                        }
+
+function convertBetConfig(betConfig){
+    let finalConfig = [];
+    const chipVals =[[500, 'five-hundred'], [100, 'one-hundred'], [50, 'fifty'], 
+                     [25, 'twenty-five'], [10, 'ten'], [5, 'five']]
+    for(pos of betConfig){
+        for(val of chipVals){
+            if(pos%val[0] == 0){
+                num = pos/val[0]
+                const pair = [val[1], num]
+                finalConfig.push(pair)
+                break
+            }
+        }
+    }
+    return finalConfig
+}
 
 // --------------Start Bet Event Listeners
 let drag_bet_g;
@@ -189,7 +300,6 @@ function setChip(drag_bet,bet_pos){
     const promise = new Promise((resolve, reject) =>{
         // bet_pos :HTML Element where the chip is to be dropped
         // drag_bet:Chip amount of the dragged chip, string 'five', 'ten', etc.
-        
         const betPosition2 = bet_pos.id.slice(6,7)+'B2';
         const betPosition1 = bet_pos.id.slice(6,7)+'B1';
         const betPosition3 = bet_pos.id.slice(6,7)+'B3';
@@ -202,7 +312,7 @@ function setChip(drag_bet,bet_pos){
         const bet_pos3 = document.getElementById(id3)
 
         //logging status before bet
-        console.log(`chip moved to box : ${betAmount}`);
+        console.log(`chip moved: ${betAmount}`);
         console.log(`box bet placed in: ${betPosition2}`);
         // console.log(`previous bet status:  ${bet_status[betPosition2][0]}`);
         console.log(`previous bet amount 1:  ${bet_status[betPosition1][1]}`);
@@ -234,19 +344,19 @@ function setChip(drag_bet,bet_pos){
                 setPlayerBank(drag_bet)
 
                 // add event listeners for position 1
-                bet_pos1.addEventListener("dragover", ev => {
-                    ev.preventDefault();
-                    outline.classList.add('droppable')
-                });
-                bet_pos1.addEventListener("dragleave", ev => {
-                    ev.preventDefault();
-                    outline.classList.remove('droppable')
-                });
-                bet_pos1.addEventListener("drop", ev => {
-                    ev.preventDefault();
-                    setBet(drag_bet_g, bet_pos)
-                    outline.classList.remove('droppable')
-                });
+                // bet_pos1.addEventListener("dragover", ev => {
+                //     ev.preventDefault();
+                //     outline.classList.add('droppable')
+                // });
+                // bet_pos1.addEventListener("dragleave", ev => {
+                //     ev.preventDefault();
+                //     outline.classList.remove('droppable')
+                // });
+                // bet_pos1.addEventListener("drop", ev => {
+                //     ev.preventDefault();
+                //     setBet(drag_bet_g, bet_pos1)
+                //     outline.classList.remove('droppable')
+                // });
                 //
 
             }  else if (bet_status[betPosition1][0] == drag_bet && bet_status[betPosition1][1] < 6*amount){
@@ -262,19 +372,19 @@ function setChip(drag_bet,bet_pos){
                 setPlayerBank(drag_bet)
 
             //add event listeners for position 3
-            bet_pos3.addEventListener("dragover", ev => {
-                ev.preventDefault();
-                outline.classList.add('droppable')
-            });
-            bet_pos3.addEventListener("dragleave", ev => {
-                ev.preventDefault();
-                outline.classList.remove('droppable')
-            });
-            bet_pos3.addEventListener("drop", ev => {
-                ev.preventDefault();
-                setBet(drag_bet_g, bet_pos)
-                outline.classList.remove('droppable')
-            });
+            // bet_pos3.addEventListener("dragover", ev => {
+            //     ev.preventDefault();
+            //     outline.classList.add('droppable')
+            // });
+            // bet_pos3.addEventListener("dragleave", ev => {
+            //     ev.preventDefault();
+            //     outline.classList.remove('droppable')
+            // });
+            // bet_pos3.addEventListener("drop", ev => {
+            //     ev.preventDefault();
+            //     setBet(drag_bet_g, bet_pos3)
+            //     outline.classList.remove('droppable')
+            // });
             //
 
             } else if (bet_status[betPosition3][0] == drag_bet && bet_status[betPosition3][1] < 6*amount){
@@ -283,17 +393,63 @@ function setChip(drag_bet,bet_pos){
                 bet_pos3.setAttribute('src',`static/chips/${drag_bet}/${numChips}x${drag_bet}.png`);
                 setPlayerBank(drag_bet)
             }
+            else{console.log('Strange Bet!');
+                 const betConfig = StrangeBetConfigs[newBetTotal]
+                 console.log(`Config for Strange Bet: ${betConfig}`)
+                 const finalBetConfig = convertBetConfig(betConfig)
+                 console.log(`final Strange Bet Config: ${finalBetConfig}`)
+                 for(item of finalBetConfig){
+                     console.log(item)
+                 }
+                 bet_status[betPosition1][0] = finalBetConfig[0][0]
+                 bet_status[betPosition1][1] = betConfig[0]
+                 bet_status[betPosition2][0] = finalBetConfig[1][0]
+                 bet_status[betPosition2][1] = betConfig[1]
+                 bet_status[betPosition3][0] = finalBetConfig[2][0]
+                 bet_status[betPosition3][1] = betConfig[2]
+                 
+                 if(finalBetConfig[0][1] > 0){
+                    bet_pos1.classList.replace('hide','show')
+                    bet_pos1.setAttribute('src',`static/chips/${finalBetConfig[0][0]}/${finalBetConfig[0][1]}x${finalBetConfig[0][0]}.png`)}
+                 else{
+                    bet_pos1.classList.replace('show','hide')
+                    bet_pos1.setAttribute('src',`static/chips/blankChip.png`)
+                 }
+
+                if(finalBetConfig[1][1] > 0){
+                    bet_pos.classList.replace('hide','show')
+                    bet_pos.setAttribute('src',`static/chips/${finalBetConfig[1][0]}/${finalBetConfig[1][1]}x${finalBetConfig[1][0]}.png`)}
+                else{
+                    bet_pos.classList.replace('show','hide')
+                    bet_pos.setAttribute('src',`static/chips/blankChip.png`)
+                }
+                 
+                if(finalBetConfig[2][1] > 0){
+                    bet_pos3.classList.replace('hide','show')
+                    bet_pos3.setAttribute('src',`static/chips/${finalBetConfig[2][0]}/${finalBetConfig[2][1]}x${finalBetConfig[2][0]}.png`)}
+                else{
+                    bet_pos3.classList.replace('show','hide')
+                    bet_pos3.setAttribute('src',`static/chips/blankChip.png`)
+                }
+                 
+                setPlayerBank(drag_bet)
+                }
+     
+        
         }else{
-            // alert('Table limit is $500')
+            console.log('Max Bet exceeded!')
+            var audio = new Audio('static/audio/short_bark.wav');
+            audio.play()
             // $('.alert').alert("Table limit is $500")
-            $('#exampleModal').modal('show');
-            centerWindow();
+            // $('#exampleModal').modal('show');
+            // centerWindow();
         }
         //logging status after bet
         // console.log(`current bet status:  ${bet_status[betPosition2][0]}`)
         console.log(`current bet amount 1:  ${bet_status[betPosition1][1]}`)
         console.log(`current bet amount 2:  ${bet_status[betPosition2][1]}`)
         console.log(`current bet amount 3:  ${bet_status[betPosition3][1]}`)
+        console.log('\n')
         resolve('success');
     })
     return promise;
@@ -313,6 +469,7 @@ let bet_status = {LB1: [false,0],
                   RB1: [false,0],
                   RB2: [false,0],
                   RB3: [false,0]}
+
 
 // --------------Center Bet 
 // position 2
@@ -390,7 +547,7 @@ const bankPos = [[playerBank0EL,0,'five'],
                 [playerBank5EL,5,'five-hundred'],
                 [playerBank6EL,6,'five-hundred']]
 let bankLevels;
-let playerCash = 500;
+let playerCash = 2500;
 
 function sendHttpRequest(method,url){
     const promise = new Promise((resolve, reject) => {
@@ -473,12 +630,16 @@ function centerWindow(){
 }
 
 window.addEventListener('load', (event) => {
+
+    // playerBank3EL.scrollIntoView(false)
     window.scrollTo({
         top: document.body.scrollHeight,
-        left: 0,
+        left: 125,
         behavior: 'smooth'
       })
     // console.log('The page has fully loaded');
+    // demo1();
+
 });
 
 fetchBankLevels().then(()=>{
@@ -487,6 +648,24 @@ fetchBankLevels().then(()=>{
 })
 
 // document.addEventListener('scroll',centerWindow)
+
+
+function demo1(pause=500){
+    
+    setTimeout(()=>{playerLCard1EL.classList.replace('hide','show')},1*pause)
+    setTimeout(()=>{playerCCard1EL.classList.replace('hide','show')},2*pause)
+    setTimeout(()=>{playerRCard1EL.classList.replace('hide','show')},3*pause)
+    setTimeout(()=>{dealerCard1EL.classList.replace('hide','show')},4*pause)   
+    setTimeout(()=>{playerLCard2EL.classList.replace('hide','show')},5*pause)
+    setTimeout(()=>{playerCCard2EL.classList.replace('hide','show')},6*pause)
+    setTimeout(()=>{playerRCard2EL.classList.replace('hide','show')},7*pause)
+    setTimeout(()=>{dealerCard2EL.classList.replace('hide','show')},8*pause)  
+}
+
+
+    
+   
+
 
 
 
