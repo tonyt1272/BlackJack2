@@ -1,4 +1,5 @@
 //Dealer
+const trayCard = document.getElementById('d-tray-card')
 const dealerCard1EL = document.getElementById('d1')
 const dealerCard2EL = document.getElementById('d2')
 const dealerCard3EL = document.getElementById('d3')
@@ -9,6 +10,7 @@ const dealerCard7EL = document.getElementById('d7')
 const dealerCard8EL = document.getElementById('d8')
 
 //Left Player
+const playerLOutlineEL = document.getElementById('cL-outline')
 const playerLCard1EL = document.getElementById('c1L')
 const playerLCard1SplitEL = document.getElementById('c1L-split')
 const playerLCard2EL = document.getElementById('c2L')
@@ -30,7 +32,9 @@ const playerLbet1EL = document.getElementById('playerL-bet1')
 const playerLbet2EL = document.getElementById('playerL-bet2')
 const playerLbet3EL = document.getElementById('playerL-bet3')
 
+
 //Center Player
+const playerCOutlineEL = document.getElementById('cC-outline')
 const playerCCard1EL = document.getElementById('c1C')
 const playerCCard1SplitEL = document.getElementById('c1C-split')
 const playerCCard2EL = document.getElementById('c2C')
@@ -52,7 +56,9 @@ const playerCbet1EL = document.getElementById('playerC-bet1')
 const playerCbet2EL = document.getElementById('playerC-bet2')
 const playerCbet3EL = document.getElementById('playerC-bet3')
 
+
 //Right Player
+const playerROutlineEL = document.getElementById('cR-outline')
 const playerRCard1EL = document.getElementById('c1R')
 const playerRCard1SplitEL = document.getElementById('c1R-split')
 const playerRCard2EL = document.getElementById('c2R')
@@ -74,6 +80,7 @@ const playerRbet1EL = document.getElementById('playerR-bet1')
 const playerRbet2EL = document.getElementById('playerR-bet2')
 const playerRbet3EL = document.getElementById('playerR-bet3')
 
+
 //Player Bank
 const playerBank6EL = document.getElementById('player-bank-6')
 const playerBank5EL = document.getElementById('player-bank-5')
@@ -82,3 +89,18 @@ const playerBank3EL = document.getElementById('player-bank-3')
 const playerBank2EL = document.getElementById('player-bank-2')
 const playerBank1EL = document.getElementById('player-bank-1')
 const playerBank0EL = document.getElementById('player-bank-0')
+
+
+//Chip Elements
+const chip5 = new Image()
+chip5.src = "static/chips/five/fiveDrag.png"
+const chip10 = new Image()
+chip10.src = "static/chips/ten/tenDrag.png"
+const chip25 = new Image()
+chip25.src = "static/chips/twenty-five/twenty-fiveDrag.png"
+const chip50 = new Image()
+chip50.src = "static/chips/fifty/fiftyDrag.png"
+const chip100 = new Image()
+chip100.src = "static/chips/one-hundred/one-hundredDrag.png"
+const chip500 = new Image()
+chip500.src = "static/chips/five-hundred/five-hundredDrag.png"

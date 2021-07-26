@@ -1,7 +1,15 @@
 {% extends "layout.html" %}
 
 {% block content %}
-        <script src="static/scripts/app.js" defer></script>
+        <script src="static/scripts/play/elements.js" defer></script>
+        <script src="static/scripts//play/variables.js" defer></script>
+        <script src="static/scripts//play/listeners.js" defer></script>
+        <script src="static/scripts//play/setChipBet.js" defer></script>
+        <script src="static/scripts//play/convertBet.js" defer></script>
+        <script src="static/scripts//play/setBank.js" defer></script>
+        <script src="static/scripts//play/deck.js" defer></script>
+        <script src="static/scripts//play/dealer.js" defer></script>
+        <script src="static/scripts//play/app.js" defer></script>
 <!--Max Bet Exceeded Modal-->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered">
@@ -109,14 +117,14 @@
                     </div>
 
         <!--            Dealer and Bet Placard (Bet Placard is offset to sit between Dealer and CHips)  -->
-                    <div class="row d-flex flex-row justify-content-center disableselect">
+                    <div class="row d-flex  flex-row justify-content-center disableselect">
                         <div class="col-sm-4 d-flex disableselect" draggable="false">
                             <img class="img-fluid disableselect" id="tray" draggable="false" src="static/table_objects/tray5.png">
                             <img class="img-fluid disableselect" id="bet" draggable="false" src="static/table_objects/bet_placard.png">
                         </div>
                         <div class="col-sm-4 disableselect">
-                        <div class="d-flex" >
-                                <img id="d-tray-card" class="disableselect" draggable="false" src="static/cards/zback.png">
+                        <div  class="d-flex">
+                                <img id="d-tray-card" class="disableselect" draggable="false" src="static/cards/zblank.png">
                                 <img id="d1" class="hide disableselect" draggable="false" src="static/cards/Diamonds1.png" >
                                 <img id="d2" class="hide disableselect" draggable="false" src="static/cards/zback.png">
                                 <img id="d3" class="hide disableselect" draggable="false" src="static/cards/zblank.png">
