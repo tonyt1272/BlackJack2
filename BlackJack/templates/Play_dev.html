@@ -68,7 +68,7 @@
                     <button  type="button" class="btn btn-primary btn-sm" onclick="$(demo1())">Demo</button>
                 </div>
                 <div class="col-sm-1 hud-overlay">
-                    <button   type="button" class="btn btn-primary btn-sm" onclick=" alert('I work!')">Stand!</button>
+                    <button   type="button" class="btn btn-primary btn-sm" onclick="stack+=1; if(stack<20){trayCard.setAttribute('src',`static/table_objects/tray_stacks/stack_${stack}.png`)}else{trayCard.setAttribute('src',`static/table_objects/tray_stacks/stack_1.png`);stack=1}; ">Stack!</button>
                 </div>
                 <div class="col-sm-1 hud-overlay">
                     <button  type="button" class="btn btn-primary btn-sm" onclick=" alert('I work!')">Stand!</button>

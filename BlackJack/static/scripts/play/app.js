@@ -26,5 +26,8 @@ function demo1(pause=500){
 fetchBankLevels().then(()=>{
     // console.log(bankLevels[playerCash])
     console.log(`Player Cash: $${playerCash}`)
-    setPlayerBank(playerCash)
+    setPlayerBank(playerCash);
+
 })
+
+let stack = 0;

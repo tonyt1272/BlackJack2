@@ -702,7 +702,7 @@ html {
 }
 
 .perspective-parent{
-    margin: 0px 0px 40px 0px;
+    margin: 0px 0px 15px 0px;
     perspective: 1200px;
     /*min-width: 680px;*/
     min-width: 900px;

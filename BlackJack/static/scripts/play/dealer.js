@@ -11,7 +11,8 @@ class TableSeat{
     handTotal = [0,0];
     bust = false;
     stand = false;
-    double = false;
+    doubleD = false;
+    bj = false;
 
     addCard(card){
         this.cards.push(card);
@@ -25,20 +26,24 @@ class TableSeat{
         }
         if (this.handTotal[0] > 21){
             this.bust = true;
-            this.dealer.nextPlayer()
+            this.dealer.nextPlayer();
+        }
+        if (this.handTotal[1] == 21){
+            this.bj=true;
         }
     }
     setStand(){
         this.stand = true;
         this.dealer.nextPlayer()
     }
-    getStand(){
-
-    }
     clearHand(){
         this.cards = []
         this.handValues = []
         this.handTotal = [0,0];
+        this.bust = false;
+        this.stand = false;
+        this.doubleD = false;
+        this.bj = false;
     }
     hit(){
         if(!this.bust){
@@ -70,7 +75,13 @@ class Dealer extends TableSeat{
     }
 
     dealerPlay(){
-        //Dealer play logic: draw to 16 and soft 17
+        console.log('Dealer Playing hand.')
+        while((this.handTotal[0] < 17 && this.handTotal[1] <18) || (this.handTotal[0] < 17 && this.handTotal[1] >21)){
+            this.hit()
+            if (this.handTotal[0] > 21){
+                break
+            }
+        }
     }
 
     deal(){
@@ -89,13 +100,11 @@ class Dealer extends TableSeat{
 
     nextPlayer(){
         this.pos+=1
-        if (true){
-            this.currentPlayer = this.players[this.pos]
-        }
-        else{
-            // Do end of round stuff
-        }
-        
+        this.currentPlayer = this.players[this.pos]
+        if (this.currentPlayer == this){
+            this.dealerPlay();
+            this.settleBets();
+        }  
     }
     hit(){
         if(!this.bust){
@@ -115,6 +124,9 @@ class Dealer extends TableSeat{
         if (this.handTotal[0] > 21){
             this.bust = true;
         }
+        if (this.handTotal[1] == 21){
+            this.bj=true;
+        }
     }
     setStand(){
         this.stand = true;
@@ -122,7 +134,17 @@ class Dealer extends TableSeat{
     clearAll(){
         for(this.player of this.players){
             this.player.clearHand();
+            // this.player.bet = 5;
         }
+    }
+    settleBets(){
+        console.log('Doing Bet settling stuff!')
+        //After round dealer hand is played, collect or pay
+        // for(this.player of this.players){
+            // Do bet settling stuff;
+            //  this.player.clearHand();
+            // this.player.bet = 0;
+        // }
     }
 }
 
@@ -145,29 +167,24 @@ class Player extends TableSeat{
         this.hit();
         if (!this.bust){
             this.dealer.nextPlayer();
+            this.doubleD = true;
+            this.bet = 2 * this.bet;
         }
     }
-
     setDealer(dealer){
         this.dealer = dealer;
     }
-
-
 }
 
 
-// dev script
+// ------------- dev script ---------------- //
 deck = newDeck(); // master reference for cards
 boot = new Boot(); // current boot of cards
-// boot.shuffle()
-// console.log(boot)
 
 PlayerL = new Player('L',5);
 PlayerC = new Player('C',10);
 PlayerR = new Player('R',5);
 players = [PlayerL, PlayerC, PlayerR];  // players active in a round
-
-
 
 dealer = new Dealer(players);
 
