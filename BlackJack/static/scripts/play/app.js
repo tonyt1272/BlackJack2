@@ -31,3 +31,39 @@ fetchBankLevels().then(()=>{
 })
 
 let stack = 0;
+
+// ------------- dev script ---------------- //
+deck = newDeck(); // master reference for cards
+boot = new Boot(); // current boot of cards
+boot.shuffle();
+
+PlayerL = new Player('L',5);
+PlayerC = new Player('C',10);
+PlayerR = new Player('R',5);
+players = [PlayerL, PlayerC, PlayerR];  // players active in a round
+
+dealer = new Dealer(players);
+
+dealer.deal();
+
+console.log('\n');
+console.log('PlayerL');
+console.log(`card file names: ${PlayerL.cards}`);
+console.log(`card face values: ${PlayerL.handValues}`);
+console.log(`hand total: ${PlayerL.handTotal}`);
+console.log('\n');
+console.log('PlayerC');
+console.log(`card file names: ${PlayerC.cards}`);
+console.log(`card face values: ${PlayerC.handValues}`);
+console.log(`hand total: ${PlayerC.handTotal}`);
+console.log('\n');
+console.log('PlayerR');
+console.log(`card file names: ${PlayerR.cards}`);
+console.log(`card face values: ${PlayerR.handValues}`);
+console.log(`hand total: ${PlayerR.handTotal}`);
+console.log('\n');
+console.log('Dealer');
+console.log(`card file names: ${dealer.cards}`);
+console.log(`card face values: ${dealer.handValues}`);
+console.log(`hand total: ${dealer.handTotal}`);
+console.log('\n');

@@ -30,6 +30,8 @@ class TableSeat{
         }
         if (this.handTotal[1] == 21){
             this.bj=true;
+            this.stand=true;
+            this.dealer.nextPlayer();
         }
     }
     setStand(){
@@ -67,7 +69,6 @@ class Dealer extends TableSeat{
       this.players = [...players];
       
       this.currentPlayer = this.players[this.pos];
-    //   console.log(this.players)
       for (this.player of this.players){
             this.player.setDealer(this)
       }
@@ -83,9 +84,7 @@ class Dealer extends TableSeat{
             }
         }
     }
-
     deal(){
-        
         for (let i=0; i <2;i++){
             for (this.player of this.players){
                 this.player.addCard(deck[boot.nextCard()])
@@ -93,17 +92,23 @@ class Dealer extends TableSeat{
         }
         this.pos = 0
         this.currentPlayer = this.players[this.pos]
+        if (this.currentPlayer.stand == true){
+            this.nextPlayer()
+        }
     }
     dealSingle(player){
         player.addCard(deck[boot.nextCard()])
     }
-
     nextPlayer(){
         this.pos+=1
         this.currentPlayer = this.players[this.pos]
+        
         if (this.currentPlayer == this){
             this.dealerPlay();
             this.settleBets();
+        }
+        else if (this.currentPlayer.stand == true){
+            this.nextPlayer()
         }  
     }
     hit(){
@@ -131,12 +136,6 @@ class Dealer extends TableSeat{
     setStand(){
         this.stand = true;
     }
-    clearAll(){
-        for(this.player of this.players){
-            this.player.clearHand();
-            // this.player.bet = 5;
-        }
-    }
     settleBets(){
         console.log('Doing Bet settling stuff!')
         //After round dealer hand is played, collect or pay
@@ -158,10 +157,20 @@ class Player extends TableSeat{
         this.position = position;
         this.bet = bet;
     }
-    
     split(){
-        // add player after dealer.current player, deal one card to each player play each player
-        // hand as normal, in sequence
+        const seat = this.dealer.currentPlayer.position; // 'L', 'C' or 'R'
+        const sBet = this.dealer.currentPlayer.bet;      // amount of initial bet
+        const sPos = this.dealer.pos + 1;                // index of player splitting + 1
+        const sPlayer = new Player(`S${seat}`, sBet);    // new split player
+        const cardS = this.dealer.currentPlayer.cards.pop(); //
+        const card = this.dealer.currentPlayer.cards[0];
+        this.dealer.currentPlayer.clearHand();
+        this.dealer.currentPlayer.addCard(card);
+        sPlayer.addCard(cardS);
+        sPlayer.setDealer(this.dealer);
+        this.dealer.players.splice(sPos, 0, sPlayer);
+        this.dealer.currentPlayer.hit();
+        this.dealer.players[sPos].hit();
     }
     dubD(){
         this.hit();
@@ -175,42 +184,3 @@ class Player extends TableSeat{
         this.dealer = dealer;
     }
 }
-
-
-// ------------- dev script ---------------- //
-deck = newDeck(); // master reference for cards
-boot = new Boot(); // current boot of cards
-
-PlayerL = new Player('L',5);
-PlayerC = new Player('C',10);
-PlayerR = new Player('R',5);
-players = [PlayerL, PlayerC, PlayerR];  // players active in a round
-
-dealer = new Dealer(players);
-
-boot.shuffle();
-// console.log(boot)
-
-dealer.deal();
-
-console.log('\n');
-console.log('PlayerL');
-console.log(`card file names: ${PlayerL.cards}`);
-console.log(`card face values: ${PlayerL.handValues}`);
-console.log(`hand total: ${PlayerL.handTotal}`);
-console.log('\n');
-console.log('PlayerC');
-console.log(`card file names: ${PlayerC.cards}`);
-console.log(`card face values: ${PlayerC.handValues}`);
-console.log(`hand total: ${PlayerC.handTotal}`);
-console.log('\n');
-console.log('PlayerR');
-console.log(`card file names: ${PlayerR.cards}`);
-console.log(`card face values: ${PlayerR.handValues}`);
-console.log(`hand total: ${PlayerR.handTotal}`);
-console.log('\n');
-console.log('Dealer');
-console.log(`card file names: ${dealer.cards}`);
-console.log(`card face values: ${dealer.handValues}`);
-console.log(`hand total: ${dealer.handTotal}`);
-console.log('\n');

@@ -101,27 +101,31 @@ function newDeck() {
     return deck
 }
 
-// deck = newDeck()
-// console.log(deck)
 
 
 // Boot type 1:  Hand shuffle reset at between 50% to 75% (randomized) of the
 // (5 or 6) deck boot.
+// Boot type 2:  Continuous shuffle reset at between 5% to 10% cards from an 
+// (5 or 6) deck boot.
 class Boot{
+    a; //min reshuffle
+    b; //max reshuffle
     size;   // number of decks in boot
     splitCard;  // integer location (value) of the splitCard
     shuffleNextRound = false; // boolean 
     cards;  // array of integer values [1...52] representing playing cards, transform to cards using deck object, deck[num] -> card
     dealt = 0;  // number of cards that have left the boot
     
-    constructor(size=6){
+    constructor(size=6,a=.4,b=.75){
         this.size = size;
         let cards = range(1,53);
-        let boot = []
+        let boot = [];
         for(let i = 0; i<size; i++){
             boot = boot.concat(cards);
         }
-        this.cards = boot
+        this.cards = boot;
+        this.a = a;
+        this.b = b;
     }
 
     nextCard(){
@@ -133,8 +137,8 @@ class Boot{
     }
 
     placeSplitCard(){
-        let min = Math.round(this.size*52*.40)
-        let max = Math.round(this.size*52*.80)
+        let min = Math.round(this.size*52*this.a)
+        let max = Math.round(this.size*52*this.b)
         this.splitCard = getRandomInt(min, max)
     }   // chooses index of the cut card
 
@@ -160,8 +164,7 @@ class Boot{
 
 
 
-// Boot type 2:  Continuous shuffle reset at between 26 to 52 cards from an 
-// (5 or 6) deck boot.
+
 
 // boot = new Boot()
 // boot.shuffle()
