@@ -26,12 +26,17 @@ class TableSeat{
         }
         if (this.handTotal[0] > 21){
             this.bust = true;
-            this.dealer.nextPlayer();
+            // this.stand=true;
+            this.setStand();
         }
-        if (this.handTotal[1] == 21){
+        if (this.handTotal[1] == 21 && this.cards.length == 2){
             this.bj=true;
             this.stand=true;
-            this.dealer.nextPlayer();
+            // this.setStand();
+        }else if(this.handTotal[1] == 21 || this.handTotal[0]==21){
+            // this.bj=true;
+            // this.stand=true;
+            this.setStand();
         }
     }
     setStand(){
@@ -74,13 +79,25 @@ class Dealer extends TableSeat{
       }
       this.players.push(this)
     }
-
+    addCard(card){
+        this.cards.push(card);
+        this.handValues.push(cardValues[card[1]])
+        this.setHandTotal()
+    }
     dealerPlay(){
         console.log('Dealer Playing hand.')
+        let playDealer = false;
+        for (this.player of this.players.slice(0, this.players.length-2)){
+            if (this.player.bust == false && this.player.bj == false ){
+                playDealer = true;
+            }
+        }
+        if (playDealer){
         while((this.handTotal[0] < 17 && this.handTotal[1] <18) || (this.handTotal[0] < 17 && this.handTotal[1] >21)){
             this.hit()
             if (this.handTotal[0] > 21){
                 break
+               }
             }
         }
     }
@@ -90,10 +107,17 @@ class Dealer extends TableSeat{
                 this.player.addCard(deck[boot.nextCard()])
             }
         }
+        //IF dealer has BJ this.settleBet()
+        if (this.players[this.players.length-1].handTotal[1] == 21){
+            this.settleBets();
+            this.pos = this.players.length-1;
+            this.currentPlayer = this.players[this.pos];
+        }else{
         this.pos = 0
         this.currentPlayer = this.players[this.pos]
         if (this.currentPlayer.stand == true){
             this.nextPlayer()
+            }
         }
     }
     dealSingle(player){
@@ -129,7 +153,7 @@ class Dealer extends TableSeat{
         if (this.handTotal[0] > 21){
             this.bust = true;
         }
-        if (this.handTotal[1] == 21){
+        if (this.handTotal[1] == 21 && this.cards.length == 2 ){
             this.bj=true;
         }
     }
@@ -175,9 +199,10 @@ class Player extends TableSeat{
     dubD(){
         this.hit();
         if (!this.bust){
-            this.dealer.nextPlayer();
+            // this.dealer.nextPlayer();
             this.doubleD = true;
             this.bet = 2 * this.bet;
+            this.setStand();
         }
     }
     setDealer(dealer){
