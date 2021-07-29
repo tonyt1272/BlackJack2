@@ -264,10 +264,11 @@ class Player extends TableSeat{
         if (this.handValues[0] == this.handValues[1] && this.cards.length == 2 && !this.splitActive){
             this.splitActive = true;
 
-            //set second card to blank before split for animation purposes
+            
             const position = 'c' + this.cards.length + this.position
+            
             document.getElementById(position).setAttribute('src',`static/cards/cards/zblank.png`)
-
+            
             const seat = this.dealer.currentPlayer.position; // 'L', 'C' or 'R'
             const sBet = this.dealer.currentPlayer.bet;      // amount of initial bet
             const sPos = this.dealer.pos + 1;                // index of player splitting + 1

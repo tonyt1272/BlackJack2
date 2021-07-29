@@ -308,7 +308,7 @@ html {
     right: 0px;
     opacity: 0.5;
     bottom: 70px;
-    transform: rotate(45deg);
+    transform: rotate(45deg) scale(1.1);
 }
 
 #cL-split-outline{
@@ -317,6 +317,7 @@ html {
     right: 1465px;
     bottom: 250px;
     z-index: -1;
+    transform: scale(1.1);
 
 }
 
@@ -326,6 +327,7 @@ html {
     right: 1465px;
     bottom: 250px;
     z-index: -1;
+    transform: scale(1.1);
 
 }
 #cR-split-outline{
@@ -334,6 +336,7 @@ html {
     right: 1465px;
     bottom: 250px;
     z-index: -1;
+    transform: scale(1.1);
 
 }
 
@@ -456,7 +459,7 @@ html {
     right: 0px;
     opacity: 0.5;
     bottom: 70px;
-    transform: rotate(0deg);
+    transform: rotate(0deg) scale(1.1);
 }
 
 #c1C{
@@ -577,7 +580,7 @@ html {
     right: 0px;
     opacity: 0.5;
     bottom: 70px;
-    transform: rotate(-45deg);
+    transform: rotate(-45deg) scale(1.1);
 }
 
 #c1R{

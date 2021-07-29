@@ -82,14 +82,14 @@ function playGame(){
     // players = [PlayerC, PlayerR];  // players active in a round
 
     dealer = new Dealer(players);
-    // boot.cards[0]=4;
-// boot.cards[1]=1;
-// boot.cards[2]=1;
-// boot.cards[3]=1;
-// boot.cards[4]=4;
-// boot.cards[5]=6;
-// boot.cards[6]=10;
-// boot.cards[7]=6;
+    boot.cards[0]=1;
+    // boot.cards[1]=1;
+    // boot.cards[2]=1;
+    // boot.cards[3]=1;
+    boot.cards[4]=1;
+    // boot.cards[5]=1;
+    // boot.cards[6]=10;
+    // boot.cards[7]=6;
     console.log(boot.dealt>boot.splitCard)
     dealer.deal()
     demo1()
