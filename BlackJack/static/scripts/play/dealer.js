@@ -16,6 +16,13 @@ class TableSeat{
 
     addCard(card){
         this.cards.push(card);
+        const position = 'c' + this.cards.length + this.position
+        this.dealer.dealCards.push(position)
+        console.log(`${position} takes: ${card}`)
+        document.getElementById(position).setAttribute('src',`static/cards/cards/${card}`)
+        if (this.cards.length >2){
+            document.getElementById(position).classList.replace('hide',`show`)
+        }
         this.handValues.push(cardValues[card[1]])
         this.setHandTotal()
         } 
@@ -35,8 +42,8 @@ class TableSeat{
             // this.setStand();
         }else if(this.handTotal[1] == 21 || this.handTotal[0]==21){
             // this.bj=true;
-            // this.stand=true;
-            this.setStand();
+            this.stand=true;
+            // this.setStand();
         }
     }
     setStand(){
@@ -53,7 +60,7 @@ class TableSeat{
         this.bj = false;
     }
     hit(){
-        if(!this.bust){
+        if(!this.bust && !this.stand){
             this.dealer.dealSingle(this)
             console.log('\n')
             console.log(this)
@@ -68,7 +75,12 @@ class Dealer extends TableSeat{
     players = [];
     currentPlayer;
     pos = 0;
-
+    dealCards = [];
+    stand;
+    highlightPos;
+    position = 'D';
+    roundOver = false;
+    
     constructor(players){
       super();
       this.players = [...players];
@@ -81,13 +93,28 @@ class Dealer extends TableSeat{
     }
     addCard(card){
         this.cards.push(card);
+
+        const position = 'd' + this.cards.length
+        this.dealCards.push(position)
+        console.log(`${position} takes: ${card}`)
+        if (this.cards.length ==2){
+            document.getElementById(position).setAttribute('src',`static/cards/cards/zback.png`)
+        }else{
+            document.getElementById(position).setAttribute('src',`static/cards/cards/${card}`)
+            if (this.cards.length >2){
+                document.getElementById(position).classList.replace('hide',`show`)
+            }
+        }
+        
         this.handValues.push(cardValues[card[1]])
         this.setHandTotal()
     }
     dealerPlay(){
+        this.roundOver = true;
         console.log('Dealer Playing hand.')
+        dealerCard2EL.setAttribute('src',`static/cards/cards/${this.cards[1]}`)
         let playDealer = false;
-        for (this.player of this.players.slice(0, this.players.length-2)){
+        for (this.player of this.players.slice(0, this.players.length-1)){
             if (this.player.bust == false && this.player.bj == false ){
                 playDealer = true;
             }
@@ -100,21 +127,28 @@ class Dealer extends TableSeat{
                }
             }
         }
+        this.stand = true;
     }
     deal(){
+        // select cards from boot
         for (let i=0; i <2;i++){
             for (this.player of this.players){
                 this.player.addCard(deck[boot.nextCard()])
             }
         }
-        //IF dealer has BJ this.settleBet()
+
         if (this.players[this.players.length-1].handTotal[1] == 21){
-            this.settleBets();
             this.pos = this.players.length-1;
             this.currentPlayer = this.players[this.pos];
+            this.settleBets();
         }else{
         this.pos = 0
         this.currentPlayer = this.players[this.pos]
+        
+        this.highlightPos = 'c'+this.currentPlayer.position+'-outline'
+        console.log(this.highlightPos)
+        document.getElementById(this.highlightPos).style.opacity=1;
+
         if (this.currentPlayer.stand == true){
             this.nextPlayer()
             }
@@ -124,8 +158,39 @@ class Dealer extends TableSeat{
         player.addCard(deck[boot.nextCard()])
     }
     nextPlayer(){
+        
         this.pos+=1
         this.currentPlayer = this.players[this.pos]
+        // if (!this.currentPlayer.position.includes('split')){
+            
+        //     try{
+        //         this.highlightPos = 'c'+this.players[this.pos-1].position+'-outline'
+        //         document.getElementById(this.highlightPos).style.opacity=.5;
+        //     }catch(e){
+        //         this.highlightPos = 'c'+this.players[this.pos-2].position+'-outline'
+        //         document.getElementById(this.highlightPos).style.opacity=.5;
+        //     }
+            
+
+        //     if (this.currentPlayer != this){
+        //         this.highlightPos = 'c'+this.currentPlayer.position+'-outline'
+        //         document.getElementById(this.highlightPos).style.opacity=1;
+        //     }
+        // }
+
+        
+                this.highlightPos = 'c'+this.players[this.pos-1].position+'-outline'
+                document.getElementById(this.highlightPos).style.opacity=.5;
+                if (this.players[this.pos-1].position.includes('split')){
+                    document.getElementById(this.highlightPos).style.opacity=0;
+                }
+                
+                if (this.currentPlayer != this){
+                    this.highlightPos = 'c'+this.currentPlayer.position+'-outline'
+                    document.getElementById(this.highlightPos).style.opacity=1;
+                    document.getElementById(this.highlightPos).classList.replace('hide','show')
+                }
+
         
         if (this.currentPlayer == this){
             this.dealerPlay();
@@ -169,6 +234,19 @@ class Dealer extends TableSeat{
             // this.player.bet = 0;
         // }
     }
+    clearTable(){
+        let cards = this.dealCards
+        for (let i=0; i<cards.length; i++){
+            let pos = cards[i]
+            document.getElementById(pos).setAttribute('src',`static/cards/cards/zblank.png`)
+            document.getElementById(pos).classList.replace('show',`hide`)
+        }
+        if (boot.stack<19){
+            document.getElementById('d-tray-card').setAttribute('src',`static/table_objects/tray_stacks/stack_${boot.stack}.png`)
+            boot.stack+=1
+        }
+        
+    }
 }
 
 
@@ -176,34 +254,50 @@ class Player extends TableSeat{
     position;
     bet;
     dealer;
+    splitActive = false;
     constructor(position, bet=5){
         super();
         this.position = position;
         this.bet = bet;
     }
     split(){
-        const seat = this.dealer.currentPlayer.position; // 'L', 'C' or 'R'
-        const sBet = this.dealer.currentPlayer.bet;      // amount of initial bet
-        const sPos = this.dealer.pos + 1;                // index of player splitting + 1
-        const sPlayer = new Player(`S${seat}`, sBet);    // new split player
-        const cardS = this.dealer.currentPlayer.cards.pop(); //
-        const card = this.dealer.currentPlayer.cards[0];
-        this.dealer.currentPlayer.clearHand();
-        this.dealer.currentPlayer.addCard(card);
-        sPlayer.addCard(cardS);
-        sPlayer.setDealer(this.dealer);
-        this.dealer.players.splice(sPos, 0, sPlayer);
-        this.dealer.currentPlayer.hit();
-        this.dealer.players[sPos].hit();
+        if (this.handValues[0] == this.handValues[1] && this.cards.length == 2 && !this.splitActive){
+            this.splitActive = true;
+
+            //set second card to blank before split for animation purposes
+            const position = 'c' + this.cards.length + this.position
+            document.getElementById(position).setAttribute('src',`static/cards/cards/zblank.png`)
+
+            const seat = this.dealer.currentPlayer.position; // 'L', 'C' or 'R'
+            const sBet = this.dealer.currentPlayer.bet;      // amount of initial bet
+            const sPos = this.dealer.pos + 1;                // index of player splitting + 1
+            const sPlayer = new Player(`${seat}-split`, sBet);    // new split player
+            const card = this.dealer.currentPlayer.cards.pop(); //
+            const cardS = this.dealer.currentPlayer.cards[0];
+            this.dealer.currentPlayer.clearHand();
+            this.dealer.currentPlayer.addCard(card);
+            sPlayer.setDealer(this.dealer);
+            sPlayer.addCard(cardS);
+            sPlayer.splitActive = true;
+            document.getElementById(`c1${seat}-split`).classList.replace('hide','show')
+            this.dealer.players.splice(sPos, 0, sPlayer);
+            this.dealer.currentPlayer.hit();
+            this.dealer.players[sPos].hit();
+            document.getElementById(`c2${seat}-split`).classList.replace('hide','show')
+
+        }
+        
     }
     dubD(){
-        this.hit();
-        if (!this.bust){
-            // this.dealer.nextPlayer();
-            this.doubleD = true;
-            this.bet = 2 * this.bet;
-            this.setStand();
+        if (this.cards.length == 2){
+            this.hit();
+            if (!this.bust && !this.bj){
+                this.doubleD = true;
+                this.bet = 2 * this.bet;
+                this.setStand();
+            }
         }
+        
     }
     setDealer(dealer){
         this.dealer = dealer;

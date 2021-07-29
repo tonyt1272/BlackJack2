@@ -311,6 +311,32 @@ html {
     transform: rotate(45deg);
 }
 
+#cL-split-outline{
+
+    position: relative;
+    right: 1465px;
+    bottom: 250px;
+    z-index: -1;
+
+}
+
+#cC-split-outline{
+
+    position: relative;
+    right: 1465px;
+    bottom: 250px;
+    z-index: -1;
+
+}
+#cR-split-outline{
+
+    position: relative;
+    right: 1465px;
+    bottom: 250px;
+    z-index: -1;
+
+}
+
 #c1L{
     position: relative;
     right: 98px;
@@ -418,8 +444,9 @@ html {
 
 #c8L-split{
     position: relative;
-    right: 1327px;
-    bottom: 300px;
+    right: 1465px;
+    bottom: 250px;
+    z-index: -1;
     transform: rotate(2deg);
 }
 

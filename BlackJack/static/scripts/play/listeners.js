@@ -131,7 +131,7 @@ window.addEventListener('load', (event) => {
     // playerBank3EL.scrollIntoView(false)
     window.scrollTo({
         top: document.body.scrollHeight,
-        left: 130,
+        left: 0,
         behavior: 'smooth'
       })
     // console.log('The page has fully loaded');

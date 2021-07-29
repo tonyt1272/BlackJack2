@@ -105,6 +105,8 @@ const StrangeBetConfigs = {45: [20, 25, 0],
     RB2: [false,0],
     RB3: [false,0]}
 
+
+
 const bankPos = [[playerBank0EL,0,'five'],
 [playerBank1EL,1,'ten'],
 [playerBank2EL,2,'twenty-five'],
