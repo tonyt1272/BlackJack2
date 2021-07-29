@@ -67,6 +67,8 @@ class TableSeat{
             console.log(`card file names: ${this.cards}`)
             console.log(`card face values: ${this.handValues}`)
             console.log(`hand total: ${this.handTotal}`)
+        }else{
+            this.dealer.nextPlayer()
         }
     }
 }
@@ -80,6 +82,7 @@ class Dealer extends TableSeat{
     highlightPos;
     position = 'D';
     roundOver = false;
+    enableDeal = true;
     
     constructor(players){
       super();
@@ -130,29 +133,33 @@ class Dealer extends TableSeat{
         this.stand = true;
     }
     deal(){
-        // select cards from boot
-        for (let i=0; i <2;i++){
-            for (this.player of this.players){
-                this.player.addCard(deck[boot.nextCard()])
+        // Disable second deal before current hand is played.
+        if (this.enableDeal){
+            this.enableDeal = false;
+            for (let i=0; i <2;i++){
+                for (this.player of this.players){
+                    this.player.addCard(deck[boot.nextCard()])
+                }
+            }
+    
+            if (this.players[this.players.length-1].handTotal[1] == 21){
+                this.pos = this.players.length-1;
+                this.currentPlayer = this.players[this.pos];
+                this.settleBets();
+            }else{
+            this.pos = 0
+            this.currentPlayer = this.players[this.pos]
+            
+            this.highlightPos = 'c'+this.currentPlayer.position+'-outline'
+            console.log(this.highlightPos)
+            document.getElementById(this.highlightPos).style.opacity=1;
+    
+            if (this.currentPlayer.stand == true){
+                this.nextPlayer()
+                }
             }
         }
-
-        if (this.players[this.players.length-1].handTotal[1] == 21){
-            this.pos = this.players.length-1;
-            this.currentPlayer = this.players[this.pos];
-            this.settleBets();
-        }else{
-        this.pos = 0
-        this.currentPlayer = this.players[this.pos]
         
-        this.highlightPos = 'c'+this.currentPlayer.position+'-outline'
-        console.log(this.highlightPos)
-        document.getElementById(this.highlightPos).style.opacity=1;
-
-        if (this.currentPlayer.stand == true){
-            this.nextPlayer()
-            }
-        }
     }
     dealSingle(player){
         player.addCard(deck[boot.nextCard()])
@@ -266,7 +273,7 @@ class Player extends TableSeat{
 
             
             const position = 'c' + this.cards.length + this.position
-            
+
             document.getElementById(position).setAttribute('src',`static/cards/cards/zblank.png`)
             
             const seat = this.dealer.currentPlayer.position; // 'L', 'C' or 'R'
