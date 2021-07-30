@@ -319,7 +319,7 @@ class Player extends TableSeat{
             this.dealer.players.splice(sPos, 0, sPlayer);
             resolve();
             setTimeout(()=>{this.dealer.currentPlayer.hit()},500);
-            setTimeout(()=>{this.dealer.players[sPos].hit()},1000);
+            setTimeout(()=>{this.dealer.players[sPos].hit()},1200);
            
             document.getElementById(`c1${seat}-split`).classList.replace('hide','show')
             document.getElementById(`c2${seat}-split`).classList.replace('hide','show')
