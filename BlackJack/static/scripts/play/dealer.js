@@ -283,9 +283,9 @@ class Player extends TableSeat{
             const card = this.dealer.currentPlayer.cards.pop(); //
             const cardS = this.dealer.currentPlayer.cards[0];
             this.dealer.currentPlayer.clearHand();
-            this.dealer.currentPlayer.addCard(card);
+            this.dealer.currentPlayer.addCard(cardS);
             sPlayer.setDealer(this.dealer);
-            sPlayer.addCard(cardS);
+            sPlayer.addCard(card);
             sPlayer.splitActive = true;
             document.getElementById(`c1${seat}-split`).classList.replace('hide','show')
             this.dealer.players.splice(sPos, 0, sPlayer);

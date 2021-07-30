@@ -86,7 +86,7 @@ function playGame(){
     // boot.cards[1]=1;
     // boot.cards[2]=1;
     // boot.cards[3]=1;
-    boot.cards[4]=1;
+    boot.cards[4]=14;
     // boot.cards[5]=1;
     // boot.cards[6]=10;
     // boot.cards[7]=6;
