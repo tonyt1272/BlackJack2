@@ -83,7 +83,7 @@ class Dealer extends TableSeat{
     position = 'D';
     roundOver = false;
     enableDeal = true;
-    pause = 1500;
+    pause = 1100;
     
     constructor(players){
       super();
