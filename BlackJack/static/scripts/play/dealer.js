@@ -296,32 +296,43 @@ class Player extends TableSeat{
         this.position = position;
         this.bet = bet;
     }
-    split(){
-        if (this.handValues[0] == this.handValues[1] && this.cards.length == 2 && !this.splitActive){
-            this.splitActive = true;
-
-            
-            const position = 'c' + this.cards.length + this.position
-
+    hideCard(position){
+        const promise = new Promise((resolve, reject)=>{
             document.getElementById(position).setAttribute('src',`static/cards/cards/zblank.png`)
-            
+            resolve();
+        })
+        return promise; 
+    }
+    updateSplit(){
+        const promise = new Promise((resolve, reject)=>{
             const seat = this.dealer.currentPlayer.position; // 'L', 'C' or 'R'
             const sBet = this.dealer.currentPlayer.bet;      // amount of initial bet
             const sPos = this.dealer.pos + 1;                // index of player splitting + 1
             const sPlayer = new Player(`${seat}-split`, sBet);    // new split player
-            const card = this.dealer.currentPlayer.cards.pop(); //
-            const cardS = this.dealer.currentPlayer.cards[0];
+            const cardS = this.dealer.currentPlayer.cards.pop(); // returns the
+            const card = this.dealer.currentPlayer.cards[0];
             this.dealer.currentPlayer.clearHand();
-            this.dealer.currentPlayer.addCard(cardS);
+            this.dealer.currentPlayer.addCard(card);
             sPlayer.setDealer(this.dealer);
-            sPlayer.addCard(card);
+            sPlayer.addCard(cardS);
             sPlayer.splitActive = true;
-            document.getElementById(`c1${seat}-split`).classList.replace('hide','show')
             this.dealer.players.splice(sPos, 0, sPlayer);
-            this.dealer.currentPlayer.hit();
-            this.dealer.players[sPos].hit();
+            resolve();
+            setTimeout(()=>{this.dealer.currentPlayer.hit()},500);
+            setTimeout(()=>{this.dealer.players[sPos].hit()},1000);
+           
+            document.getElementById(`c1${seat}-split`).classList.replace('hide','show')
             document.getElementById(`c2${seat}-split`).classList.replace('hide','show')
-
+        })
+        return promise;
+    }
+    split(){
+        if (this.handValues[0] == this.handValues[1] && this.cards.length == 2 && !this.splitActive){
+            this.splitActive = true;
+            const position = 'c' + this.cards.length + this.position
+            this.hideCard(position).then(()=>{
+                setTimeout(()=>{this.updateSplit()},500)
+            })
         }
         
     }
