@@ -83,6 +83,7 @@ class Dealer extends TableSeat{
     position = 'D';
     roundOver = false;
     enableDeal = true;
+    pause = 1500;
     
     constructor(players){
       super();
@@ -94,23 +95,51 @@ class Dealer extends TableSeat{
       }
       this.players.push(this)
     }
+    // addCard(card){
+    //     this.cards.push(card);
+
+    //     const position = 'd' + this.cards.length
+    //     this.dealCards.push(position)
+    //     console.log(`${position} takes: ${card}`)
+    //     if (this.cards.length ==2){
+    //         document.getElementById(position).setAttribute('src',`static/cards/cards/zback.png`)
+    //     }else{
+    //         document.getElementById(position).setAttribute('src',`static/cards/cards/${card}`)
+    //         if (this.cards.length >2){
+    //             document.getElementById(position).classList.replace('hide',`show`)
+    //         }
+    //     }
+        
+    //     this.handValues.push(cardValues[card[1]])
+    //     this.setHandTotal()
+    // }
+
+    
     addCard(card){
         this.cards.push(card);
 
         const position = 'd' + this.cards.length
         this.dealCards.push(position)
         console.log(`${position} takes: ${card}`)
-        if (this.cards.length ==2){
-            document.getElementById(position).setAttribute('src',`static/cards/cards/zback.png`)
-        }else{
-            document.getElementById(position).setAttribute('src',`static/cards/cards/${card}`)
-            if (this.cards.length >2){
-                document.getElementById(position).classList.replace('hide',`show`)
-            }
-        }
-        
         this.handValues.push(cardValues[card[1]])
         this.setHandTotal()
+
+        if (this.cards.length == 1){
+            document.getElementById(position).setAttribute('src',`static/cards/cards/${card}`)
+
+        }else if (this.cards.length ==2){
+            document.getElementById(position).setAttribute('src',`static/cards/cards/zback.png`)
+        }else{
+            
+            setTimeout(()=>{
+                document.getElementById(position).setAttribute('src',`static/cards/cards/${card}`)
+                document.getElementById(position).classList.replace('hide',`show`)
+                let now = new Date()
+                console.log(now.getTime())
+            },this.pause)
+            
+            this.pause +=1000;
+        }  
     }
     dealerPlay(){
         this.roundOver = true;
