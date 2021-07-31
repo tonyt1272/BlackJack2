@@ -34,8 +34,8 @@
 
         <div class="container perspective-parent" >
 
-<!--        Controls -->
 
+<!--Player Bank Chips-->
             <div class="row  d-flex flex-row-reverse disableselect">
 
                 <div class="col-sm-4 hud-overlay mx-auto">
@@ -63,27 +63,30 @@
 
             </div>
 
+<!--            Controls  -->
             <div class="row d-flex flex-row-reverse no-gutter disableselect">
 
-
                 <div class="col-sm-1 hud-overlay">
-<!--&lt;!&ndash;                    <button  type="button" class="btn btn-primary btn-sm" onclick=" alert('I work!')">Stand!</button>&ndash;&gt;-->
                     <button  type="button" class="btn btn-primary btn-sm" onclick="playGame();">Deal</button>
-<!--                    <button  type="button" class="btn btn-primary btn-sm" onclick="dealer.currentPlayer.split()">Split</button>-->
                 </div>
+
                 <div class="col-sm-1 hud-overlay">
                     <button  type="button" class="btn btn-primary btn-sm" onclick="dealer.currentPlayer.split();">Split</button>
                 </div>
+
                 <div class="col-sm-1 hud-overlay">
-<!--                    <button   type="button" class="btn btn-primary btn-sm" onclick="stack+=1; if(stack<20){trayCard.setAttribute('src',`static/table_objects/tray_stacks/stack_${stack}.png`)}else{trayCard.setAttribute('src',`static/table_objects/tray_stacks/stack_1.png`);stack=1}; ">Stack!</button>-->
                         <button  type="button" class="btn btn-primary btn-sm" onclick="dealer.currentPlayer.dubD();">DubD</button>
                 </div>
+
                 <div class="col-sm-1 hud-overlay">
                     <button  type="button" class="btn btn-primary btn-sm" onclick="setTimeout(()=>{dealer.currentPlayer.setStand()},500);">Stand</button>
                 </div>
+
                 <div class="col-sm-1 hud-overlay">
                     <button  type="button" class="btn btn-primary btn-sm" onclick="if(dealer.currentPlayer != dealer){dealer.currentPlayer.hit()};">hit</button>
                 </div>
+
+
                 <div class="col-sm-1 hud-overlay">
                     <img id="player-bank-6" class="hide" src="static/chips/five-hundred/6xfive-hundred.png">
                 </div>
@@ -106,13 +109,6 @@
                     <img id="player-bank-0" class="hide" src="static/chips/blankChip.png">
                 </div>
 
-<!--                <div class="col-sm-1 test">-->
-<!--                    <button  type="button" class="btn btn-primary btn-sm" onclick=" alert('I work!')">Deal!</button>-->
-<!--                </div>-->
-
-<!--                <div class="col-sm-1 test">-->
-<!--                    <button  type="button" class="btn btn-primary btn-sm" onclick=" alert('I work!')">Stand!</button>-->
-<!--                </div>-->
 
             </div>
 
@@ -244,5 +240,10 @@
 
                 </section>
             </div>
+<!--                    <button   type="button" class="btn btn-primary btn-sm" onclick="stack+=1;
+                        if(stack<20){trayCard.setAttribute('src',`static/table_objects/tray_stacks/stack_${stack}.png`)}
+                        else{trayCard.setAttribute('src',`static/table_objects/tray_stacks/stack_1.png`);stack=1}; ">
+                        Stack!
+                        </button>-->
 
 {% endblock content %}
