@@ -79,7 +79,7 @@
                         <button  type="button" class="btn btn-primary btn-sm" onclick="dealer.currentPlayer.dubD();">DubD</button>
                 </div>
                 <div class="col-sm-1 hud-overlay">
-                    <button  type="button" class="btn btn-primary btn-sm" onclick="dealer.currentPlayer.setStand();">Stand</button>
+                    <button  type="button" class="btn btn-primary btn-sm" onclick="setTimeout(()=>{dealer.currentPlayer.setStand()},500);">Stand</button>
                 </div>
                 <div class="col-sm-1 hud-overlay">
                     <button  type="button" class="btn btn-primary btn-sm" onclick="if(dealer.currentPlayer != dealer){dealer.currentPlayer.hit()};">hit</button>
