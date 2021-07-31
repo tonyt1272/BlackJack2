@@ -117,3 +117,10 @@ const bankPos = [[playerBank0EL,0,'five'],
 
 let bankLevels;
 let playerCash = 2500;
+
+function sum(array) {
+    let sum = array.reduce(function (accumulator, currentValue) {
+        return accumulator + currentValue
+      }, 0)
+    return sum
+}

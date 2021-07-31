@@ -1,78 +1,3 @@
-function sum(array) {
-    let sum = array.reduce(function (accumulator, currentValue) {
-        return accumulator + currentValue
-      }, 0)
-    return sum
-}
-
-class TableSeat{
-    cards = [];
-    handValues = [];
-    handTotal = [0,0];
-    bust = false;
-    stand = false;
-    doubleD = false;
-    bj = false;
-
-    addCard(card){
-        this.cards.push(card);
-        const position = 'c' + this.cards.length + this.position
-        this.dealer.dealCards.push(position)
-        console.log(`${position} takes: ${card}`)
-        document.getElementById(position).setAttribute('src',`static/cards/cards/${card}`)
-        if (this.cards.length >2){
-            document.getElementById(position).classList.replace('hide',`show`)
-        }
-        this.handValues.push(cardValues[card[1]])
-        this.setHandTotal()
-        } 
-    setHandTotal(){
-        this.handTotal[0] = sum(this.handValues)
-        if (this.handValues.includes(1)){
-            this.handTotal[1] = this.handTotal[0]+10
-        }
-        if (this.handTotal[0] > 21){
-            this.bust = true;
-            // this.stand=true;
-            this.setStand();
-        }
-        if (this.handTotal[1] == 21 && this.cards.length == 2){
-            this.bj=true;
-            this.stand=true;
-            // this.setStand();
-        }else if(this.handTotal[1] == 21 || this.handTotal[0]==21){
-            // this.bj=true;
-            this.stand=true;
-            // this.setStand();
-        }
-    }
-    setStand(){
-        this.stand = true;
-        this.dealer.nextPlayer()
-    }
-    clearHand(){
-        this.cards = []
-        this.handValues = []
-        this.handTotal = [0,0];
-        this.bust = false;
-        this.stand = false;
-        this.doubleD = false;
-        this.bj = false;
-    }
-    hit(){
-        if(!this.bust && !this.stand){
-            this.dealer.dealSingle(this)
-            console.log('\n')
-            console.log(this)
-            console.log(`card file names: ${this.cards}`)
-            console.log(`card face values: ${this.handValues}`)
-            console.log(`hand total: ${this.handTotal}`)
-        }else{
-            this.dealer.nextPlayer()
-        }
-    }
-}
-
 class Dealer extends TableSeat{
     players = [];
     currentPlayer;
@@ -95,25 +20,6 @@ class Dealer extends TableSeat{
       }
       this.players.push(this)
     }
-    // addCard(card){
-    //     this.cards.push(card);
-
-    //     const position = 'd' + this.cards.length
-    //     this.dealCards.push(position)
-    //     console.log(`${position} takes: ${card}`)
-    //     if (this.cards.length ==2){
-    //         document.getElementById(position).setAttribute('src',`static/cards/cards/zback.png`)
-    //     }else{
-    //         document.getElementById(position).setAttribute('src',`static/cards/cards/${card}`)
-    //         if (this.cards.length >2){
-    //             document.getElementById(position).classList.replace('hide',`show`)
-    //         }
-    //     }
-        
-    //     this.handValues.push(cardValues[card[1]])
-    //     this.setHandTotal()
-    // }
-
     
     addCard(card){
         this.cards.push(card);
@@ -190,6 +96,7 @@ class Dealer extends TableSeat{
         }
         
     }
+
     dealSingle(player){
         player.addCard(deck[boot.nextCard()])
     }
@@ -197,37 +104,19 @@ class Dealer extends TableSeat{
         
         this.pos+=1
         this.currentPlayer = this.players[this.pos]
-        // if (!this.currentPlayer.position.includes('split')){
-            
-        //     try{
-        //         this.highlightPos = 'c'+this.players[this.pos-1].position+'-outline'
-        //         document.getElementById(this.highlightPos).style.opacity=.5;
-        //     }catch(e){
-        //         this.highlightPos = 'c'+this.players[this.pos-2].position+'-outline'
-        //         document.getElementById(this.highlightPos).style.opacity=.5;
-        //     }
-            
+        this.highlightPos = 'c'+this.players[this.pos-1].position+'-outline'
+        document.getElementById(this.highlightPos).style.opacity=.5;
 
-        //     if (this.currentPlayer != this){
-        //         this.highlightPos = 'c'+this.currentPlayer.position+'-outline'
-        //         document.getElementById(this.highlightPos).style.opacity=1;
-        //     }
-        // }
-
+        if (this.players[this.pos-1].position.includes('split')){
+            document.getElementById(this.highlightPos).style.opacity=0;
+        }
         
-                this.highlightPos = 'c'+this.players[this.pos-1].position+'-outline'
-                document.getElementById(this.highlightPos).style.opacity=.5;
-                if (this.players[this.pos-1].position.includes('split')){
-                    document.getElementById(this.highlightPos).style.opacity=0;
-                }
-                
-                if (this.currentPlayer != this){
-                    this.highlightPos = 'c'+this.currentPlayer.position+'-outline'
-                    document.getElementById(this.highlightPos).style.opacity=1;
-                    document.getElementById(this.highlightPos).classList.replace('hide','show')
-                }
+        if (this.currentPlayer != this){
+            this.highlightPos = 'c'+this.currentPlayer.position+'-outline'
+            document.getElementById(this.highlightPos).style.opacity=1;
+            document.getElementById(this.highlightPos).classList.replace('hide','show')
+        }
 
-        
         if (this.currentPlayer == this){
             this.dealerPlay();
             this.settleBets();
@@ -236,6 +125,7 @@ class Dealer extends TableSeat{
             this.nextPlayer()
         }  
     }
+
     hit(){
         if(!this.bust){
             this.dealSingle(this)
@@ -246,6 +136,7 @@ class Dealer extends TableSeat{
             console.log(`hand total: ${this.handTotal}`)
         }
     }
+
     setHandTotal(){
         this.handTotal[0] = sum(this.handValues)
         if (this.handValues.includes(1)){
@@ -258,9 +149,11 @@ class Dealer extends TableSeat{
             this.bj=true;
         }
     }
+
     setStand(){
         this.stand = true;
     }
+
     settleBets(){
         console.log('Doing Bet settling stuff!')
         //After round dealer hand is played, collect or pay
@@ -270,6 +163,7 @@ class Dealer extends TableSeat{
             // this.player.bet = 0;
         // }
     }
+
     clearTable(){
         let cards = this.dealCards
         for (let i=0; i<cards.length; i++){
@@ -280,74 +174,6 @@ class Dealer extends TableSeat{
         if (boot.stack<19){
             document.getElementById('d-tray-card').setAttribute('src',`static/table_objects/tray_stacks/stack_${boot.stack}.png`)
             boot.stack+=1
-        }
-        
-    }
-}
-
-
-class Player extends TableSeat{
-    position;
-    bet;
-    dealer;
-    splitActive = false;
-    constructor(position, bet=5){
-        super();
-        this.position = position;
-        this.bet = bet;
-    }
-    hideCard(position){
-        const promise = new Promise((resolve, reject)=>{
-            document.getElementById(position).setAttribute('src',`static/cards/cards/zblank.png`)
-            resolve();
-        })
-        return promise; 
-    }
-    updateSplit(){
-        const promise = new Promise((resolve, reject)=>{
-            const seat = this.dealer.currentPlayer.position; // 'L', 'C' or 'R'
-            const sBet = this.dealer.currentPlayer.bet;      // amount of initial bet
-            const sPos = this.dealer.pos + 1;                // index of player splitting + 1
-            const sPlayer = new Player(`${seat}-split`, sBet);    // new split player
-            const cardS = this.dealer.currentPlayer.cards.pop(); // returns the
-            const card = this.dealer.currentPlayer.cards[0];
-            this.dealer.currentPlayer.clearHand();
-            this.dealer.currentPlayer.addCard(card);
-            sPlayer.setDealer(this.dealer);
-            sPlayer.addCard(cardS);
-            sPlayer.splitActive = true;
-            this.dealer.players.splice(sPos, 0, sPlayer);
-            resolve();
-            setTimeout(()=>{this.dealer.currentPlayer.hit()},500);
-            setTimeout(()=>{this.dealer.players[sPos].hit()},1200);
-           
-            document.getElementById(`c1${seat}-split`).classList.replace('hide','show')
-            document.getElementById(`c2${seat}-split`).classList.replace('hide','show')
-        })
-        return promise;
-    }
-    split(){
-        if (this.handValues[0] == this.handValues[1] && this.cards.length == 2 && !this.splitActive){
-            this.splitActive = true;
-            const position = 'c' + this.cards.length + this.position
-            this.hideCard(position).then(()=>{
-                setTimeout(()=>{this.updateSplit()},500)
-            })
-        }
-        
-    }
-    dubD(){
-        if (this.cards.length == 2){
-            this.hit();
-            if (!this.bust && !this.bj){
-                this.doubleD = true;
-                this.bet = 2 * this.bet;
-                this.setStand();
-            }
-        }
-        
-    }
-    setDealer(dealer){
-        this.dealer = dealer;
+        } 
     }
 }
