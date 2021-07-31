@@ -8,7 +8,7 @@ class Dealer extends TableSeat{
     position = 'D';
     roundOver = false;
     enableDeal = true;
-    pause = 1500;
+    pause = 1000;
     
     constructor(players){
       super();
@@ -47,7 +47,8 @@ class Dealer extends TableSeat{
     dealerPlay(){
         this.roundOver = true;
         console.log('Dealer Playing hand.')
-        setTimeout(()=>{dealerCard2EL.setAttribute('src',`static/cards/cards/${this.cards[1]}`)},700)
+        // setTimeout(()=>{dealerCard2EL.setAttribute('src',`static/cards/cards/${this.cards[1]}`)},500)
+        dealerCard2EL.setAttribute('src',`static/cards/cards/${this.cards[1]}`)
         let playDealer = false;
         for (this.player of this.players.slice(0, this.players.length-1)){
             if (this.player.bust == false && this.player.bj == false ){

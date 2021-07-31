@@ -20,7 +20,7 @@ class TableSeat{
         }
         this.handValues.push(cardValues[card[1]])
         
-        setTimeout(()=>{this.setHandTotal()}, 1200)
+        setTimeout(()=>{this.setHandTotal()}, 1000)
     } 
 
     setHandTotal(){
