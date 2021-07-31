@@ -64,27 +64,29 @@
             </div>
 
 <!--            Controls  -->
+
             <div class="row d-flex flex-row-reverse no-gutter disableselect">
 
                 <div class="col-sm-1 hud-overlay">
-                    <button  type="button" class="btn btn-primary btn-sm" onclick="playGame();">Deal</button>
+                    <button id="spControl" type="button" class="btn btn-primary btn-sm" onclick="dealer.currentPlayer.split();">Split</button>
                 </div>
 
                 <div class="col-sm-1 hud-overlay">
-                    <button  type="button" class="btn btn-primary btn-sm" onclick="dealer.currentPlayer.split();">Split</button>
+                        <button id="ddControl"  type="button" class="btn btn-primary btn-sm" onclick="dealer.currentPlayer.dubD();">D.D.</button>
                 </div>
 
                 <div class="col-sm-1 hud-overlay">
-                        <button  type="button" class="btn btn-primary btn-sm" onclick="dealer.currentPlayer.dubD();">DubD</button>
+<!--                    <button id="stControl" type="button" class="btn btn-primary btn-sm" onclick="setTimeout(()=>{dealer.currentPlayer.setStand()},500);">Stand</button>-->
+                    <button id="stControl" type="button" class="btn btn-primary btn-sm" onclick="playGame();">Deal</button>
+<!--                    <p id="stControl" style="z-index: 100; color: white;">Place Bets</p>-->
                 </div>
 
                 <div class="col-sm-1 hud-overlay">
-                    <button  type="button" class="btn btn-primary btn-sm" onclick="setTimeout(()=>{dealer.currentPlayer.setStand()},500);">Stand</button>
+                    <button id="hControl" type="button" class="btn btn-primary btn-sm" onclick="if(dealer.currentPlayer != dealer){dealer.currentPlayer.hit()};"> Hit </button>
+<!--                                        <button id="hControl" type="button" class="btn btn-primary btn-sm" onclick="playGame();">Deal</button>-->
                 </div>
 
-                <div class="col-sm-1 hud-overlay">
-                    <button  type="button" class="btn btn-primary btn-sm" onclick="if(dealer.currentPlayer != dealer){dealer.currentPlayer.hit()};">hit</button>
-                </div>
+
 
 
                 <div class="col-sm-1 hud-overlay">

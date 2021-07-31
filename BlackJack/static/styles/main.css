@@ -162,10 +162,39 @@ html {
 
 }
 
+#ddControl{
+    position: relative;
+    right: 105px;
+    bottom: 58px;
+    margin: 0 -25px 0 0 ;
+
+}
+#spControl{
+    position: relative;
+    right: 105px;
+    bottom: 58px;
+    margin: 0 0 0 -25px;
+
+}
+#hControl{
+    position: relative;
+    left: -62px;
+    bottom: 58px;
+    margin: 0 -20px 0 0;
+
+}
+#stControl{
+    position: relative;
+    left: -62px;
+    bottom: 58px;
+    margin: 0 0 0 -20px;
+
+}
+
 #player-bank-0{
 
     position: relative;
-    right: -90px;
+    right: -155px;
     bottom: 30px;
     width: 80%;
     z-index: 100;
@@ -174,7 +203,7 @@ html {
 #player-bank-1{
 
     position: relative;
-    right: -75px;
+    right: -140px;
     bottom: 22px;
     width: 80%;
     z-index: 100;
@@ -183,7 +212,7 @@ html {
 #player-bank-2{
 
     position: relative;
-    right: -60px;
+    right: -125px;
     bottom: 22px;
     width: 80%;
     z-index: 100;
@@ -192,7 +221,7 @@ html {
 #player-bank-3{
 
     position: relative;
-    right: -45px;
+    right: -110px;
     bottom: 22px;
     width: 80%;
     z-index: 100;
@@ -202,7 +231,7 @@ html {
 #player-bank-4{
 
     position: relative;
-    right: -30px;
+    right: -95px;
     bottom: 22px;
     width: 80%;
     z-index: 100;
@@ -211,7 +240,7 @@ html {
 #player-bank-5{
 
     position: relative;
-    right: -15px;
+    right: -80px;
     bottom: 22px;
     width: 80%;
     z-index: 100;
@@ -220,8 +249,8 @@ html {
 #player-bank-6{
 
     position: relative;
-    /*right: 37px;*/
-    bottom: 27px;
+    right: -65px;
+    bottom: 26px;
     width: 80%;
     z-index: 100;
 }
