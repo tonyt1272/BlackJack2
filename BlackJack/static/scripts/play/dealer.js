@@ -8,7 +8,7 @@ class Dealer extends TableSeat{
     position = 'D';
     roundOver = false;
     enableDeal = true;
-    pause = 1100;
+    pause = 1500;
     
     constructor(players){
       super();
@@ -26,7 +26,6 @@ class Dealer extends TableSeat{
 
         const position = 'd' + this.cards.length
         this.dealCards.push(position)
-        console.log(`${position} takes: ${card}`)
         this.handValues.push(cardValues[card[1]])
         this.setHandTotal()
 
@@ -40,8 +39,6 @@ class Dealer extends TableSeat{
             setTimeout(()=>{
                 document.getElementById(position).setAttribute('src',`static/cards/cards/${card}`)
                 document.getElementById(position).classList.replace('hide',`show`)
-                let now = new Date()
-                console.log(now.getTime())
             },this.pause)
             
             this.pause +=1000;
@@ -50,7 +47,7 @@ class Dealer extends TableSeat{
     dealerPlay(){
         this.roundOver = true;
         console.log('Dealer Playing hand.')
-        dealerCard2EL.setAttribute('src',`static/cards/cards/${this.cards[1]}`)
+        setTimeout(()=>{dealerCard2EL.setAttribute('src',`static/cards/cards/${this.cards[1]}`)},700)
         let playDealer = false;
         for (this.player of this.players.slice(0, this.players.length-1)){
             if (this.player.bust == false && this.player.bj == false ){
@@ -86,7 +83,6 @@ class Dealer extends TableSeat{
             this.currentPlayer = this.players[this.pos]
             
             this.highlightPos = 'c'+this.currentPlayer.position+'-outline'
-            console.log(this.highlightPos)
             document.getElementById(this.highlightPos).style.opacity=1;
     
             if (this.currentPlayer.stand == true){
@@ -104,6 +100,7 @@ class Dealer extends TableSeat{
         
         this.pos+=1
         this.currentPlayer = this.players[this.pos]
+        
         this.highlightPos = 'c'+this.players[this.pos-1].position+'-outline'
         document.getElementById(this.highlightPos).style.opacity=.5;
 
@@ -129,11 +126,6 @@ class Dealer extends TableSeat{
     hit(){
         if(!this.bust){
             this.dealSingle(this)
-            console.log('\n')
-            console.log(this)
-            console.log(`card file names: ${this.cards}`)
-            console.log(`card face values: ${this.handValues}`)
-            console.log(`hand total: ${this.handTotal}`)
         }
     }
 

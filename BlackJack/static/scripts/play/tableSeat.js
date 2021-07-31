@@ -7,37 +7,42 @@ class TableSeat{
     doubleD = false;
     bj = false;
 
+    
+
     addCard(card){
         this.cards.push(card);
         const position = 'c' + this.cards.length + this.position
-        this.dealer.dealCards.push(position)
-        console.log(`${position} takes: ${card}`)
+        this.dealer.dealCards.push(position)  // record that card was pushed to this position for cleanup later
+
         document.getElementById(position).setAttribute('src',`static/cards/cards/${card}`)
         if (this.cards.length >2){
             document.getElementById(position).classList.replace('hide',`show`)
         }
         this.handValues.push(cardValues[card[1]])
-        this.setHandTotal()
+        
+        setTimeout(()=>{this.setHandTotal()}, 1200)
     } 
-    
+
     setHandTotal(){
         this.handTotal[0] = sum(this.handValues)
         if (this.handValues.includes(1)){
             this.handTotal[1] = this.handTotal[0]+10
         }
-        if (this.handTotal[0] > 21){
+        if (this.DoubleD){
+            if (this.handTotal[0] > 21){
+                this.bust = true;
+            }
+            this.setStand();
+        }else if (this.handTotal[0] > 21){
             this.bust = true;
-            // this.stand=true;
             this.setStand();
         }
         if (this.handTotal[1] == 21 && this.cards.length == 2){
             this.bj=true;
             this.stand=true;
-            // this.setStand();
+
         }else if(this.handTotal[1] == 21 || this.handTotal[0]==21){
-            // this.bj=true;
             this.stand=true;
-            // this.setStand();
         }
     }
     setStand(){
@@ -55,13 +60,7 @@ class TableSeat{
     }
     hit(){
         if(!this.bust && !this.stand){
-            // this.addCard(deck[boot.nextCard()])
             this.dealer.dealSingle(this)
-            console.log('\n')
-            console.log(this)
-            console.log(`card file names: ${this.cards}`)
-            console.log(`card face values: ${this.handValues}`)
-            console.log(`hand total: ${this.handTotal}`)
         }else{
             this.dealer.nextPlayer()
         }

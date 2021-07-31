@@ -31,7 +31,7 @@ class Player extends TableSeat{
             this.dealer.players.splice(sPos, 0, sPlayer);
             resolve();
             setTimeout(()=>{this.dealer.currentPlayer.hit()},500);
-            setTimeout(()=>{this.dealer.players[sPos].hit()},1200);
+            setTimeout(()=>{this.dealer.players[sPos].hit()},1400);
            
             document.getElementById(`c1${seat}-split`).classList.replace('hide','show')
             document.getElementById(`c2${seat}-split`).classList.replace('hide','show')
@@ -50,11 +50,11 @@ class Player extends TableSeat{
     }
     dubD(){
         if (this.cards.length == 2){
+            this.DoubleD = true;
             this.hit();
             if (!this.bust && !this.bj){
-                this.doubleD = true;
                 this.bet = 2 * this.bet;
-                this.setStand();
+                this.stand = true;
             }
         }
         

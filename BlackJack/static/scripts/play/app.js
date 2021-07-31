@@ -90,7 +90,7 @@ function playGame(){
     // boot.cards[5]=1;
     // boot.cards[6]=10;
     // boot.cards[7]=6;
-    console.log(boot.dealt>boot.splitCard)
+    console.log(`Shuffle boot next round?: ${boot.dealt > boot.splitCard}`)
     dealer.deal()
     demo1()
     // demo2()

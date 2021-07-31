@@ -314,7 +314,7 @@ html {
 #cL-split-outline{
 
     position: relative;
-    right: 1465px;
+    right: 1455px;
     bottom: 250px;
     z-index: -1;
     transform: scale(1.1);
@@ -324,7 +324,7 @@ html {
 #cC-split-outline{
 
     position: relative;
-    right: 1465px;
+    right: 1455px;
     bottom: 250px;
     z-index: -1;
     transform: scale(1.1);
@@ -333,7 +333,7 @@ html {
 #cR-split-outline{
 
     position: relative;
-    right: 1465px;
+    right: 1455px;
     bottom: 250px;
     z-index: -1;
     transform: scale(1.1);
