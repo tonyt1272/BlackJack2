@@ -94,7 +94,7 @@ const StrangeBetConfigs = {45: [20, 25, 0],
  }
 
  let drag_bet_g;
-
+ let players;       
  let bet_status = {LB1: [false,0], 
     LB2: [false,0], 
     LB3: [false,0], 

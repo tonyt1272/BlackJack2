@@ -47,7 +47,6 @@ class Dealer extends TableSeat{
     dealerPlay(){
         this.roundOver = true;
         console.log('Dealer Playing hand.')
-        // setTimeout(()=>{dealerCard2EL.setAttribute('src',`static/cards/cards/${this.cards[1]}`)},500)
         dealerCard2EL.setAttribute('src',`static/cards/cards/${this.cards[1]}`)
         let playDealer = false;
         for (this.player of this.players.slice(0, this.players.length-1)){
@@ -68,6 +67,12 @@ class Dealer extends TableSeat{
     deal(){
         // Disable second deal before current hand is played.
         if (this.enableDeal){
+
+            // remove the deal button
+            // document.getElementById('dControl').remove()
+            document.getElementById('deal-hit').removeChild(document.getElementById('dControl'))
+            //
+
             this.enableDeal = false;
             for (let i=0; i <2;i++){
                 for (this.player of this.players){
@@ -85,11 +90,27 @@ class Dealer extends TableSeat{
             
             this.highlightPos = 'c'+this.currentPlayer.position+'-outline'
             document.getElementById(this.highlightPos).style.opacity=1;
-    
-            if (this.currentPlayer.stand == true){
-                this.nextPlayer()
-                }
+
+            // Add player control buttons:
+            document.getElementById('deal-hit').innerHTML=`<button id="hControl" type="button" class="btn btn-primary btn-sm" 
+                                                            onclick="if(dealer.currentPlayer != dealer){dealer.currentPlayer.hit()};"> 
+                                                            Hit </button>`
+            document.getElementById('stand').innerHTML=`<button id="stControl" type="button" class="btn btn-primary btn-sm" 
+                                                        onclick="setTimeout(()=>{dealer.currentPlayer.setStand()},500);">
+                                                        Stand</button>`
+            document.getElementById('dubD').innerHTML=`<button id="ddControl"  type="button" class="btn btn-primary btn-sm" 
+                                                        onclick="dealer.currentPlayer.dubD();">D.D.</button>`
+
+            //using this.players[0] because for some reason this.currentPlayer isn't capturing the correct player.
+            //not sure why.  Will figure out later and replace with this.currentPlayer when possible.
+            //this.currentPlayer is used for button control later in game flow, this issue only occurs immediately after
+            //deal                                            
+                if(this.players[0].handValues[0] == this.players[0].handValues[1]){
+                        document.getElementById('splitDiv').innerHTML=`<button id="spControl" type="button" class="btn btn-primary btn-sm" 
+                                                                        onclick="dealer.currentPlayer.split();">Split</button>`
+                    }
             }
+            
         }
         
     }
@@ -113,11 +134,37 @@ class Dealer extends TableSeat{
             this.highlightPos = 'c'+this.currentPlayer.position+'-outline'
             document.getElementById(this.highlightPos).style.opacity=1;
             document.getElementById(this.highlightPos).classList.replace('hide','show')
+
+            // update control buttons split
+            if(this.currentPlayer.handValues[0] == this.currentPlayer.handValues[1]){
+                document.getElementById('splitDiv').innerHTML=`<button id="spControl" type="button" class="btn btn-primary btn-sm" 
+                                                                  onclick="dealer.currentPlayer.split();">Split</button>`
+            }
+            // update control buttons double-down
+            document.getElementById('dubD').innerHTML=`<button id="ddControl"  type="button" class="btn btn-primary btn-sm" 
+                                                        onclick="dealer.currentPlayer.dubD();">D.D.</button>`
         }
 
         if (this.currentPlayer == this){
             this.dealerPlay();
             this.settleBets();
+            // remove hit and stand buttons
+            document.getElementById('deal-hit').removeChild(document.getElementById('hControl'))
+            document.getElementById('stand').removeChild(document.getElementById('stControl'))
+            // remove split button if present
+            if (document.getElementById('spControl')){
+                document.getElementById('splitDiv').removeChild(document.getElementById('spControl'))
+            }
+            // remove double-down button if present
+            if (document.getElementById('ddControl')){
+                document.getElementById('dubD').removeChild(document.getElementById('ddControl'))
+            }
+
+            // update chip stacks based on play results
+
+            // add collect chips, rebet button
+            
+            
         }
         else if (this.currentPlayer.stand == true){
             this.nextPlayer()
@@ -139,7 +186,7 @@ class Dealer extends TableSeat{
             this.bust = true;
         }
         if (this.handTotal[1] == 21 && this.cards.length == 2 ){
-            this.bj=true;
+            this.bj = true;
         }
     }
 
@@ -158,12 +205,15 @@ class Dealer extends TableSeat{
     }
 
     clearTable(){
+        //clears cards from table
         let cards = this.dealCards
         for (let i=0; i<cards.length; i++){
             let pos = cards[i]
             document.getElementById(pos).setAttribute('src',`static/cards/cards/zblank.png`)
             document.getElementById(pos).classList.replace('show',`hide`)
         }
+
+        //update discard tray stack of cards
         if (boot.stack<19){
             document.getElementById('d-tray-card').setAttribute('src',`static/table_objects/tray_stacks/stack_${boot.stack}.png`)
             boot.stack+=1

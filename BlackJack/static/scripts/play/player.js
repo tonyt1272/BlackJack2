@@ -35,17 +35,26 @@ class Player extends TableSeat{
            
             document.getElementById(`c1${seat}-split`).classList.replace('hide','show')
             document.getElementById(`c2${seat}-split`).classList.replace('hide','show')
+            console.log('show dubD')
+            setTimeout(()=>{
+                document.getElementById('dubD').innerHTML=`<button id="ddControl"  type="button" class="btn btn-primary btn-sm" 
+                onclick="dealer.currentPlayer.dubD();">D.D.</button>`},1600)
+            
         })
         return promise;
     }
     split(){
+        document.getElementById('splitDiv').removeChild(document.getElementById('spControl'))
+        
         if (this.handValues[0] == this.handValues[1] && this.cards.length == 2 && !this.splitActive){
             this.splitActive = true;
             const position = 'c' + this.cards.length + this.position
             this.hideCard(position).then(()=>{
                 setTimeout(()=>{this.updateSplit()},500)
+                
             })
         }
+        
         
     }
     dubD(){

@@ -157,6 +157,25 @@ function setChip(drag_bet,bet_pos){
 async function setBet(drag_bet,bet_pos){
     await setChip(drag_bet,bet_pos).then(responseData =>{
         bet_pos.classList.replace('hide','show');
+
+        //Logic for Adding players to game based on setBet object
+        //get the total bet for each position then re-build players array
+        playerL = new Player('L',bet_status.LB1[1]+bet_status.LB2[1]+bet_status.LB3[1])
+        playerC = new Player('C',bet_status.CB1[1]+bet_status.CB2[1]+bet_status.CB3[1])    
+        playerR = new Player('R',bet_status.RB1[1]+bet_status.RB2[1]+bet_status.RB3[1])
+        players = []    
+        for (player of [playerL, playerC, playerR]){
+            if (player.bet > 0){
+                players.push(player)
+            }
+        }
+                
         console.log(`Player Cash: \$${playerCash}`)
+        if (!document.getElementById('deal-hit').contains(document.getElementById('dControl'))){
+            document.getElementById('deal-hit').innerHTML=
+            '<button id="dControl" type="button" class="btn btn-success btn-sm" onclick="playGame();">Deal</button>'
+        }
+        
     })
 }
+

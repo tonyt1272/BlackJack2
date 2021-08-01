@@ -104,3 +104,13 @@ const chip100 = new Image()
 chip100.src = "static/chips/one-hundred/one-hundredDrag.png"
 const chip500 = new Image()
 chip500.src = "static/chips/five-hundred/five-hundredDrag.png"
+
+//Play Buttons
+const hitButton = document.createElement('button')
+ hitButton.innerHTML=`<button id="hControl" type="button" class="btn btn-primary btn-sm" 
+                      onclick="if(dealer.currentPlayer != dealer){dealer.currentPlayer.hit()};"> 
+                      Hit </button>`
+
+const dealButton = document.createElement('button')
+dealButton.innerHTML = `<button id="dControl" type="button" class="btn btn-success btn-sm" 
+                        onclick="playGame();">Deal</button>`

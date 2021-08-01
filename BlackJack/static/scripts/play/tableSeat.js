@@ -24,6 +24,8 @@ class TableSeat{
     } 
 
     setHandTotal(){
+        
+        
         this.handTotal[0] = sum(this.handValues)
         if (this.handValues.includes(1)){
             this.handTotal[1] = this.handTotal[0]+10
@@ -38,14 +40,19 @@ class TableSeat{
             this.setStand();
         }
         if (this.handTotal[1] == 21 && this.cards.length == 2){
-            this.bj=true;
-            this.stand=true;
+            this.bj = true;
+            this.stand = true;
 
         }else if(this.handTotal[1] == 21 || this.handTotal[0]==21){
             this.stand=true;
         }
     }
     setStand(){
+        // remove split button if present
+        if (document.getElementById('spControl')){
+            document.getElementById('splitDiv').removeChild(document.getElementById('spControl'))
+        }
+        
         this.stand = true;
         this.dealer.nextPlayer()
     }
@@ -59,6 +66,15 @@ class TableSeat{
         this.bj = false;
     }
     hit(){
+        // remove split button if present
+        if (document.getElementById('spControl')){
+            document.getElementById('splitDiv').removeChild(document.getElementById('spControl'))
+        }
+        // remove double-down button if present
+        if (document.getElementById('ddControl')){
+            document.getElementById('dubD').removeChild(document.getElementById('ddControl'))
+        }
+
         if(!this.bust && !this.stand){
             this.dealer.dealSingle(this)
         }else{
