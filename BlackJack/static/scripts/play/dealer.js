@@ -245,8 +245,6 @@ class Dealer extends TableSeat{
         document.getElementById('playerR-bet1').setAttribute('src','static/chips/blankChip.png')
         document.getElementById('playerR-bet2').setAttribute('src','static/chips/blankChip.png')
         document.getElementById('playerR-bet3').setAttribute('src','static/chips/blankChip.png')
-
-        //
-        
+  
     }
 }
