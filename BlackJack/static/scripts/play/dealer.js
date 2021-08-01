@@ -136,7 +136,7 @@ class Dealer extends TableSeat{
             document.getElementById(this.highlightPos).classList.replace('hide','show')
 
             // update control buttons split
-            if(this.currentPlayer.handValues[0] == this.currentPlayer.handValues[1]){
+            if(this.currentPlayer.handValues[0] == this.currentPlayer.handValues[1] && !this.currentPlayer.splitActive){
                 document.getElementById('splitDiv').innerHTML=`<button id="spControl" type="button" class="btn btn-primary btn-sm" 
                                                                   onclick="dealer.currentPlayer.split();">Split</button>`
             }
@@ -161,8 +161,13 @@ class Dealer extends TableSeat{
             }
 
             // update chip stacks based on play results
+            // fake settling for testing:
+            
 
             // add collect chips, rebet button
+            
+
+            
             
             
         }
@@ -217,6 +222,31 @@ class Dealer extends TableSeat{
         if (boot.stack<19){
             document.getElementById('d-tray-card').setAttribute('src',`static/table_objects/tray_stacks/stack_${boot.stack}.png`)
             boot.stack+=1
-        } 
+        }
+        
+        // Code below if for testing only, not the final solution
+        players = []
+        bet_status = {LB1: [false,0], 
+                        LB2: [false,0], 
+                        LB3: [false,0], 
+                        CB1: [false,0], 
+                        CB2: [false,0], 
+                        CB3: [false,0],
+                        RB1: [false,0],
+                        RB2: [false,0],
+                        RB3: [false,0]}
+
+        document.getElementById('playerC-bet1').setAttribute('src','static/chips/blankChip.png')
+        document.getElementById('playerC-bet2').setAttribute('src','static/chips/blankChip.png')
+        document.getElementById('playerC-bet3').setAttribute('src','static/chips/blankChip.png')
+        document.getElementById('playerL-bet1').setAttribute('src','static/chips/blankChip.png')
+        document.getElementById('playerL-bet2').setAttribute('src','static/chips/blankChip.png')
+        document.getElementById('playerL-bet3').setAttribute('src','static/chips/blankChip.png')
+        document.getElementById('playerR-bet1').setAttribute('src','static/chips/blankChip.png')
+        document.getElementById('playerR-bet2').setAttribute('src','static/chips/blankChip.png')
+        document.getElementById('playerR-bet3').setAttribute('src','static/chips/blankChip.png')
+
+        //
+        
     }
 }
