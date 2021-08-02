@@ -5,21 +5,12 @@ function setChip(drag_bet,bet_pos){
         const betPosition2 = bet_pos.id.slice(6,7)+'B2';
         const betPosition1 = bet_pos.id.slice(6,7)+'B1';
         const betPosition3 = bet_pos.id.slice(6,7)+'B3';
-        // const betAmount = drag_bet;
-        // const outline = document.getElementById('c'+bet_pos.id.slice(6,7)+'-outline');
         
         const id1 = bet_pos.id.slice(0,7)+'-bet1'
         const id3 = bet_pos.id.slice(0,7)+'-bet3'
         const bet_pos1 = document.getElementById(id1)
         const bet_pos3 = document.getElementById(id3)
 
-        //logging status before bet
-        // console.log(`chip moved: ${betAmount}`);
-        // console.log(`box bet placed in: ${betPosition2}`);
-        // console.log(`previous bet status:  ${bet_status[betPosition2][0]}`);
-        // console.log(`previous bet amount 1:  ${bet_status[betPosition1][1]}`);
-        // console.log(`previous bet amount 2:  ${bet_status[betPosition2][1]}`);
-        // console.log(`previous bet amount 3:  ${bet_status[betPosition3][1]}`);
         const amount = convertDrag(drag_bet);
         const newBetTotal = bet_status[betPosition1][1] + bet_status[betPosition2][1]
                           + bet_status[betPosition3][1] + amount
@@ -142,14 +133,8 @@ function setChip(drag_bet,bet_pos){
             audio.play()
             // $('.alert').alert("Table limit is $500")
             // $('#exampleModal').modal('show');
-            // centerWindow();
         }
-        //logging status after bet
-        // console.log(`current bet status:  ${bet_status[betPosition2][0]}`)
-        // console.log(`current bet amount 1:  ${bet_status[betPosition1][1]}`)
-        // console.log(`current bet amount 2:  ${bet_status[betPosition2][1]}`)
-        // console.log(`current bet amount 3:  ${bet_status[betPosition3][1]}`)
-        // console.log('\n')
+
         resolve('success');
     })
     return promise;

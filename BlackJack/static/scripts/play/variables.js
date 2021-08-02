@@ -125,7 +125,8 @@ const StrangeBetConfigs = {
  }
 
  let drag_bet_g;
- let players;       
+ let players; 
+ let prev_bet_status;      
  let bet_status = {LB1: [false,0], 
     LB2: [false,0], 
     LB3: [false,0], 

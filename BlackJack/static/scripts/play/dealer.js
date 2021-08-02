@@ -65,7 +65,7 @@ class Dealer extends TableSeat{
         this.stand = true;
         //Need solution to settle bets after dealer's last card is revealed
         console.log(`number of dealer cards ${this.cards.length}`)
-        let pause = (this.cards.length-2)*1000 + 1000
+        let pause = (this.cards.length-2)*1000 + 2000
 
         setTimeout(()=>{this.settleBets()},pause);
     }
@@ -243,12 +243,40 @@ class Dealer extends TableSeat{
         
         for (const [key, value] of Object.entries(payouts)) {
             console.log(`${key}: ${value}`);
+            // Maybe set timeout for each player payout so that it appears dealer goes from left to right, 
+            // reconciling bets, and maybe highlight the box as you go
             this.playerPayout(value,key)
           }
         console.log(`total payout: ${bankUpdate}`) 
-        
-        // update player's bank
-        // setPlayerBank(drag_bet)
+        let pause = 1000 + 250
+        let buttonText;
+        if (bankUpdate > 0){
+            buttonText = 'Collect'
+        }else{
+            buttonText = 'Clear'
+        }
+        let playerCashString = `player cash: ${playerCash+bankUpdate}`
+        setTimeout(()=>{
+            console.log(bet_status)
+            prev_bet_status ={...bet_status}
+            console.log(prev_bet_status)
+            const collectNext = document.getElementById('deal-hit')
+            collectNext.innerHTML=`<button id="collect-next" type="button" class="btn btn-primary btn-sm"
+            onclick="playerCash = playerCash + ${bankUpdate}; setPlayerBank(playerCash);
+            document.getElementById('deal-hit').removeChild(document.getElementById('collect-next'));
+            document.getElementById('stand').removeChild(rebet);
+            dealer.clearTable();" >${buttonText}</button>`
+
+            const rebet = document.getElementById('stand')
+            rebet.innerHTML=`<button id="rebet" type="button" class="btn btn-primary btn-sm"
+            onclick="playerCash = playerCash + ${bankUpdate}; setPlayerBank(playerCash);
+            document.getElementById('deal-hit').removeChild(document.getElementById('collect-next'));
+            document.getElementById('stand').removeChild(rebet);
+            dealer.clearTable();" >Rebet</button>`
+        },pause)
+
+        console.log(`${playerCashString}`); 
+       
     }
     playerPayout(chipsPayout,pos){
                      const bet_pos1_id = "player"+pos+"-bet1";
@@ -258,7 +286,6 @@ class Dealer extends TableSeat{
                      const bet_pos = document.getElementById(bet_pos_id);
                      const bet_pos3 = document.getElementById(bet_pos3_id);
                      
-    
                      const betConfig = StrangeBetConfigs[chipsPayout]
                      console.log(`Config for chips payout: ${betConfig}`)
                      const finalBetConfig = convertBetConfig(betConfig)

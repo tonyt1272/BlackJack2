@@ -162,6 +162,22 @@ html {
 
 }
 
+#collect-next{
+    position: relative;
+    left: -62px;
+    bottom: 58px;
+    margin: 0 -20px 0 0;
+
+}
+
+#rebet{
+    position: relative;
+    left: -62px;
+    bottom: 58px;
+    margin: 0 -20px 0 0;
+
+}
+
 #ddControl{
     position: relative;
     right: 105px;
