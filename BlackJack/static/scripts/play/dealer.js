@@ -63,7 +63,13 @@ class Dealer extends TableSeat{
             }
         }
         this.stand = true;
+        //Need solution to settle bets after dealer's last card is revealed
+        console.log(`number of dealer cards ${this.cards.length}`)
+        let pause = (this.cards.length-2)*1000 + 1000
+
+        setTimeout(()=>{this.settleBets()},pause);
     }
+
     deal(){
         // Disable second deal before current hand is played.
         if (this.enableDeal){
@@ -146,8 +152,8 @@ class Dealer extends TableSeat{
         }
 
         if (this.currentPlayer == this){
-            this.dealerPlay();
-            this.settleBets();
+            // this.dealerPlay();
+            // this.settleBets();
             // remove hit and stand buttons
             document.getElementById('deal-hit').removeChild(document.getElementById('hControl'))
             document.getElementById('stand').removeChild(document.getElementById('stControl'))
@@ -159,17 +165,7 @@ class Dealer extends TableSeat{
             if (document.getElementById('ddControl')){
                 document.getElementById('dubD').removeChild(document.getElementById('ddControl'))
             }
-
-            // update chip stacks based on play results
-            // fake settling for testing:
-            
-
-            // add collect chips, rebet button
-            
-
-            
-            
-            
+            this.dealerPlay(); 
         }
         else if (this.currentPlayer.stand == true){
             this.nextPlayer()
@@ -201,12 +197,102 @@ class Dealer extends TableSeat{
 
     settleBets(){
         console.log('Doing Bet settling stuff!')
-        //After round dealer hand is played, collect or pay
-        // for(this.player of this.players){
-            // Do bet settling stuff;
-            //  this.player.clearHand();
-            // this.player.bet = 0;
-        // }
+        let payouts= {};
+        let bankUpdate = 0;
+        for (this.player of this.players.slice(0,this.players.length-1)){
+            if (this.bust){
+                if(!this.player.bust){
+                    if(this.player.bj){
+                        this.player.payout = 2 * this.player.bet + .5 * this.player.bet;
+                    }else {
+                        this.player.payout = 2 * this.player.bet;
+                    }
+                }
+            } else {
+                const playerTotals = this.player.handTotal.filter(val => val<=21);
+                const playerTotal = Math.max(...playerTotals);
+                const dealerTotals = this.handTotal.filter(val => val<=21);
+                const dealerTotal = Math.max(...dealerTotals);
+
+                console.log(`player total: ${playerTotal}`)
+                console.log(`delaer total: ${dealerTotal}`)
+                if(!this.player.bust){
+                    if(this.player.bj && !this.bj){
+                        this.player.payout = 2 * this.player.bet + .5 * this.player.bet;
+                    }else if(this.player.bj && this.bj){
+                        this.player.payout = this.player.bet;
+                    }else if (playerTotal > dealerTotal){
+                        this.player.payout = 2 * this.player.bet;
+                    }else if (playerTotal == dealerTotal){
+                        this.player.payout = this.player.bet;
+                    }else if (playerTotal < dealerTotal){
+                        this.player.payout = 0;
+                    }
+                }
+            }
+            bankUpdate+=this.player.payout;
+            console.log(`Postion: ${this.player.position.charAt(0)}, payout=${this.player.payout}`)
+            if(Object.keys(payouts).includes(this.player.position.charAt(0))){
+                payouts[this.player.position.charAt(0)] += this.player.payout;
+            }else{
+                payouts[this.player.position.charAt(0)] = this.player.payout;
+            }
+        }
+        console.log(payouts)
+    
+        
+        for (const [key, value] of Object.entries(payouts)) {
+            console.log(`${key}: ${value}`);
+            this.playerPayout(value,key)
+          }
+        console.log(`total payout: ${bankUpdate}`) 
+        
+        // update player's bank
+        // setPlayerBank(drag_bet)
+    }
+    playerPayout(chipsPayout,pos){
+                     const bet_pos1_id = "player"+pos+"-bet1";
+                     const bet_pos_id = "player"+pos+"-bet2";
+                     const bet_pos3_id = "player"+pos+"-bet3";
+                     const bet_pos1 = document.getElementById(bet_pos1_id);
+                     const bet_pos = document.getElementById(bet_pos_id);
+                     const bet_pos3 = document.getElementById(bet_pos3_id);
+                     
+    
+                     const betConfig = StrangeBetConfigs[chipsPayout]
+                     console.log(`Config for chips payout: ${betConfig}`)
+                     const finalBetConfig = convertBetConfig(betConfig)
+                     console.log(`final chips payout Config: ${finalBetConfig}`)
+                     for(this.item of finalBetConfig){
+                         console.log(this.item)
+                     }
+                    
+                     if(finalBetConfig[0][1] > 0){
+                        bet_pos1.classList.replace('hide','show')
+                        bet_pos1.setAttribute('src',`static/chips/${finalBetConfig[0][0]}/${finalBetConfig[0][1]}x${finalBetConfig[0][0]}.png`)}
+                     else{
+                        bet_pos1.classList.replace('show','hide')
+                        bet_pos1.setAttribute('src',`static/chips/blankChip.png`)
+                     }
+    
+                    if(finalBetConfig[1][1] > 0){
+                        bet_pos.classList.replace('hide','show')
+                        bet_pos.setAttribute('src',`static/chips/${finalBetConfig[1][0]}/${finalBetConfig[1][1]}x${finalBetConfig[1][0]}.png`)}
+                    else{
+                        bet_pos.classList.replace('show','hide')
+                        bet_pos.setAttribute('src',`static/chips/blankChip.png`)
+                    }
+                     
+                    if(finalBetConfig[2][1] > 0){
+                        bet_pos3.classList.replace('hide','show')
+                        bet_pos3.setAttribute('src',`static/chips/${finalBetConfig[2][0]}/${finalBetConfig[2][1]}x${finalBetConfig[2][0]}.png`)}
+                    else{
+                        bet_pos3.classList.replace('show','hide')
+                        bet_pos3.setAttribute('src',`static/chips/blankChip.png`)
+                    }
+                     
+                    
+                    
     }
 
     clearTable(){

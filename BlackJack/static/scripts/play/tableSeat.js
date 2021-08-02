@@ -37,9 +37,10 @@ class TableSeat{
             this.setStand();
         }else if (this.handTotal[0] > 21){
             this.bust = true;
+            this.payout = 0;
             this.setStand();
         }
-        if (this.handTotal[1] == 21 && this.cards.length == 2){
+        if (this.handTotal[1] == 21 && this.cards.length == 2 && !this.splitActive){
             this.bj = true;
             this.stand = true;
 

@@ -3,6 +3,8 @@ class Player extends TableSeat{
     bet;
     dealer;
     splitActive = false;
+    payout;
+
     constructor(position, bet=5){
         super();
         this.position = position;
@@ -48,6 +50,10 @@ class Player extends TableSeat{
         
         if (this.handValues[0] == this.handValues[1] && this.cards.length == 2 && !this.splitActive){
             this.splitActive = true;
+            this.dealer.playerPayout(2*this.bet,this.position);
+            playerCash = playerCash - this.bet;
+            setPlayerBank(playerCash);
+            
             const position = 'c' + this.cards.length + this.position
             this.hideCard(position).then(()=>{
                 setTimeout(()=>{this.updateSplit()},500)
@@ -60,6 +66,9 @@ class Player extends TableSeat{
     dubD(){
         if (this.cards.length == 2){
             this.DoubleD = true;
+            this.dealer.playerPayout(2*this.bet,this.position);
+            playerCash = playerCash - this.bet;
+            setPlayerBank(playerCash);
             this.hit();
             if (!this.bust && !this.bj){
                 this.bet = 2 * this.bet;
@@ -70,5 +79,8 @@ class Player extends TableSeat{
     }
     setDealer(dealer){
         this.dealer = dealer;
+    }
+    setPayout(payout){
+        this.payout = payout
     }
 }
