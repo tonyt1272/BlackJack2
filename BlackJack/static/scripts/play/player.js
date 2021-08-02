@@ -66,12 +66,9 @@ class Player extends TableSeat{
     dubD(){
         if (this.cards.length == 2){
             this.DoubleD = true;
-            this.dealer.playerPayout(2*this.bet,this.position);
-            playerCash = playerCash - this.bet;
-            setPlayerBank(playerCash);
+            this.bet = 2 * this.bet;
             this.hit();
             if (!this.bust && !this.bj){
-                this.bet = 2 * this.bet;
                 this.stand = true;
             }
         }

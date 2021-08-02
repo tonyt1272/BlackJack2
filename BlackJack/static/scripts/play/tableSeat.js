@@ -33,6 +33,7 @@ class TableSeat{
         if (this.DoubleD){
             if (this.handTotal[0] > 21){
                 this.bust = true;
+                this.payout = 0;
             }
             this.setStand();
         }else if (this.handTotal[0] > 21){
