@@ -100,6 +100,7 @@ class Dealer extends TableSeat{
             // remove the deal button
             // document.getElementById('dControl').remove()  //new way to remove
             document.getElementById('deal-hit').removeChild(document.getElementById('dControl')) //old way to remove
+            document.getElementById('dubD').removeChild(document.getElementById('cbControl'));
             playerBank0EL.setAttribute('draggable','false')
             playerBank1EL.setAttribute('draggable','false')
             playerBank2EL.setAttribute('draggable','false')

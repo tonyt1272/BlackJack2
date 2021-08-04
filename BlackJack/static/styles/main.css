@@ -178,6 +178,14 @@ html {
 
 }
 
+#cbControl{
+    position: relative;
+    right: 105px;
+    bottom: 58px;
+    margin: 0 -25px 0 0 ;
+
+}
+
 #ddControl{
     position: relative;
     right: 105px;

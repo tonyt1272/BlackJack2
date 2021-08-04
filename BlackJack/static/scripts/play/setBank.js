@@ -17,8 +17,6 @@ async function fetchBankLevels() {
 }
 
 
-
-
 function setPlayerBank(drag_bet){
     if (drag_bet === 'five'){
         playerCash -= 5
@@ -59,4 +57,42 @@ function setPlayerBank(drag_bet){
         }       
     }
     drag_bet = null;  
+}
+
+function clearBets(){
+    // document.getElementById('stand').removeChild(rebet);
+    document.getElementById('deal-hit').removeChild(document.getElementById('dControl'));
+    document.getElementById('dubD').removeChild(document.getElementById('cbControl'));
+    
+    let cleared_bet_total = 0;
+    for(let letter of ['L', 'C','R']){
+        for(let num of [1,2,3]){
+            cleared_bet_total += bet_status[`${letter}B${num}`][1];  
+        }
+    }
+
+    playerCash = playerCash + cleared_bet_total;
+    setPlayerBank(playerCash);
+
+    players = []
+    bet_status = {LB1: [false,0], 
+                    LB2: [false,0], 
+                    LB3: [false,0], 
+                    CB1: [false,0], 
+                    CB2: [false,0], 
+                    CB3: [false,0],
+                    RB1: [false,0],
+                    RB2: [false,0],
+                    RB3: [false,0]}
+
+    document.getElementById('playerC-bet1').setAttribute('src','static/chips/blankChip.png')
+    document.getElementById('playerC-bet2').setAttribute('src','static/chips/blankChip.png')
+    document.getElementById('playerC-bet3').setAttribute('src','static/chips/blankChip.png')
+    document.getElementById('playerL-bet1').setAttribute('src','static/chips/blankChip.png')
+    document.getElementById('playerL-bet2').setAttribute('src','static/chips/blankChip.png')
+    document.getElementById('playerL-bet3').setAttribute('src','static/chips/blankChip.png')
+    document.getElementById('playerR-bet1').setAttribute('src','static/chips/blankChip.png')
+    document.getElementById('playerR-bet2').setAttribute('src','static/chips/blankChip.png')
+    document.getElementById('playerR-bet3').setAttribute('src','static/chips/blankChip.png')
+
 }

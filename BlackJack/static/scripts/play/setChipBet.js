@@ -166,6 +166,11 @@ async function setBet(drag_bet,bet_pos){
             '<button id="dControl" type="button" class="btn btn-success btn-sm" onclick="playGame();">Deal</button>'
         }
 
+        if (!document.getElementById('dubD').contains(document.getElementById('cbControl'))){
+            document.getElementById('dubD').innerHTML=
+            '<button id="cbControl" type="button" class="btn btn-warning btn-sm" onclick="clearBets();">Clear Bets</button>'
+        }
+
         // place clear bets button in the id="dubD" div, use if(!) check, same as used for deal button above, make it amber.
         
     })
