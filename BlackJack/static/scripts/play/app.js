@@ -43,11 +43,11 @@ boot.shuffle();
 function playGame(){
    
     dealer = new Dealer(players);
-    // boot.cards[0]=1;
+    boot.cards[0]=1;
     // boot.cards[1]=1;
     // boot.cards[2]=1;
     // boot.cards[3]=1;
-    // boot.cards[4]=1;
+    boot.cards[4]=1;
     // boot.cards[5]=10;
     // boot.cards[6]=10;
     // boot.cards[7]=10;

@@ -90,9 +90,31 @@ class Player extends TableSeat{
         if (this.cards.length == 2){
             if(!this.bj){
                 this.DoubleD = true;
-                //
-                this.dealer.playerPayout(2*this.bet,this.position[0]);
-                //
+                //-----------------------------------------
+
+                
+                if (this.splitActive){
+                    let currentPlayerPos = this.dealer.currentPlayer.position
+                    let otherBet;
+                    console.log(currentPlayerPos)
+                    for (const player of this.dealer.players){
+                        if (player.position[0] == this.dealer.currentPlayer.position[0] ){
+                            if(player.position != currentPlayerPos){
+                                console.log(`not the current player: ${player.position}, bet=${player.bet}`)
+                                otherBet = player.bet
+                            }
+                        }
+                    }
+                    this.dealer.playerPayout(2*this.bet + otherBet, this.position[0]);
+                }else{
+                    this.dealer.playerPayout(2*this.bet, this.position[0]);
+                }
+                
+               
+                
+
+
+                //-----------------------------------------
                 playerCash = playerCash - this.bet
                 setPlayerBank(playerCash);
                 this.bet = 2 * this.bet;
