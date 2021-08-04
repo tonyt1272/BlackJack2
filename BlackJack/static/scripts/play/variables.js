@@ -153,6 +153,7 @@ const bankPos = [[playerBank0EL,0,'five'],
 [playerBank6EL,6,'five-hundred']]
 
 let bankLevels;
+let servedBoot;
 let playerCash = 1000;
 
 function sum(array) {

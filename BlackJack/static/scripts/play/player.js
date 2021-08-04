@@ -82,17 +82,14 @@ class Player extends TableSeat{
                 setTimeout(()=>{this.updateSplit()},500)
                 
             })
-        }
-        
-        
+        }  
     }
+    
     dubD(){
         if (this.cards.length == 2){
             if(!this.bj){
                 this.DoubleD = true;
-                //-----------------------------------------
 
-                
                 if (this.splitActive){
                     let currentPlayerPos = this.dealer.currentPlayer.position
                     let otherBet;
@@ -109,12 +106,7 @@ class Player extends TableSeat{
                 }else{
                     this.dealer.playerPayout(2*this.bet, this.position[0]);
                 }
-                
-               
-                
-
-
-                //-----------------------------------------
+           
                 playerCash = playerCash - this.bet
                 setPlayerBank(playerCash);
                 this.bet = 2 * this.bet;

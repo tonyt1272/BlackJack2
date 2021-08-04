@@ -17,6 +17,8 @@ async function fetchBankLevels() {
 }
 
 
+
+
 function setPlayerBank(drag_bet){
     if (drag_bet === 'five'){
         playerCash -= 5

@@ -1,3 +1,9 @@
+async function fetchBoot() {
+    await sendHttpRequest('GET', 'http://localhost:5000/api_get_cards').then(responseData => {
+        servedBoot = responseData;
+    })
+}
+
 function getRandomArbitrary(min, max) {
     //Returns a random number between min (inclusive) and max (exclusive)
     return Math.random() * (max - min) + min;
@@ -118,11 +124,12 @@ class Boot{
     stack = 1;  // discard stack height
     constructor(size=6,a=.4,b=.75){
         this.size = size;
-        let cards = range(1,53);
-        let boot = [];
-        for(let i = 0; i<size; i++){
-            boot = boot.concat(cards);
-        }
+        // let cards = range(1,53);
+
+        let boot = [...servedBoot];
+        // for(let i = 0; i<size; i++){
+        //     boot = boot.concat(cards);
+        // }
         this.cards = boot;
         this.a = a;
         this.b = b;

@@ -26,28 +26,35 @@ function demo1(pause=500, players){
 
 
 fetchBankLevels().then(()=>{
-    // console.log(bankLevels[playerCash])
+
     console.log(`Player Cash: $${playerCash}`)
     setPlayerBank(playerCash);
 
 })
-
+//serving boot from server api, this allows order and value of cards dealt to be verified against
+//served values to detect manipulation.  Could server cards one at a time if required but I don't 
+//think it's necessary for this learning tool game.
+fetchBoot().then(()=>{boot = new Boot()});
 
 // ------------- dev script ---------------- //
 deck = newDeck(); // master reference for cards
-boot = new Boot(); // current boot of cards
+// boot = new Boot(); // current boot of cards
 
-boot.shuffle();
+
+// boot.shuffle();
+// boot.shuffle();
+
+
 
 
 function playGame(){
    
     dealer = new Dealer(players);
-    boot.cards[0]=1;
+    // boot.cards[0]=1;
     // boot.cards[1]=1;
     // boot.cards[2]=1;
     // boot.cards[3]=1;
-    boot.cards[4]=1;
+    // boot.cards[4]=1;
     // boot.cards[5]=10;
     // boot.cards[6]=10;
     // boot.cards[7]=10;
