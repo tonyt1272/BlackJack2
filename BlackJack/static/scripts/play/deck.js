@@ -122,15 +122,15 @@ class Boot{
     cards;  // array of integer values [1...52] representing playing cards, transform to cards using deck object, deck[num] -> card
     dealt = 0;  // number of cards that have left the boot
     stack = 1;  // discard stack height
-    constructor(size=6,a=.4,b=.75){
+    constructor(size=6,a=.4,b=.70){
         this.size = size;
         // let cards = range(1,53);
 
-        let boot = [...servedBoot];
+        const boot = [...servedBoot];
         // for(let i = 0; i<size; i++){
         //     boot = boot.concat(cards);
         // }
-        this.cards = boot;
+        this.cards = [...boot];
         this.a = a;
         this.b = b;
     }
