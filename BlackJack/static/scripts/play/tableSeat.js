@@ -8,7 +8,6 @@ class TableSeat{
     bj = false;
 
     
-
     addCard(card){
         this.cards.push(card);
         const position = 'c' + this.cards.length + this.position
@@ -25,8 +24,14 @@ class TableSeat{
 
     setHandTotal(){
         
-        
         this.handTotal[0] = sum(this.handValues)
+
+        if (this.handTotal[0]<21 && this.cards.length>2){
+            document.getElementById('deal-hit').innerHTML=`<button id="hControl" type="button" class="btn btn-primary btn-sm" 
+                    onclick="if(dealer.currentPlayer != dealer){dealer.currentPlayer.hit()};"> 
+                    Hit </button>`
+        }
+
         if (this.handValues.includes(1)){
             this.handTotal[1] = this.handTotal[0]+10
         }
@@ -54,6 +59,12 @@ class TableSeat{
         if (document.getElementById('spControl')){
             document.getElementById('splitDiv').removeChild(document.getElementById('spControl'))
         }
+
+        if (this.dealer.currentPlayer == this.dealer.players[this.dealer.players.length-2] && !this.doubleD){
+            if (document.getElementById('hControl')){
+                document.getElementById('deal-hit').removeChild(document.getElementById('hControl'))
+                }
+        }
         
         this.stand = true;
         this.dealer.nextPlayer()
@@ -68,19 +79,30 @@ class TableSeat{
         this.bj = false;
     }
     hit(){
-        // remove split button if present
-        if (document.getElementById('spControl')){
-            document.getElementById('splitDiv').removeChild(document.getElementById('spControl'))
-        }
-        // remove double-down button if present
-        if (document.getElementById('ddControl')){
-            document.getElementById('dubD').removeChild(document.getElementById('ddControl'))
-        }
+            //
+            //
+            // if(!this.splitActive){
+                document.getElementById('deal-hit').removeChild(document.getElementById('hControl'))
+            // }
+            
+            // if (document.getElementById('hcontrol')){
+            //     document.getElementById('deal-hit').removeChild(document.getElementById('hControl'))
+            // }
+            //
+            //
+            // remove split button if present
+            if (document.getElementById('spControl')){
+                document.getElementById('splitDiv').removeChild(document.getElementById('spControl'))
+            }
+            // remove double-down button if present
+            if (document.getElementById('ddControl')){
+                document.getElementById('dubD').removeChild(document.getElementById('ddControl'))
+            }
 
-        if(!this.bust && !this.stand){
-            this.dealer.dealSingle(this)
-        }else{
-            this.dealer.nextPlayer()
-        }
+            if(!this.bust && !this.stand){
+                this.dealer.dealSingle(this)
+            }else{
+                this.dealer.nextPlayer()
+            }
     }
 }

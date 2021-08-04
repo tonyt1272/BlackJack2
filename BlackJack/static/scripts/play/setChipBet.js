@@ -140,6 +140,11 @@ function setChip(drag_bet,bet_pos){
     return promise;
 }
 async function setBet(drag_bet,bet_pos){
+    
+    try{
+        document.getElementById('stand').removeChild(rebet);
+    }catch(e){}
+
     await setChip(drag_bet,bet_pos).then(responseData =>{
         bet_pos.classList.replace('hide','show');
 
@@ -160,6 +165,8 @@ async function setBet(drag_bet,bet_pos){
             document.getElementById('deal-hit').innerHTML=
             '<button id="dControl" type="button" class="btn btn-success btn-sm" onclick="playGame();">Deal</button>'
         }
+
+        // place clear bets button in the id="dubD" div, use if(!) check, same as used for deal button above, make it amber.
         
     })
 }

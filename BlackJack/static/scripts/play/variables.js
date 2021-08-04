@@ -3,15 +3,19 @@ const StrangeBetConfigs = {
     0: [0, 0, 0],
     5: [0, 5, 0],
     10: [0, 10, 0],
+    12.50: [2.50, 10, 0],
+    15: [0, 15, 0],
     20: [0, 20 ,0],
     25: [0, 25 ,0],
     30: [5, 25 ,0],
     35: [10, 25 ,0],
+    37.50: [5, 30, 2.50],
     40: [20, 20 ,0],
     45: [20, 25, 0],
     50: [0, 50, 0],
     55: [5, 50, 0],
     60: [10, 50, 0],
+    62.50: [10,50,2.50],
     65: [5, 50, 10],
     70: [20, 50, 0],
     75: [0, 75, 0],
@@ -121,22 +125,23 @@ const StrangeBetConfigs = {
     590: [75, 500, 15],
     595: [75, 500, 20],
     600: [100, 500, 0],
-    1000: [500, 500, 0]
+    1000: [500, 500, 0],
+    1250: [1000,200, 50]
  }
 
  let drag_bet_g;
  let players; 
- let prev_bet_status;      
+ let prev_bet_status;  
+ let prev_bet_total = 0;    
  let bet_status = {LB1: [false,0], 
-    LB2: [false,0], 
-    LB3: [false,0], 
-    CB1: [false,0], 
-    CB2: [false,0], 
-    CB3: [false,0],
-    RB1: [false,0],
-    RB2: [false,0],
-    RB3: [false,0]}
-
+                   LB2: [false,0], 
+                   LB3: [false,0], 
+                   CB1: [false,0], 
+                   CB2: [false,0], 
+                   CB3: [false,0],
+                   RB1: [false,0],
+                   RB2: [false,0],
+                   RB3: [false,0]}
 
 
 const bankPos = [[playerBank0EL,0,'five'],
@@ -148,7 +153,7 @@ const bankPos = [[playerBank0EL,0,'five'],
 [playerBank6EL,6,'five-hundred']]
 
 let bankLevels;
-let playerCash = 1500;
+let playerCash = 1000;
 
 function sum(array) {
     let sum = array.reduce(function (accumulator, currentValue) {

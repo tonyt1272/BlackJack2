@@ -1,7 +1,7 @@
 function convertBetConfig(betConfig){
     let finalConfig = [];
     const chipVals =[[500, 'five-hundred'], [100, 'one-hundred'], [50, 'fifty'], 
-                     [25, 'twenty-five'], [10, 'ten'], [5, 'five']]
+                     [25, 'twenty-five'], [10, 'ten'], [5, 'five'], [2.50, 'two-fifty']]
     for(pos of betConfig){
         if (pos == 0){
             finalConfig.push([false, 0])}
@@ -21,6 +21,9 @@ function convertBetConfig(betConfig){
 
 
 function convertDrag(bet){
+    if (bet=='two-fifty'){
+        return 2.50
+    }
     if (bet=='five'){
         return 5
     }

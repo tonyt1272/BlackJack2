@@ -32,8 +32,31 @@ class Player extends TableSeat{
             sPlayer.splitActive = true;
             this.dealer.players.splice(sPos, 0, sPlayer);
             resolve();
-            setTimeout(()=>{this.dealer.currentPlayer.hit()},500);
-            setTimeout(()=>{this.dealer.players[sPos].hit()},1400);
+            
+            setTimeout(()=>{
+                // To prevent spam hit clicking hit buttons are removed after click until next card
+                // has been rendered.  The removing is done in the tableSeat.hit() method.  The split method
+                // calls this hit method so the hit it tries to remove the hit but the button is not there.
+                // if(element...) doesn't work because of the async conditions. so this inelegant method of 
+                // creating hit buttons just so they can be deleted is a work-around, which will be revisited.
+                document.getElementById('deal-hit').innerHTML=`<button id="hControl" type="button" class="btn btn-primary btn-sm" 
+                    onclick="if(dealer.currentPlayer != dealer){dealer.currentPlayer.hit()};"> 
+                    Hit </button>`
+                this.dealer.currentPlayer.hit()},500);
+            
+            setTimeout(()=>{
+                //
+                document.getElementById('deal-hit').innerHTML=`<button id="hControl" type="button" class="btn btn-primary btn-sm" 
+                    onclick="if(dealer.currentPlayer != dealer){dealer.currentPlayer.hit()};"> 
+                    Hit </button>`
+                this.dealer.players[sPos].hit()
+                //
+                document.getElementById('deal-hit').innerHTML=`<button id="hControl" type="button" class="btn btn-primary btn-sm" 
+                    onclick="if(dealer.currentPlayer != dealer){dealer.currentPlayer.hit()};"> 
+                    Hit </button>`
+            
+            },1400);
+
            
             document.getElementById(`c1${seat}-split`).classList.replace('hide','show')
             document.getElementById(`c2${seat}-split`).classList.replace('hide','show')
@@ -65,12 +88,22 @@ class Player extends TableSeat{
     }
     dubD(){
         if (this.cards.length == 2){
-            this.DoubleD = true;
-            this.bet = 2 * this.bet;
+            if(!this.bj){
+                this.DoubleD = true;
+                //
+                this.dealer.playerPayout(2*this.bet,this.position[0]);
+                //
+                playerCash = playerCash - this.bet
+                setPlayerBank(playerCash);
+                this.bet = 2 * this.bet;
+            }
             this.hit();
             if (!this.bust && !this.bj){
                 this.stand = true;
             }
+        if (this.dealer.currentPlayer == this.dealer.players[this.dealer.players.length-2] ){
+            document.getElementById('stand').removeChild(document.getElementById('stControl'))
+        }
         }
         
     }
