@@ -36,22 +36,6 @@ function setChip(drag_bet,bet_pos){
                 bet_status[betPosition1][1] += amount;
                 setPlayerBank(drag_bet)
 
-                // add event listeners for position 1
-                // bet_pos1.addEventListener("dragover", ev => {
-                //     ev.preventDefault();
-                //     outline.classList.add('droppable')
-                // });
-                // bet_pos1.addEventListener("dragleave", ev => {
-                //     ev.preventDefault();
-                //     outline.classList.remove('droppable')
-                // });
-                // bet_pos1.addEventListener("drop", ev => {
-                //     ev.preventDefault();
-                //     setBet(drag_bet_g, bet_pos1)
-                //     outline.classList.remove('droppable')
-                // });
-                //
-
             }  else if (bet_status[betPosition1][0] == drag_bet && bet_status[betPosition1][1] < 6*amount){
                 const numChips = (bet_status[betPosition1][1]/amount) + 1;
                 bet_status[betPosition1][1] += amount;
@@ -63,22 +47,6 @@ function setChip(drag_bet,bet_pos){
                 bet_status[betPosition3][0] = drag_bet;
                 bet_status[betPosition3][1] += amount;
                 setPlayerBank(drag_bet)
-
-            //add event listeners for position 3
-            // bet_pos3.addEventListener("dragover", ev => {
-            //     ev.preventDefault();
-            //     outline.classList.add('droppable')
-            // });
-            // bet_pos3.addEventListener("dragleave", ev => {
-            //     ev.preventDefault();
-            //     outline.classList.remove('droppable')
-            // });
-            // bet_pos3.addEventListener("drop", ev => {
-            //     ev.preventDefault();
-            //     setBet(drag_bet_g, bet_pos3)
-            //     outline.classList.remove('droppable')
-            // });
-            //
 
             } else if (bet_status[betPosition3][0] == drag_bet && bet_status[betPosition3][1] < 6*amount){
                 const numChips = (bet_status[betPosition3][1]/amount) + 1;
@@ -171,8 +139,6 @@ async function setBet(drag_bet,bet_pos){
             '<button id="cbControl" type="button" class="btn btn-warning btn-sm" onclick="clearBets();">Clear Bets</button>'
         }
 
-        // place clear bets button in the id="dubD" div, use if(!) check, same as used for deal button above, make it amber.
-        
     })
 }
 

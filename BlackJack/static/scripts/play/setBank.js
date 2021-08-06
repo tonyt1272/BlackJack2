@@ -18,6 +18,7 @@ async function fetchBankLevels() {
 
 
 function setPlayerBank(drag_bet){
+
     if (drag_bet === 'five'){
         playerCash -= 5
     }
@@ -37,7 +38,16 @@ function setPlayerBank(drag_bet){
         playerCash -= 500
     }
     if (playerCash <= 7140){
-        levels = bankLevels[playerCash][1]
+        cashString = playerCash.toString();
+        let bankUpdate;
+        if (cashString.substr(cashString.length-2)== '.5'){
+            bankUpdate = playerCash - 2.50;
+            console.log(bankUpdate)
+        }else{
+            bankUpdate = playerCash
+            console.log(bankUpdate)
+        }
+        levels = bankLevels[bankUpdate][1]
     }else{
         levels = [6,6,6,6,6,6,6]}
 

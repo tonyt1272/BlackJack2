@@ -31,16 +31,13 @@ class Dealer extends TableSeat{
 
         if (this.cards.length == 1){
             document.getElementById(position).setAttribute('src',`static/cards/cards/${card}`)
-
         }else if (this.cards.length ==2){
             document.getElementById(position).setAttribute('src',`static/cards/cards/zback.png`)
         }else{
-            
             setTimeout(()=>{
                 document.getElementById(position).setAttribute('src',`static/cards/cards/${card}`)
                 document.getElementById(position).classList.replace('hide',`show`)
             },this.pause)
-            
             this.pause +=1000;
         }  
     }
@@ -89,14 +86,12 @@ class Dealer extends TableSeat{
         for(let letter of ['L', 'C','R']){
             for(let num of [1,2,3]){
                 prev_bet_total += prev_bet_status[`${letter}B${num}`][1]
-                
             }
         }
         console.log(`prev_bet_total: ${prev_bet_total}`)
          
         // Disable second deal before current hand is played.
         if (this.enableDeal){
-
             // remove the deal button
             // document.getElementById('dControl').remove()  //new way to remove
             document.getElementById('deal-hit').removeChild(document.getElementById('dControl')) //old way to remove
@@ -108,7 +103,6 @@ class Dealer extends TableSeat{
             playerBank4EL.setAttribute('draggable','false')
             playerBank5EL.setAttribute('draggable','false')
             playerBank6EL.setAttribute('draggable','false')
-            //
 
             this.enableDeal = false;
             for (let i=0; i <2;i++){
@@ -127,7 +121,7 @@ class Dealer extends TableSeat{
             this.highlightPos = 'c'+this.currentPlayer.position+'-outline'
             document.getElementById(this.highlightPos).style.opacity=1;
 
-            var pause = 4000
+            var pause = dealer.players.length*1200
     
             setTimeout(()=>{
                     // Add player control buttons:
@@ -307,23 +301,18 @@ class Dealer extends TableSeat{
         }
         let playerCashString = `player cash: ${playerCash+bankUpdate}`
         setTimeout(()=>{
-            // console.log(bet_status)
-            // prev_bet_status ={...bet_status}
-            // console.log(prev_bet_status)
             const collectNext = document.getElementById('deal-hit')
             collectNext.innerHTML=`<button id="collect-next" type="button" class="btn btn-primary btn-sm"
             onclick="playerCash = playerCash + ${bankUpdate}; setPlayerBank(playerCash);
             document.getElementById('deal-hit').removeChild(document.getElementById('collect-next'));
             dealer.clearTable(); dealer.showRebet();" >${buttonText}</button>`
-
-            
         },pause)
 
         console.log(`${playerCashString}`);  
     }
 
     showRebet(){
-        console.log(prev_bet_total)
+        // console.log(prev_bet_total)
         if (prev_bet_total <= playerCash){
             const rebet = document.getElementById('stand')
             rebet.innerHTML=`<button id="rebet" type="button" class="btn btn-primary btn-sm"

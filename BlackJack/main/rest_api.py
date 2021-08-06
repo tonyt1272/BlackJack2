@@ -16,6 +16,7 @@ class BankLevels(Resource):
 class GetCards(Resource):
     def get(self):
         cards = range(1, 53)
+        np.random.shuffle(list(cards))
         boot = np.array([])
         for i in range(6):
             boot = np.concatenate((boot, cards), axis=None)

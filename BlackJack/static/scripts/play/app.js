@@ -10,42 +10,45 @@ function centerWindow(){
 }
 
 
-function demo1(pause=500, players){
+function demo1(players){
+    let pause = 500
     // FIX THIS!!!
-    // Needs to be moved into dealer.deal() and refactored to render cards only for
+    // Maybe moved into dealer.deal()?
     // active players.
-    setTimeout(()=>{playerLCard1EL.classList.replace('hide','show')},1*pause)
-    setTimeout(()=>{playerCCard1EL.classList.replace('hide','show')},2*pause)
-    setTimeout(()=>{playerRCard1EL.classList.replace('hide','show')},3*pause)
-    setTimeout(()=>{dealerCard1EL.classList.replace('hide','show')},4*pause)   
-    setTimeout(()=>{playerLCard2EL.classList.replace('hide','show')},5*pause)
-    setTimeout(()=>{playerCCard2EL.classList.replace('hide','show')},6*pause)
-    setTimeout(()=>{playerRCard2EL.classList.replace('hide','show')},7*pause)
-    setTimeout(()=>{dealerCard2EL.classList.replace('hide','show')},8*pause)  
+    let cardIds = ['c1L', 'c1C', 'c1R', 'd1', 'c2L', 'c2C', 'c2R', 'd2']
+    let presentSeats = [];
+    for (const player of players){
+        presentSeats.push(player.position)
+    }
+    // console.log(presentSeats)
+    let dealToIds = [];
+    for (const id of cardIds){
+        if(presentSeats.includes(id[id.length-1]) || id[0] == 'd'){
+            dealToIds.push(id)
+        }
+    }
+    // console.log(dealToIds)
+    for (const id of dealToIds){
+        setTimeout(()=>{
+            document.getElementById(id).classList.replace('hide','show')
+        }, pause)
+        pause += 500
+    } 
 }
 
 
 fetchBankLevels().then(()=>{
-
     console.log(`Player Cash: $${playerCash}`)
     setPlayerBank(playerCash);
-
 })
 //serving boot from server api, this allows order and value of cards dealt to be verified against
-//served values to detect manipulation.  Could server cards one at a time if required but I don't 
+//served values to detect manipulation.  Could serve cards one at a time if required but I don't 
 //think it's necessary for this learning tool game.
 fetchBoot().then(()=>{boot = new Boot()});
 
 // ------------- dev script ---------------- //
 deck = newDeck(); // master reference for cards
 // boot = new Boot(); // current boot of cards
-
-
-// boot.shuffle();
-// boot.shuffle();
-
-
-
 
 function playGame(){
    
@@ -54,14 +57,14 @@ function playGame(){
     // boot.cards[1]=1;
     // boot.cards[2]=1;
     // boot.cards[3]=1;
-    // boot.cards[4]=1;
+    // boot.cards[4]=10;
     // boot.cards[5]=10;
     // boot.cards[6]=10;
     // boot.cards[7]=10;
     // boot.cards[8]=10;
     console.log(`Shuffle boot next round?: ${boot.dealt > boot.splitCard}`)
     dealer.deal()
-    demo1()
+    demo1(players)
     
     if (dealer.handTotal[1] == 21){
         console.log('Dealer Has Blackjack!')
