@@ -63,7 +63,7 @@ class Player extends TableSeat{
            
             document.getElementById(`c1${seat}-split`).classList.replace('hide','show')
             document.getElementById(`c2${seat}-split`).classList.replace('hide','show')
-            console.log('show dubD')
+            // console.log('show dubD')
             setTimeout(()=>{
                 document.getElementById('dubD').innerHTML=`<button id="ddControl"  type="button" class="btn btn-outline-primary btn-sm" 
                 onclick="dealer.currentPlayer.dubD();">D.D.</button>`},1600)
@@ -100,7 +100,7 @@ class Player extends TableSeat{
                     for (const player of this.dealer.players){
                         if (player.position[0] == this.dealer.currentPlayer.position[0] ){
                             if(player.position != currentPlayerPos){
-                                console.log(`not the current player: ${player.position}, bet=${player.bet}`)
+                                // console.log(`not the current player: ${player.position}, bet=${player.bet}`)
                                 otherBet = player.bet
                             }
                         }

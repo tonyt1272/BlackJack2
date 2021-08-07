@@ -133,11 +133,23 @@ window.addEventListener('load', (event) => {
     //     behavior: 'smooth'
     //   })
     
-      playerBank3EL.scrollIntoView({
-        behavior: "smooth" ,
-        block: "center" ,
-        inline: "center",
-      });
+
+    // setTimeout(()=>{
+    // },0)
+
+    document.body.setAttribute('id','play-background');
+    document.getElementById("exampleModalCenter").classList.replace("show","hide")
+    document.getElementById("exampleModalCenter").style.display = "none";
+     
+    document.getElementById('main-window').style.display = 'block';
+    document.body.removeChild(myModal);
+    $('link[rel=stylesheet][href~="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"]').remove();
     
+    playerBank3EL.scrollIntoView({
+    // behavior: "smooth" ,
+    block: "center" ,
+    inline: "center",
+    });
+
 });
 

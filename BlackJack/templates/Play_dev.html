@@ -1,14 +1,14 @@
 {% extends "layout.html" %}
 
 {% block content %}
+
         <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
         <link href="http://fonts.cdnfonts.com/css/led-digital-7" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
 
+
+        <script src="static/scripts/play/loadingModal.js"></script>
         <script src="static/scripts/play/elements.js" defer></script>
         <script src="static/scripts//play/variables.js" defer></script>
         <script src="static/scripts//play/listeners.js" defer></script>
@@ -21,9 +21,11 @@
         <script src="static/scripts//play/dealer.js" defer></script>
         <script src="static/scripts//play/app.js" defer></script>
 
-        <div class="container perspective-parent" id="hud">
+        <div class="container perspective-parent" >
+
+
 <!--Player Bank Chips-->
-            <div class="row  d-flex flex-row-reverse disableselect">
+            <div class="row d-flex flex-row-reverse disableselect">
 
                 <div class="col-sm-4 hud-overlay mx-auto">
                     <div class="text-center">
@@ -102,15 +104,14 @@
                     <p>$1500</p>
                 </div>
 
-
             </div>
 
 <!--            End Controls-->
 
 <!--        CHips   -->
-                <section class="table perspective-transform disableselect">
+                <section class="table perspective-transform disableselect" >
 
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-center" >
                         <div class="col-sm-8 disableselect">
                             <img class="chips disableselect" draggable="false" src="static/chips/chips_full2.png">
                         </div>
@@ -232,6 +233,7 @@
                         </div>
 
                 </section>
+
             </div>
 <!--                    <button   type="button" class="btn btn-primary btn-sm" onclick="stack+=1;
                         if(stack<20){trayCard.setAttribute('src',`static/table_objects/tray_stacks/stack_${stack}.png`)}

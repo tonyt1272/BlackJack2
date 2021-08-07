@@ -1,3 +1,13 @@
+body {
+    min-width:640px;
+}
+.fit-image{
+    max-width: 100%;
+    object-fig: cover;
+    height: auto;
+
+}
+
 .movable {
     cursor: pointer;
 }
@@ -857,6 +867,17 @@ html {
     /*color: #333333;*/
     /*margin-top: 5rem;*/
     /*max-width: 1000px;*/
+}
+
+#white-background{
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*min-height: 900px;*/
+    color: #FBFCFC;
+    /*margin-top: 5rem;*/
+    /*max-width: 1000px;*/
+
 }
 
 

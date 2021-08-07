@@ -70,7 +70,7 @@ class Dealer extends TableSeat{
         }
         this.stand = true;
         //settle bets after dealer's last card is revealed
-        console.log(`number of dealer cards ${this.cards.length}`)
+        // console.log(`number of dealer cards ${this.cards.length}`)
         if (this.handTotal[1] == 21 ){
             var pause = (this.cards.length)*1000 + 3750
         }else{
