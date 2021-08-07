@@ -1,3 +1,5 @@
+//http://192.168.1.185:5000/
+
 function sendHttpRequest(method,url){
     const promise = new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest();
@@ -12,6 +14,7 @@ function sendHttpRequest(method,url){
 }
 async function fetchBankLevels() {
     await sendHttpRequest('GET', 'http://localhost:5000/api_bank_levels').then(responseData => {
+        // await sendHttpRequest('GET', 'http://192.168.1.185:5000/api_bank_levels').then(responseData => {
         bankLevels = responseData;
     })
 }

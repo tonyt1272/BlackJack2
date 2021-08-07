@@ -10,8 +10,9 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='/pics/favicon.ico') }}">
     <!-- Link to custom styles, Thanks Corey Schafer! -> https://www.youtube.com/channel/UCCezIgC97PvUuR4_gbFUs5g   -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/styles/main.css') }}">
+<!--    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/styles/modal.css') }}">-->
     {% if title %}
-    <title class="nav-fonts">Tony's Site - {{ title }}</title>
+    <title class="nav-fonts">LearnBJ21.com - {{ title }}</title>
     {% else %}
     <title class="nav-fonts">LearnBJ21.com</title>
     {% endif %}
@@ -39,19 +40,23 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link py-0" href="{{url_for('main.home')}}">Home</a>
-              <a class="nav-item nav-link py-0" href="{{url_for('main.play')}}">Play</a>
-              <a class="nav-item nav-link py-0" href="#">Simulator</a>
+<!--              <a class="nav-item nav-link py-0" href="{{url_for('main.home')}}">Home</a>-->
+
+                <a class="nav-item nav-link py-0" href="{{url_for('main.about')}}">Rules</a>
+                <a class="nav-item nav-link py-0" href="{{url_for('main.about')}}">Strategy</a>
+                <a class="nav-item nav-link py-0" href="{{url_for('main.about')}}">Counting</a>
+              <a class="nav-item nav-link py-0" href="{{url_for('main.about')}}">Simulator</a>
+                <a class="nav-item nav-link py-0" href="{{url_for('main.play')}}">Play</a>
             </div>
 
             <div class="navbar-nav">
 
-                    <a class="nav-item nav-link py-0" href="#">Link</a>
-                    <a class="nav-item nav-link py-0" href="#">Account</a>
+                    <a class="nav-item nav-link py-0" href="{{url_for('main.about')}}">About</a>
+                    <a class="nav-item nav-link py-0" href="{{url_for('main.about')}}">Account</a>
 <!--                    <a class="nav-item nav-link py-0" href="#">Logout</a>-->
+                    <a class="nav-item nav-link py-0" href="{{url_for('main.about')}}">Register</a>
+                    <a class="nav-item nav-link py-0" href="{{url_for('main.about')}}">Login/out</a>
 
-                    <a class="nav-item nav-link py-0" href="#">Login/out</a>
-                    <a class="nav-item nav-link py-0" href="#">Register</a>
 
             </div>
           </div>

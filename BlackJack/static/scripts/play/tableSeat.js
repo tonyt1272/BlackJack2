@@ -27,7 +27,7 @@ class TableSeat{
         this.handTotal[0] = sum(this.handValues)
 
         if (this.handTotal[0]<21 && this.cards.length>2){
-            document.getElementById('deal-hit').innerHTML=`<button id="hControl" type="button" class="btn btn-primary btn-sm" 
+            document.getElementById('deal-hit').innerHTML=`<button id="hControl" type="button" class="btn btn-outline-primary btn-sm" 
                     onclick="if(dealer.currentPlayer != dealer){dealer.currentPlayer.hit()};"> 
                     <span class="material-icons-outlined">touch_app</span> 
                     </button>`
@@ -80,16 +80,9 @@ class TableSeat{
         this.bj = false;
     }
     hit(){
-            //
-            //
-            // if(!this.splitActive){
+
                 document.getElementById('deal-hit').removeChild(document.getElementById('hControl'))
-            // }
-            
-            // if (document.getElementById('hcontrol')){
-            //     document.getElementById('deal-hit').removeChild(document.getElementById('hControl'))
-            // }
-          
+
             // remove split button if present
             if (document.getElementById('spControl')){
                 document.getElementById('splitDiv').removeChild(document.getElementById('spControl'))

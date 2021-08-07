@@ -126,15 +126,18 @@ playerRbet2EL.addEventListener("drop", ev => {
 
 // document.addEventListener('scroll',centerWindow)
 
-
 window.addEventListener('load', (event) => {
-    // playerBank3EL.scrollIntoView(false)
-    window.scrollTo({
-        top: document.body.scrollHeight,
-        left: 0,
-        behavior: 'smooth'
-      })
-    // console.log('The page has fully loaded');
-    // demo1();
+    // window.scrollTo({
+    //     top: document.body.scrollHeight,
+    //     // left: 0,
+    //     behavior: 'smooth'
+    //   })
+    
+      playerBank3EL.scrollIntoView({
+        behavior: "smooth" ,
+        block: "center" ,
+        inline: "center",
+      });
+    
 });
 

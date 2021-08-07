@@ -39,7 +39,7 @@ class Player extends TableSeat{
                 // calls this hit method so the hit it tries to remove the hit but the button is not there.
                 // if(element...) doesn't work because of the async conditions. so this inelegant method of 
                 // creating hit buttons just so they can be deleted is a work-around, which will be revisited.
-                document.getElementById('deal-hit').innerHTML=`<button id="hControl" type="button" class="btn btn-primary btn-sm" 
+                document.getElementById('deal-hit').innerHTML=`<button id="hControl" type="button" class="btn btn-outline-primary btn-sm" 
                     onclick="if(dealer.currentPlayer != dealer){dealer.currentPlayer.hit()};"> 
                     <span class="material-icons-outlined">touch_app</span> 
                     </button>`
@@ -47,13 +47,13 @@ class Player extends TableSeat{
             
             setTimeout(()=>{
                 //
-                document.getElementById('deal-hit').innerHTML=`<button id="hControl" type="button" class="btn btn-primary btn-sm" 
+                document.getElementById('deal-hit').innerHTML=`<button id="hControl" type="button" class="btn btn-outline-primary btn-sm" 
                     onclick="if(dealer.currentPlayer != dealer){dealer.currentPlayer.hit()};">
                     <span class="material-icons-outlined">touch_app</span>  
                     </button>`
                 this.dealer.players[sPos].hit()
                 //
-                document.getElementById('deal-hit').innerHTML=`<button id="hControl" type="button" class="btn btn-primary btn-sm" 
+                document.getElementById('deal-hit').innerHTML=`<button id="hControl" type="button" class="btn btn-outline-primary btn-sm" 
                     onclick="if(dealer.currentPlayer != dealer){dealer.currentPlayer.hit()};"> 
                     <span class="material-icons-outlined">touch_app</span> 
                     </button>`
@@ -65,7 +65,7 @@ class Player extends TableSeat{
             document.getElementById(`c2${seat}-split`).classList.replace('hide','show')
             console.log('show dubD')
             setTimeout(()=>{
-                document.getElementById('dubD').innerHTML=`<button id="ddControl"  type="button" class="btn btn-primary btn-sm" 
+                document.getElementById('dubD').innerHTML=`<button id="ddControl"  type="button" class="btn btn-outline-primary btn-sm" 
                 onclick="dealer.currentPlayer.dubD();">D.D.</button>`},1600)
             
         })
