@@ -42,10 +42,10 @@ function setPlayerBank(drag_bet){
         let bankUpdate;
         if (cashString.substr(cashString.length-2)== '.5'){
             bankUpdate = playerCash - 2.50;
-            console.log(bankUpdate)
+            // console.log(bankUpdate)
         }else{
             bankUpdate = playerCash
-            console.log(bankUpdate)
+            // console.log(bankUpdate)
         }
         levels = bankLevels[bankUpdate][1]
     }else{
@@ -66,7 +66,9 @@ function setPlayerBank(drag_bet){
             }   
         }       
     }
-    drag_bet = null;  
+    drag_bet = null;
+    let floatCash = parseFloat(playerCash).toFixed(2)
+    playerBalance.innerHTML=`<p>$${floatCash}</p>`
 }
 
 function clearBets(){

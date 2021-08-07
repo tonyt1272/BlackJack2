@@ -41,19 +41,22 @@ class Player extends TableSeat{
                 // creating hit buttons just so they can be deleted is a work-around, which will be revisited.
                 document.getElementById('deal-hit').innerHTML=`<button id="hControl" type="button" class="btn btn-primary btn-sm" 
                     onclick="if(dealer.currentPlayer != dealer){dealer.currentPlayer.hit()};"> 
-                    Hit </button>`
+                    <span class="material-icons-outlined">touch_app</span> 
+                    </button>`
                 this.dealer.currentPlayer.hit()},500);
             
             setTimeout(()=>{
                 //
                 document.getElementById('deal-hit').innerHTML=`<button id="hControl" type="button" class="btn btn-primary btn-sm" 
-                    onclick="if(dealer.currentPlayer != dealer){dealer.currentPlayer.hit()};"> 
-                    Hit </button>`
+                    onclick="if(dealer.currentPlayer != dealer){dealer.currentPlayer.hit()};">
+                    <span class="material-icons-outlined">touch_app</span>  
+                    </button>`
                 this.dealer.players[sPos].hit()
                 //
                 document.getElementById('deal-hit').innerHTML=`<button id="hControl" type="button" class="btn btn-primary btn-sm" 
                     onclick="if(dealer.currentPlayer != dealer){dealer.currentPlayer.hit()};"> 
-                    Hit </button>`
+                    <span class="material-icons-outlined">touch_app</span> 
+                    </button>`
             
             },1400);
 

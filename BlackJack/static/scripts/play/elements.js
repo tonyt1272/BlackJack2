@@ -89,6 +89,7 @@ const playerBank3EL = document.getElementById('player-bank-3')
 const playerBank2EL = document.getElementById('player-bank-2')
 const playerBank1EL = document.getElementById('player-bank-1')
 const playerBank0EL = document.getElementById('player-bank-0')
+const playerBalance = document.getElementById('balance')
 
 
 //Chip Elements

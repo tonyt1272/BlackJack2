@@ -125,12 +125,17 @@ class Dealer extends TableSeat{
     
             setTimeout(()=>{
                     // Add player control buttons:
+                    // add hit icon
                     document.getElementById('deal-hit').innerHTML=`<button id="hControl" type="button" class="btn btn-primary btn-sm" 
-                    onclick="if(dealer.currentPlayer != dealer){dealer.currentPlayer.hit()};"> 
-                    Hit </button>`
+                    onclick="if(dealer.currentPlayer != dealer){dealer.currentPlayer.hit()};">
+                    <span class="material-icons-outlined">touch_app</span> 
+                    </button>`
+                    // inputted stand icon
                     document.getElementById('stand').innerHTML=`<button id="stControl" type="button" class="btn btn-primary btn-sm" 
-                            onclick="setTimeout(()=>{dealer.currentPlayer.setStand()},500);">
-                            Stand</button>`
+                            onclick="setTimeout(()=>{dealer.currentPlayer.setStand()},500);"><span class="material-icons-outlined">
+                            pan_tool
+                            </span>
+                            </button>`
                     if(playerCash >= this.players[0].bet){
                     document.getElementById('dubD').innerHTML=`<button id="ddControl"  type="button" class="btn btn-primary btn-sm" 
                             onclick="dealer.currentPlayer.dubD();">D.D.</button>`
@@ -174,9 +179,11 @@ class Dealer extends TableSeat{
             document.getElementById(this.highlightPos).style.opacity=1;
             document.getElementById(this.highlightPos).classList.replace('hide','show')
 
+            // add hit icon
             document.getElementById('deal-hit').innerHTML=`<button id="hControl" type="button" class="btn btn-primary btn-sm" 
                     onclick="if(dealer.currentPlayer != dealer){dealer.currentPlayer.hit()};"> 
-                    Hit </button>`
+                    <span class="material-icons-outlined">touch_app</span>
+                   </button>`
 
             // update control buttons split
             if(this.currentPlayer.handValues[0] == this.currentPlayer.handValues[1] && !this.currentPlayer.splitActive && playerCash >= this.currentPlayer.bet){
@@ -282,7 +289,7 @@ class Dealer extends TableSeat{
                 payouts[this.player.position.charAt(0)] = this.player.payout;
             }
         }
-        console.log(payouts)
+        // console.log(payouts)
     
         
         for (const [key, value] of Object.entries(payouts)) {
@@ -292,10 +299,14 @@ class Dealer extends TableSeat{
             this.playerPayout(value,key)
           }
         console.log(`total payout: ${bankUpdate}`) 
-        let pause = 1000 + 250
+        // let pause = (this.players.length - 1) * (750) //1250
+        let pause = 750
         let buttonText;
         if (bankUpdate > 0){
             buttonText = 'Collect'
+        // }else if(bankUpdate == 0){
+        //     buttonText = 'Push'
+        // 
         }else{
             buttonText = 'Clear'
         }
@@ -318,7 +329,7 @@ class Dealer extends TableSeat{
             rebet.innerHTML=`<button id="rebet" type="button" class="btn btn-primary btn-sm"
             onclick="setPlayerBank(playerCash);
             document.getElementById('stand').removeChild(rebet);
-            dealer.clearTable(); dealer.rebet()" >Rebet</button>`
+            dealer.rebet()" >Quick Bet</button>`
         }
     }
 
@@ -331,12 +342,12 @@ class Dealer extends TableSeat{
                      const bet_pos3 = document.getElementById(bet_pos3_id);
                      
                      const betConfig = StrangeBetConfigs[chipsPayout]
-                     console.log(`Config for chips payout: ${betConfig}`)
+                    //  console.log(`Config for chips payout: ${betConfig}`)
                      const finalBetConfig = convertBetConfig(betConfig)
-                     console.log(`final chips payout Config: ${finalBetConfig}`)
-                     for(this.item of finalBetConfig){
-                         console.log(this.item)
-                     }
+                    //  console.log(`final chips payout Config: ${finalBetConfig}`)
+                    //  for(this.item of finalBetConfig){
+                    //     //  console.log(this.item)
+                    //  }
                     
                      if(finalBetConfig[0][1] > 0){
                         bet_pos1.classList.replace('hide','show')

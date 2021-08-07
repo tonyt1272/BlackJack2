@@ -22,7 +22,7 @@ const bankPos = [[playerBank0EL,0,'five'],
 
 let bankLevels;
 let servedBoot;
-let playerCash = 2000;
+let playerCash = 1500;
 
 function sum(array) {
     let sum = array.reduce(function (accumulator, currentValue) {

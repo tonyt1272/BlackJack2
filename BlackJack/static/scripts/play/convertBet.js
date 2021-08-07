@@ -30,21 +30,15 @@ function convertBetConfig(betConfig){
 
 
 function convertDrag(bet){
-    // if (bet=='two-fifty'){
-    //     return 2.50
-    // }
+
     if (bet=='five'){
         return 5
     }
-    // if (bet=='seven-fifty'){
-    //     return 7.50
-    // }
+
     if (bet=='ten'){
         return 10
     }
-    // if (bet=='twelve-fifty'){
-    //     return 12.50
-    // }
+  
     if (bet=='twenty-five'){
         return 25
     }

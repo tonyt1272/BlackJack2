@@ -29,7 +29,8 @@ class TableSeat{
         if (this.handTotal[0]<21 && this.cards.length>2){
             document.getElementById('deal-hit').innerHTML=`<button id="hControl" type="button" class="btn btn-primary btn-sm" 
                     onclick="if(dealer.currentPlayer != dealer){dealer.currentPlayer.hit()};"> 
-                    Hit </button>`
+                    <span class="material-icons-outlined">touch_app</span> 
+                    </button>`
         }
 
         if (this.handValues.includes(1)){
@@ -88,8 +89,7 @@ class TableSeat{
             // if (document.getElementById('hcontrol')){
             //     document.getElementById('deal-hit').removeChild(document.getElementById('hControl'))
             // }
-            //
-            //
+          
             // remove split button if present
             if (document.getElementById('spControl')){
                 document.getElementById('splitDiv').removeChild(document.getElementById('spControl'))

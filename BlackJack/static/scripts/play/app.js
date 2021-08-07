@@ -10,10 +10,9 @@ function centerWindow(){
 }
 
 
-function demo1(players){
+function gameStart(players){
     let pause = 500
-    // FIX THIS!!!
-    // Maybe moved into dealer.deal()?
+    // Maybe move into dealer.deal()?
     // active players.
     let cardIds = ['c1L', 'c1C', 'c1R', 'd1', 'c2L', 'c2C', 'c2R', 'd2']
     let presentSeats = [];
@@ -64,7 +63,7 @@ function playGame(){
     // boot.cards[8]=10;
     console.log(`Shuffle boot next round?: ${boot.dealt > boot.splitCard}`)
     dealer.deal()
-    demo1(players)
+    gameStart(players)
     
     if (dealer.handTotal[1] == 21){
         console.log('Dealer Has Blackjack!')

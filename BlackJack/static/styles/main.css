@@ -154,6 +154,23 @@ html {
 
 }
 
+#balance{
+    position: relative;
+    /*font-family: 'Orbitron', sans-serif;*/
+    /*font-family: 'LED Digital 7', sans-serif;*/
+    border: 2px;
+    border-radius: 5px;
+    background: black;
+    z-index: 10;
+    color: white;
+    right: -400px;
+    height: 25px;
+    bottom: -870px
+
+
+
+}
+
 .player-bank{
     position: relative;
     right: 0px;
@@ -164,6 +181,7 @@ html {
 
 #collect-next{
     position: relative;
+    opacity: .8;
     left: -62px;
     bottom: 58px;
     margin: 0 -20px 0 0;
@@ -172,6 +190,7 @@ html {
 
 #rebet{
     position: relative;
+    opacity: .8;
     left: -62px;
     bottom: 58px;
     margin: 0 -20px 0 0;
@@ -180,6 +199,7 @@ html {
 
 #cbControl{
     position: relative;
+    opacity: .8;
     right: 105px;
     bottom: 58px;
     margin: 0 -25px 0 0 ;
@@ -188,6 +208,7 @@ html {
 
 #ddControl{
     position: relative;
+    opacity: .8;
     right: 105px;
     bottom: 58px;
     margin: 0 -25px 0 0 ;
@@ -195,6 +216,7 @@ html {
 }
 #spControl{
     position: relative;
+    opacity: .8;
     right: 105px;
     bottom: 58px;
     margin: 0 0 0 -25px;
@@ -202,6 +224,7 @@ html {
 }
 #hControl{
     position: relative;
+    opacity: .8;
     left: -62px;
     bottom: 58px;
     margin: 0 -20px 0 0;
@@ -209,6 +232,7 @@ html {
 }
 #dControl{
     position: relative;
+    opacity: .8;
     left: -62px;
     bottom: 58px;
     margin: 0 -20px 0 0;
@@ -216,6 +240,7 @@ html {
 }
 #stControl{
     position: relative;
+    opacity: .8;
     left: -62px;
     bottom: 58px;
     margin: 0 0 0 -20px;
