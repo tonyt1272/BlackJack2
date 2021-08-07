@@ -115,3 +115,6 @@ const hitButton = document.createElement('button')
 const dealButton = document.createElement('button')
 dealButton.innerHTML = `<button id="dControl" type="button" class="btn btn-outline-success btn-sm" 
                         onclick="playGame();">Deal</button>`
+
+// const casinoFloor = new Image();
+// casinoFloor.src = '../../static/background/Hollywood-Casino-4.jpg'

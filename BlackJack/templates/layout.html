@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
     <!-- My Favicon   -->
     <link rel="shortcut icon" href="{{ url_for('static', filename='/pics/favicon.ico') }}">
     <!-- Link to custom styles, Thanks Corey Schafer! -> https://www.youtube.com/channel/UCCezIgC97PvUuR4_gbFUs5g   -->
@@ -16,7 +17,7 @@
     {% else %}
     <title class="nav-fonts">LearnBJ21.com</title>
     {% endif %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>-->
     <script>
         function delete_flash(flash){
             $(flash).remove()
@@ -63,9 +64,10 @@
 <!--        </div>-->
       </nav>
     </header>
-    <main role="main" class="container main-container align-items-center">
+<!--        Contains all main content, modal hides and shows from here-->
+    <main role="main" class="container main-container align-items-center" id="main-window">
 
-        <div class="col-sm-12 text-center">
+        <div class="col-sm-12 text-center"  >
 
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
@@ -78,7 +80,9 @@
                 {% endif %}
             {% endwith %}
 
-            {% block content %}{% endblock %}
+            {% block content %}
+
+            {% endblock %}
 
         </div>
 

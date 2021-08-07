@@ -16,7 +16,8 @@ def home():
 
 @main.route("/play")
 def play():
-    background = 'play-background'
+    # background = 'white-background'
+    background = 'home-background'
     return render_template('play_dev.html', background=background)
 
 
