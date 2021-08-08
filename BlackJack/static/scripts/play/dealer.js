@@ -126,10 +126,14 @@ class Dealer extends TableSeat{
             setTimeout(()=>{
                     // Add player control buttons:
                     // add hit icon
-                    document.getElementById('deal-hit').innerHTML=`<button id="hControl" type="button" class="btn btn-outline-primary btn-sm" 
-                    onclick="if(dealer.currentPlayer != dealer){dealer.currentPlayer.hit()};">
-                    <span class="material-icons-outlined">touch_app</span> 
-                    </button>`
+                    // add conditional to only add hit button if currentPlayer.handTotal[0]!=21 and currentPlayer.handTotal[1]!=21 and currentPlayer.handTotal[0]<=21
+                    if (this.currentPlayer.handTotal[1]!=21){
+                        document.getElementById('deal-hit').innerHTML=`<button id="hControl" type="button" class="btn btn-outline-primary btn-sm" 
+                        onclick="if(dealer.currentPlayer != dealer){dealer.currentPlayer.hit()};">
+                        <span class="material-icons-outlined">touch_app</span> 
+                        </button>`
+                    }
+                    
                     // inputted stand icon
                     document.getElementById('stand').innerHTML=`<button id="stControl" type="button" class="btn btn-outline-primary btn-sm" 
                             onclick="setTimeout(()=>{dealer.currentPlayer.setStand()},500);"><span class="material-icons-outlined">
@@ -180,11 +184,14 @@ class Dealer extends TableSeat{
             document.getElementById(this.highlightPos).classList.replace('hide','show')
 
             // add hit icon
-            document.getElementById('deal-hit').innerHTML=`<button id="hControl" type="button" class="btn btn-outline-primary btn-sm" 
+            //add conditional to only add hit button if currentPlayer.handTotal[0]!=21 and currentPlayer.handTotal[1]!=21 and currentPlayer.handTotal[0]<=21
+            if(this.currentPlayer.handTotal[0] != 21 && this.currentPlayer.handTotal[1]!=21 && this.currentPlayer.handTotal[0]<21){
+                document.getElementById('deal-hit').innerHTML=`<button id="hControl" type="button" class="btn btn-outline-primary btn-sm" 
                     onclick="if(dealer.currentPlayer != dealer){dealer.currentPlayer.hit()};"> 
                     <span class="material-icons-outlined">touch_app</span>
                    </button>`
-
+            }
+            
             // update control buttons split
             if(this.currentPlayer.handValues[0] == this.currentPlayer.handValues[1] && !this.currentPlayer.splitActive && playerCash >= this.currentPlayer.bet){
                 document.getElementById('splitDiv').innerHTML=`<button id="spControl" type="button" class="btn btn-outline-primary btn-sm" 

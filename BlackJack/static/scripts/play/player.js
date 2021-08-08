@@ -53,6 +53,7 @@ class Player extends TableSeat{
                     </button>`
                 this.dealer.players[sPos].hit()
                 //
+                // TODO: set conditional to only show hit button if player's total is less than 21
                 document.getElementById('deal-hit').innerHTML=`<button id="hControl" type="button" class="btn btn-outline-primary btn-sm" 
                     onclick="if(dealer.currentPlayer != dealer){dealer.currentPlayer.hit()};"> 
                     <span class="material-icons-outlined">touch_app</span> 

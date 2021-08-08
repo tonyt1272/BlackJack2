@@ -1,5 +1,5 @@
 async function fetchBoot() {
-    // await sendHttpRequest('GET', 'http://192.168.1.185:5000/api_get_cards').then(responseData => {
+    // await sendHttpRequest('GET', 'http://96.241.176.102:5000/api_get_cards').then(responseData => {
     await sendHttpRequest('GET', 'http://localhost:5000/api_get_cards').then(responseData => {
         servedBoot = responseData;
     })

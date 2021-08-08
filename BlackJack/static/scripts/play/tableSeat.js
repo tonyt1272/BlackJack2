@@ -11,7 +11,7 @@ class TableSeat{
     addCard(card){
         this.cards.push(card);
         const position = 'c' + this.cards.length + this.position
-        this.dealer.dealCards.push(position)  // record that card was pushed to this position for cleanup later
+        this.dealer.dealCards.push(position)  // record that a card was pushed to const position for cleanup later in dealer.clearTable()
 
         document.getElementById(position).setAttribute('src',`static/cards/cards/${card}`)
         if (this.cards.length >2){
@@ -26,7 +26,7 @@ class TableSeat{
         
         this.handTotal[0] = sum(this.handValues)
 
-        if (this.handTotal[0]<21 && this.cards.length>2){
+        if (this.handTotal[0] < 21 && this.handTotal[1] != 21 && this.cards.length > 2){
             document.getElementById('deal-hit').innerHTML=`<button id="hControl" type="button" class="btn btn-outline-primary btn-sm" 
                     onclick="if(dealer.currentPlayer != dealer){dealer.currentPlayer.hit()};"> 
                     <span class="material-icons-outlined">touch_app</span> 
@@ -80,8 +80,11 @@ class TableSeat{
         this.bj = false;
     }
     hit(){
-
+            // remove hit button if present
+            document.getElementById('deal-hit').removeChild(document.getElementById('hControl'))
+            if (document.getElementById('hcontrol')){
                 document.getElementById('deal-hit').removeChild(document.getElementById('hControl'))
+            }    
 
             // remove split button if present
             if (document.getElementById('spControl')){
