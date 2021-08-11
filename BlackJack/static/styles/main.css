@@ -1,5 +1,7 @@
 body {
     min-width:640px;
+
+
 }
 .fit-image{
     max-width: 40%;
@@ -552,6 +554,7 @@ html {
     opacity: 0.5;
     bottom: 70px;
     transform: rotate(0deg) scale(1.1);
+
 }
 
 #c1C{
@@ -811,7 +814,10 @@ html {
     min-width: 900px;
     max-width: 900px;
     /*            X     Y   blur spread    */
-    box-shadow: -10px 120px 110px 80px black
+    box-shadow: -10px 120px 110px 80px black;
+
+    /*filter: brightness(80%);*/
+
 }
 
 .perspective-transform{
@@ -863,6 +869,7 @@ html {
     background-image: url(../../static/background/Hollywood-Casino-4.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+
     /*min-height: 900px;*/
     /*color: #333333;*/
     /*margin-top: 5rem;*/

@@ -77,6 +77,44 @@ playerCbet2EL.addEventListener("drop", ev => {
     playerCOutlineEL.classList.remove('droppable')
 });
 
+playerCbet1EL.addEventListener("dragover", ev => {
+    ev.preventDefault();
+    playerCOutlineEL.classList.add('droppable')
+});
+
+playerCbet1EL.addEventListener("dragleave", ev => {
+    ev.preventDefault();
+    if (!bet_status.CB2[0]){
+        playerCbet2EL.classList.replace('show','hide');
+    }
+    playerCOutlineEL.classList.remove('droppable')
+});
+
+playerCbet1EL.addEventListener("drop", ev => {
+    ev.preventDefault();
+    setBet(drag_bet_g, playerCbet2EL)
+    playerCOutlineEL.classList.remove('droppable')
+});
+
+playerCbet3EL.addEventListener("dragover", ev => {
+    ev.preventDefault();
+    playerCOutlineEL.classList.add('droppable')
+});
+
+playerCbet3EL.addEventListener("dragleave", ev => {
+    ev.preventDefault();
+    if (!bet_status.CB2[0]){
+        playerCbet2EL.classList.replace('show','hide');
+    }
+    playerCOutlineEL.classList.remove('droppable')
+});
+
+playerCbet3EL.addEventListener("drop", ev => {
+    ev.preventDefault();
+    setBet(drag_bet_g, playerCbet2EL)
+    playerCOutlineEL.classList.remove('droppable')
+});
+
 
 // ----------------Left Bet
 // position 2
@@ -94,6 +132,46 @@ playerLbet2EL.addEventListener("dragleave", ev => {
 });
 
 playerLbet2EL.addEventListener("drop", ev => {
+    ev.preventDefault();
+    setBet(drag_bet_g,playerLbet2EL)
+    playerLOutlineEL.classList.remove('droppable')
+
+});
+
+playerLbet1EL.addEventListener("dragover", ev => {
+    ev.preventDefault();
+    playerLOutlineEL.classList.add('droppable')
+});
+
+playerLbet1EL.addEventListener("dragleave", ev => {
+    ev.preventDefault();
+    if (!bet_status.LB2[0]){
+        playerLbet2EL.classList.replace('show','hide');
+    }
+    playerLOutlineEL.classList.remove('droppable')
+});
+
+playerLbet1EL.addEventListener("drop", ev => {
+    ev.preventDefault();
+    setBet(drag_bet_g,playerLbet2EL)
+    playerLOutlineEL.classList.remove('droppable')
+
+});
+
+playerLbet3EL.addEventListener("dragover", ev => {
+    ev.preventDefault();
+    playerLOutlineEL.classList.add('droppable')
+});
+
+playerLbet3EL.addEventListener("dragleave", ev => {
+    ev.preventDefault();
+    if (!bet_status.LB2[0]){
+        playerLbet2EL.classList.replace('show','hide');
+    }
+    playerLOutlineEL.classList.remove('droppable')
+});
+
+playerLbet3EL.addEventListener("drop", ev => {
     ev.preventDefault();
     setBet(drag_bet_g,playerLbet2EL)
     playerLOutlineEL.classList.remove('droppable')
@@ -123,6 +201,46 @@ playerRbet2EL.addEventListener("drop", ev => {
 
 });
 
+playerRbet1EL.addEventListener("dragover", ev => {
+    ev.preventDefault();
+    playerROutlineEL.classList.add('droppable')
+});
+
+playerRbet1EL.addEventListener("dragleave", ev => {
+    ev.preventDefault();
+    if (!bet_status.RB2[0]){
+        playerRbet2EL.classList.replace('show','hide');
+    }
+    playerROutlineEL.classList.remove('droppable')
+});
+
+playerRbet1EL.addEventListener("drop", ev => {
+    ev.preventDefault();
+    setBet(drag_bet_g,playerRbet2EL)
+    playerROutlineEL.classList.remove('droppable')
+
+});
+
+playerRbet3EL.addEventListener("dragover", ev => {
+    ev.preventDefault();
+    playerROutlineEL.classList.add('droppable')
+});
+
+playerRbet3EL.addEventListener("dragleave", ev => {
+    ev.preventDefault();
+    if (!bet_status.RB2[0]){
+        playerRbet2EL.classList.replace('show','hide');
+    }
+    playerROutlineEL.classList.remove('droppable')
+});
+
+playerRbet3EL.addEventListener("drop", ev => {
+    ev.preventDefault();
+    setBet(drag_bet_g,playerRbet2EL)
+    playerROutlineEL.classList.remove('droppable')
+
+});
+
 
 // document.addEventListener('scroll',centerWindow)
 
@@ -138,6 +256,7 @@ window.addEventListener('load', (event) => {
     // },0)
 
     document.body.setAttribute('id','play-background');
+    // document.body.setAttribute('id','white-background');
     document.getElementById("exampleModalCenter").classList.replace("show","hide")
     document.getElementById("exampleModalCenter").style.display = "none";
      
